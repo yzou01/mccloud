@@ -3,16 +3,16 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\AddCostsController;
+use App\Controller\AddcostsController;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Controller\AddCostsController Test Case
+ * App\Controller\AddcostsController Test Case
  *
- * @uses \App\Controller\AddCostsController
+ * @uses \App\Controller\AddcostsController
  */
-class AddCostsControllerTest extends TestCase
+class AddcostsControllerTest extends TestCase
 {
     use IntegrationTestTrait;
 
@@ -22,15 +22,14 @@ class AddCostsControllerTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
-        'app.AddCosts',
-        'app.Invoices',
+        'app.Addcosts',
     ];
 
     /**
      * Test index method
      *
      * @return void
-     * @uses \App\Controller\AddCostsController::index()
+     * @uses \App\Controller\AddcostsController::index()
      */
     public function testIndex(): void
     {
@@ -41,7 +40,7 @@ class AddCostsControllerTest extends TestCase
      * Test view method
      *
      * @return void
-     * @uses \App\Controller\AddCostsController::view()
+     * @uses \App\Controller\AddcostsController::view()
      */
     public function testView(): void
     {
@@ -52,7 +51,7 @@ class AddCostsControllerTest extends TestCase
      * Test add method
      *
      * @return void
-     * @uses \App\Controller\AddCostsController::add()
+     * @uses \App\Controller\AddcostsController::add()
      */
     public function testAdd(): void
     {
@@ -63,7 +62,7 @@ class AddCostsControllerTest extends TestCase
      * Test edit method
      *
      * @return void
-     * @uses \App\Controller\AddCostsController::edit()
+     * @uses \App\Controller\AddcostsController::edit()
      */
     public function testEdit(): void
     {
@@ -74,7 +73,7 @@ class AddCostsControllerTest extends TestCase
      * Test delete method
      *
      * @return void
-     * @uses \App\Controller\AddCostsController::delete()
+     * @uses \App\Controller\AddcostsController::delete()
      */
     public function testDelete(): void
     {

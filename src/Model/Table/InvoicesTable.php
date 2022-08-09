@@ -11,7 +11,7 @@ use Cake\Validation\Validator;
 /**
  * Invoices Model
  *
- * @property \App\Model\Table\AddCostsTable&\Cake\ORM\Association\BelongsTo $AddCosts
+ * @property \App\Model\Table\AddcostsTable&\Cake\ORM\Association\BelongsTo $AddCosts
  * @property \App\Model\Table\InvoiceSkuTable&\Cake\ORM\Association\HasMany $InvoiceSku
  *
  * @method \App\Model\Entity\Invoice newEmptyEntity()
@@ -79,7 +79,7 @@ class InvoicesTable extends Table
             ->notEmptyString('currency_of_origin');
 
         $validator
-            ->integer('currency_rate')
+            ->numeric('currency_rate')
             ->requirePresence('currency_rate', 'create')
             ->notEmptyString('currency_rate');
 

@@ -28,7 +28,7 @@
                     <td><?= h($invoice->date) ?></td>
                     <td><?= h($invoice->currency_of_origin) ?></td>
                     <td><?= $this->Number->format($invoice->currency_rate) ?></td>
-                    <td><?= $invoice->has('add_cost') ? $this->Html->link($invoice->add_cost->id, ['controller' => 'AddCosts', 'action' => 'view', $invoice->add_cost->id]) : '' ?></td>
+                    <td><?= $invoice->has('add_cost') ? $this->Html->link($invoice->add_cost->id, ['controller' => 'Addcosts', 'action' => 'view', $invoice->add_cost->id]) : '' ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $invoice->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $invoice->id]) ?>

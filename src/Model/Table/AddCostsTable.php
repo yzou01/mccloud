@@ -9,25 +9,23 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * AddCosts Model
+ * Addcosts Model
  *
- * @property \App\Model\Table\InvoicesTable&\Cake\ORM\Association\HasMany $Invoices
- *
- * @method \App\Model\Entity\AddCost newEmptyEntity()
- * @method \App\Model\Entity\AddCost newEntity(array $data, array $options = [])
- * @method \App\Model\Entity\AddCost[] newEntities(array $data, array $options = [])
- * @method \App\Model\Entity\AddCost get($primaryKey, $options = [])
- * @method \App\Model\Entity\AddCost findOrCreate($search, ?callable $callback = null, $options = [])
- * @method \App\Model\Entity\AddCost patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
- * @method \App\Model\Entity\AddCost[] patchEntities(iterable $entities, array $data, array $options = [])
- * @method \App\Model\Entity\AddCost|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\AddCost saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\AddCost[]|\Cake\Datasource\ResultSetInterface|false saveMany(iterable $entities, $options = [])
- * @method \App\Model\Entity\AddCost[]|\Cake\Datasource\ResultSetInterface saveManyOrFail(iterable $entities, $options = [])
- * @method \App\Model\Entity\AddCost[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
- * @method \App\Model\Entity\AddCost[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
+ * @method \App\Model\Entity\Addcost newEmptyEntity()
+ * @method \App\Model\Entity\Addcost newEntity(array $data, array $options = [])
+ * @method \App\Model\Entity\Addcost[] newEntities(array $data, array $options = [])
+ * @method \App\Model\Entity\Addcost get($primaryKey, $options = [])
+ * @method \App\Model\Entity\Addcost findOrCreate($search, ?callable $callback = null, $options = [])
+ * @method \App\Model\Entity\Addcost patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \App\Model\Entity\Addcost[] patchEntities(iterable $entities, array $data, array $options = [])
+ * @method \App\Model\Entity\Addcost|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\Addcost saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\Addcost[]|\Cake\Datasource\ResultSetInterface|false saveMany(iterable $entities, $options = [])
+ * @method \App\Model\Entity\Addcost[]|\Cake\Datasource\ResultSetInterface saveManyOrFail(iterable $entities, $options = [])
+ * @method \App\Model\Entity\Addcost[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
+ * @method \App\Model\Entity\Addcost[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
  */
-class AddCostsTable extends Table
+class AddcostsTable extends Table
 {
     /**
      * Initialize method
@@ -39,13 +37,9 @@ class AddCostsTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('add_costs');
+        $this->setTable('addcosts');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
-
-        $this->hasMany('Invoices', [
-            'foreignKey' => 'add_cost_id',
-        ]);
     }
 
     /**

@@ -1,12 +1,12 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \App\Model\Entity\AddCost[]|\Cake\Collection\CollectionInterface $addCosts
+ * @var \App\Model\Entity\Addcost[]|\Cake\Collection\CollectionInterface $addcosts
  */
 ?>
-<div class="addCosts index content">
-    <?= $this->Html->link(__('New Add Cost'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-    <h3><?= __('Add Costs') ?></h3>
+<div class="addcosts index content">
+    <?= $this->Html->link(__('New Addcost'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+    <h3><?= __('Addcosts') ?></h3>
     <div class="table-responsive">
         <table>
             <thead>
@@ -25,22 +25,22 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($addCosts as $addCost): ?>
+                <?php foreach ($addcosts as $addcost): ?>
                 <tr>
-                    <td><?= $this->Number->format($addCost->id) ?></td>
-                    <td><?= $addCost->duty === null ? '' : $this->Number->format($addCost->duty) ?></td>
-                    <td><?= $addCost->freight_sea === null ? '' : $this->Number->format($addCost->freight_sea) ?></td>
-                    <td><?= $addCost->cartage === null ? '' : $this->Number->format($addCost->cartage) ?></td>
-                    <td><?= $addCost->insurance === null ? '' : $this->Number->format($addCost->insurance) ?></td>
-                    <td><?= $addCost->licence === null ? '' : $this->Number->format($addCost->licence) ?></td>
-                    <td><?= $addCost->agency === null ? '' : $this->Number->format($addCost->agency) ?></td>
-                    <td><?= $addCost->customs === null ? '' : $this->Number->format($addCost->customs) ?></td>
-                    <td><?= $addCost->TT_charge === null ? '' : $this->Number->format($addCost->TT_charge) ?></td>
-                    <td><?= $addCost->miscellaneous === null ? '' : $this->Number->format($addCost->miscellaneous) ?></td>
+                    <td><?= $this->Number->format($addcost->id) ?></td>
+                    <td><?= $addcost->duty === null ? '' : $this->Number->format($addcost->duty) ?></td>
+                    <td><?= $addcost->freight_sea === null ? '' : $this->Number->format($addcost->freight_sea) ?></td>
+                    <td><?= $addcost->cartage === null ? '' : $this->Number->format($addcost->cartage) ?></td>
+                    <td><?= $addcost->insurance === null ? '' : $this->Number->format($addcost->insurance) ?></td>
+                    <td><?= $addcost->licence === null ? '' : $this->Number->format($addcost->licence) ?></td>
+                    <td><?= $addcost->agency === null ? '' : $this->Number->format($addcost->agency) ?></td>
+                    <td><?= $addcost->customs === null ? '' : $this->Number->format($addcost->customs) ?></td>
+                    <td><?= $addcost->TT_charge === null ? '' : $this->Number->format($addcost->TT_charge) ?></td>
+                    <td><?= $addcost->miscellaneous === null ? '' : $this->Number->format($addcost->miscellaneous) ?></td>
                     <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $addCost->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $addCost->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $addCost->id], ['confirm' => __('Are you sure you want to delete # {0}?', $addCost->id)]) ?>
+                        <?= $this->Html->link(__('View'), ['action' => 'view', $addcost->id]) ?>
+                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $addcost->id]) ?>
+                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $addcost->id], ['confirm' => __('Are you sure you want to delete # {0}?', $addcost->id)]) ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>

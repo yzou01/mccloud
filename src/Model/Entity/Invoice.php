@@ -12,10 +12,10 @@ use Cake\ORM\Entity;
  * @property string $number
  * @property \Cake\I18n\FrozenDate $date
  * @property string $currency_of_origin
- * @property int $currency_rate
+ * @property float $currency_rate
  * @property int $add_cost_id
  *
- * @property \App\Model\Entity\AddCost $add_cost
+ * @property \App\Model\Entity\Addcost $add_cost
  * @property \App\Model\Entity\InvoiceSku[] $invoice_sku
  */
 class Invoice extends Entity

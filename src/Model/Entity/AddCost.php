@@ -6,7 +6,7 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * AddCost Entity
+ * Addcost Entity
  *
  * @property int $id
  * @property int|null $duty
@@ -18,10 +18,8 @@ use Cake\ORM\Entity;
  * @property int|null $customs
  * @property int|null $TT_charge
  * @property int|null $miscellaneous
- *
- * @property \App\Model\Entity\Invoice[] $invoices
  */
-class AddCost extends Entity
+class Addcost extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -42,6 +40,5 @@ class AddCost extends Entity
         'customs' => true,
         'TT_charge' => true,
         'miscellaneous' => true,
-        'invoices' => true,
     ];
 }

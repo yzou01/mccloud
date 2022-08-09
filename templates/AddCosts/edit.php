@@ -1,7 +1,7 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \App\Model\Entity\AddCost $addCost
+ * @var \App\Model\Entity\Addcost $addcost
  */
 ?>
 <div class="row">
@@ -10,17 +10,17 @@
             <h4 class="heading"><?= __('Actions') ?></h4>
             <?= $this->Form->postLink(
                 __('Delete'),
-                ['action' => 'delete', $addCost->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $addCost->id), 'class' => 'side-nav-item']
+                ['action' => 'delete', $addcost->id],
+                ['confirm' => __('Are you sure you want to delete # {0}?', $addcost->id), 'class' => 'side-nav-item']
             ) ?>
-            <?= $this->Html->link(__('List Add Costs'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+            <?= $this->Html->link(__('List Addcosts'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
         </div>
     </aside>
     <div class="column-responsive column-80">
-        <div class="addCosts form content">
-            <?= $this->Form->create($addCost) ?>
+        <div class="addcosts form content">
+            <?= $this->Form->create($addcost) ?>
             <fieldset>
-                <legend><?= __('Edit Add Cost') ?></legend>
+                <legend><?= __('Edit Addcost') ?></legend>
                 <?php
                     echo $this->Form->control('duty');
                     echo $this->Form->control('freight_sea');

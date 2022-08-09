@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\AddCostsTable;
+use App\Model\Table\AddcostsTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\AddCostsTable Test Case
+ * App\Model\Table\AddcostsTable Test Case
  */
-class AddCostsTableTest extends TestCase
+class AddcostsTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\AddCostsTable
+     * @var \App\Model\Table\AddcostsTable
      */
-    protected $AddCosts;
+    protected $Addcosts;
 
     /**
      * Fixtures
@@ -24,8 +24,7 @@ class AddCostsTableTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
-        'app.AddCosts',
-        'app.Invoices',
+        'app.Addcosts',
     ];
 
     /**
@@ -36,8 +35,8 @@ class AddCostsTableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('AddCosts') ? [] : ['className' => AddCostsTable::class];
-        $this->AddCosts = $this->getTableLocator()->get('AddCosts', $config);
+        $config = $this->getTableLocator()->exists('Addcosts') ? [] : ['className' => AddcostsTable::class];
+        $this->Addcosts = $this->getTableLocator()->get('Addcosts', $config);
     }
 
     /**
@@ -47,7 +46,7 @@ class AddCostsTableTest extends TestCase
      */
     protected function tearDown(): void
     {
-        unset($this->AddCosts);
+        unset($this->Addcosts);
 
         parent::tearDown();
     }
@@ -56,7 +55,7 @@ class AddCostsTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
-     * @uses \App\Model\Table\AddCostsTable::validationDefault()
+     * @uses \App\Model\Table\AddcostsTable::validationDefault()
      */
     public function testValidationDefault(): void
     {

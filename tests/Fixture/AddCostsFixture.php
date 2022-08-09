@@ -6,9 +6,9 @@ namespace App\Test\Fixture;
 use Cake\TestSuite\Fixture\TestFixture;
 
 /**
- * AddCostsFixture
+ * AddcostsFixture
  */
-class AddCostsFixture extends TestFixture
+class AddcostsFixture extends TestFixture
 {
     /**
      * Init method

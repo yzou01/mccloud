@@ -28,7 +28,7 @@
                 </tr>
                 <tr>
                     <th><?= __('Add Cost') ?></th>
-                    <td><?= $invoice->has('add_cost') ? $this->Html->link($invoice->add_cost->id, ['controller' => 'AddCosts', 'action' => 'view', $invoice->add_cost->id]) : '' ?></td>
+                    <td><?= $invoice->has('add_cost') ? $this->Html->link($invoice->add_cost->id, ['controller' => 'Addcosts', 'action' => 'view', $invoice->add_cost->id]) : '' ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Id') ?></th>
