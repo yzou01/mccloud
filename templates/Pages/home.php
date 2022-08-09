@@ -50,18 +50,20 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">Create Bill of Records</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">View and Manage BOR</a>
+                                    <a class="nav-link" href="<?php echo $this->Url->build(['controller'=>'Invoices','action'=>'add']) ?>">Create Bill of Records</a>
+                                    <a class="nav-link" href="<?php echo $this->Url->build(['controller'=>'Invoices','action'=>'index']) ?>">View and Manage BOR</a>
                                 </nav>
                             </div>
-
+                            <a class="nav-link" href="<?php echo $this->Url->build(['controller'=>'Skus','action'=>'add']) ?>">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Add New Product
                             </a>
                             <div class="sb-sidenav-menu-heading">Sources</div>
-                            <a class="nav-link" href="factories/view">
+                            <a class="nav-link" href=<?php echo $this->Url->build(['controller'=>'Factories','action'=>'index']) ?>>
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Factories
                             </a>
-                            <a class="nav-link" href="types/view">
+                            <a class="nav-link" href=<?php echo $this->Url->build(['controller'=>'Types','action'=>'index']) ?>>
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Type of Products
                             </a>
