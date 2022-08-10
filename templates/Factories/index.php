@@ -4,7 +4,12 @@
  * @var \App\Model\Entity\Factory[]|\Cake\Collection\CollectionInterface $factories
  */
 ?>
-<main>
+<body class="sb-nav-fixed">
+<?php echo $this->element('navbar/navbar')?>
+<div id="layoutSidenav">
+    <?php echo $this->element('navbar/sidebar')?>
+    <div id="layoutSidenav_content">
+    <main>
 <div class="container-fluid px-4">
 <div class=" card mb-4">
     
@@ -45,7 +50,9 @@
         
     </div>
                 </main>
+                </div>
    
 </div>
+                </div>
                 </div>
                
