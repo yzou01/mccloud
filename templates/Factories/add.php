@@ -13,8 +13,7 @@
         <div class=" card mb-4">  
             <div class="card-header  ">    
                 <i class="fas fa-table me-1"></i>  
-                <?= $this->Html->link(__('Factories'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-            </div>    
+                Factories            </div>    
             <div class="card-body">  
                 <div class="d-flex justify-content-end" style="width: 98.5%"> <?= $this->Html->link(__('Back'), ['action' => 'index'], ['class' => 'btn btn-primary ']) ?></div>
 
@@ -23,11 +22,13 @@
                         <?= $this->Form->create($factory) ?>
                         <fieldset>
                         <legend><?= __('Add Factory') ?></legend>
+                        <div class="form-label">
                         <?php
-                           echo $this->Form->control('name');
+                           echo $this->Form->control('name',['class'=>'form-control']);
                         ?>
+                        </div>
                         </fieldset>
-                        <?= $this->Form->button(__('Submit')) ?>
+                        <?= $this->Form->button(__('Submit'),['class'=>'btn btn-primary']) ?>
                         <?= $this->Form->end() ?>
                     </div>
                 </div>
