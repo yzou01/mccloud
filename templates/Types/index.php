@@ -4,41 +4,46 @@
  * @var \App\Model\Entity\Type[]|\Cake\Collection\CollectionInterface $types
  */
 ?>
-<div class="types index content">
-    <?= $this->Html->link(__('New Type'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-    <h3><?= __('Types') ?></h3>
-    <div class="table-responsive">
-        <table>
-            <thead>
-                <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('name') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($types as $type): ?>
-                <tr>
-                    <td><?= $this->Number->format($type->id) ?></td>
-                    <td><?= h($type->name) ?></td>
-                    <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $type->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $type->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $type->id], ['confirm' => __('Are you sure you want to delete # {0}?', $type->id)]) ?>
-                    </td>
-                </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+
+<body class="sb-nav-fixed">
+    <?php echo $this->element('navbar/navbar')?>
+    <div id="layoutSidenav">
+        <?php echo $this->element('navbar/sidebar')?>
+        <div id="layoutSidenav_content">
+            <main>
+                <br><br>
+                <div class=" card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-table me-1"></i>
+                        Product Types
+                        <?= $this->Html->link(__('Add Product Type'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'position: relative; left: 72%']) ?>
+                    </div>
+                    <div class="card-body">
+                        <table id="datatablesSimple">
+                            <thead>
+                                <tr>
+                                    <th><?= $this->Paginator->sort('id') ?></th>
+                                    <th><?= $this->Paginator->sort('name') ?></th>
+                                    <th class="actions"><?= __('Actions') ?></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach ($types as $type): ?>
+                                <tr>
+                                    <td><?= $this->Number->format($type->id) ?></td>
+                                    <td><?= h($type->name) ?></td>
+                                    <td class="actions">
+                                        <?= $this->Html->link(__('View'), ['action' => 'view', $type->id]) ?>
+                                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $type->id]) ?>
+                                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $type->id], ['confirm' => __('Are you sure you want to delete # {0}?', $type->id)]) ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
     </div>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
-        </ul>
-        <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
-    </div>
-</div>
+</body>
