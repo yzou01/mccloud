@@ -18,6 +18,8 @@
                 
             </div>
             <div class="card-body">
+            <div class="d-flex justify-content-end" style="width: 98.5%"> <?= $this->Html->link(__('Back'), ['action' => 'index'], ['class' => 'btn btn-primary ']) ?></div>
+
             <div class="column-responsive column-80">
         <div class="factories form content">
             <?= $this->Form->create($factory) ?>
@@ -28,11 +30,7 @@
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit'),['class'=>'btn btn-primary']) ?>
-            <?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $factory->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $factory->id), 'class' => 'btn btn-primary']
-            ) ?>
+            
             <?= $this->Form->end() ?>
         </div>
     </div>

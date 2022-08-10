@@ -17,11 +17,11 @@
        
         <i class="fas fa-table me-1"></i>
                             Factories
-                        </div>
-                        <div class="d-flex justify-content-end" style="width: 98.5%"> <?= $this->Html->link(__('Add Factory'), ['action' => 'add'], ['class' => 'btn btn-primary ']) ?>
+    </div>
+     <div class="d-flex justify-content-end" style="width: 98.5%"> <?= $this->Html->link(__('Add Factory'), ['action' => 'add'], ['class' => 'btn btn-primary ']) ?>
 
 
-                               </div>
+    </div>
     
     <div class="card-body">
         
@@ -41,18 +41,18 @@
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $factory->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $factory->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $factory->id], ['confirm' => __('Are you sure you want to delete # {0}?', $factory->id)]) ?>
-                    </td>
+                                           </td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
         
     </div>
+    </div>
                 </main>
                 </div>
    
 
                 </div>
-                </div>
+                
                
