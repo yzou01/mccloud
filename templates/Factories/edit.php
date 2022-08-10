@@ -4,19 +4,21 @@
  * @var \App\Model\Entity\Factory $factory
  */
 ?>
-<div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $factory->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $factory->id), 'class' => 'side-nav-item']
-            ) ?>
-            <?= $this->Html->link(__('List Factories'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
-    <div class="column-responsive column-80">
+
+<body class="sb-nav-fixed">
+<?php echo $this->element('navbar/navbar')?>
+<div id="layoutSidenav">
+    <?php echo $this->element('navbar/sidebar')?>
+    <div id="layoutSidenav_content">
+        <main>
+        <div class=" card mb-4">  
+            <div class="card-header  ">    
+                <i class="fas fa-table me-1"></i>  
+                <?= $this->Html->link(__('Factories'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+                
+            </div>
+            <div class="card-body">
+            <div class="column-responsive column-80">
         <div class="factories form content">
             <?= $this->Form->create($factory) ?>
             <fieldset>
@@ -25,8 +27,22 @@
                     echo $this->Form->control('name');
                 ?>
             </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
+            <?= $this->Form->button(__('Submit'),['class'=>'btn btn-primary']) ?>
+            <?= $this->Form->postLink(
+                __('Delete'),
+                ['action' => 'delete', $factory->id],
+                ['confirm' => __('Are you sure you want to delete # {0}?', $factory->id), 'class' => 'btn btn-primary']
+            ) ?>
             <?= $this->Form->end() ?>
         </div>
     </div>
+            </div>
+        </div>
+        </main>
 </div>
+</div>
+
+
+
+
+

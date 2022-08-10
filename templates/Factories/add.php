@@ -4,24 +4,37 @@
  * @var \App\Model\Entity\Factory $factory
  */
 ?>
-<div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('List Factories'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+<body class="sb-nav-fixed">
+<?php echo $this->element('navbar/navbar')?>
+<div id="layoutSidenav">
+    <?php echo $this->element('navbar/sidebar')?>
+    <div id="layoutSidenav_content">
+        <main>
+        <div class=" card mb-4">  
+            <div class="card-header  ">    
+                <i class="fas fa-table me-1"></i>  
+                <?= $this->Html->link(__('Factories'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+            </div>    
+            <div class="card-body">  
+
+                <div class="column-responsive column-80">
+                    <div class="factories form content">
+                        <?= $this->Form->create($factory) ?>
+                        <fieldset>
+                        <legend><?= __('Add Factory') ?></legend>
+                        <?php
+                           echo $this->Form->control('name');
+                        ?>
+                        </fieldset>
+                        <?= $this->Form->button(__('Submit')) ?>
+                        <?= $this->Form->end() ?>
+                    </div>
+                </div>
+            </div>
         </div>
-    </aside>
-    <div class="column-responsive column-80">
-        <div class="factories form content">
-            <?= $this->Form->create($factory) ?>
-            <fieldset>
-                <legend><?= __('Add Factory') ?></legend>
-                <?php
-                    echo $this->Form->control('name');
-                ?>
-            </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
-            <?= $this->Form->end() ?>
-        </div>
+        </main>
+
     </div>
 </div>
+
+

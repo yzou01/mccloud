@@ -10,7 +10,7 @@
     <?php echo $this->element('navbar/sidebar')?>
     <div id="layoutSidenav_content">
     <main>
-<div class="container-fluid px-4">
+
 <div class=" card mb-4">
     
     <div class="card-header  ">
@@ -52,7 +52,7 @@
                 </main>
                 </div>
    
-</div>
+
                 </div>
                 </div>
                
