@@ -16,6 +16,7 @@
                 <?= $this->Html->link(__('Factories'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
             </div>    
             <div class="card-body">  
+                <div class="d-flex justify-content-end" style="width: 98.5%"> <?= $this->Html->link(__('Back'), ['action' => 'index'], ['class' => 'btn btn-primary ']) ?></div>
 
                 <div class="column-responsive column-80">
                     <div class="factories form content">

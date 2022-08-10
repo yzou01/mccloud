@@ -4,42 +4,37 @@
  * @var \App\Model\Entity\Factory $factory
  */
 ?>
-<div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('Edit Factory'), ['action' => 'edit', $factory->id], ['class' => 'side-nav-item']) ?>
-            <?= $this->Form->postLink(__('Delete Factory'), ['action' => 'delete', $factory->id], ['confirm' => __('Are you sure you want to delete # {0}?', $factory->id), 'class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('List Factories'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('New Factory'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
-    <div class="column-responsive column-80">
-        <div class="factories view content">
-            <h3><?= h($factory->name) ?></h3>
-            <table>
-                <tr>
-                    <th><?= __('Name') ?></th>
-                    <td><?= h($factory->name) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Id') ?></th>
-                    <td><?= $this->Number->format($factory->id) ?></td>
-                </tr>
-            </table>
-            <div class="related">
-                <h4><?= __('Related Skus') ?></h4>
+
+<body class="sb-nav-fixed">
+<?php echo $this->element('navbar/navbar')?>
+<div id="layoutSidenav">
+    <?php echo $this->element('navbar/sidebar')?>
+    <div id="layoutSidenav_content">
+        <main>
+
+        <div class="card mb-4">
+    
+            <div class="card-header  ">
+                <i class="fas fa-table me-1"></i>
+                <?= h($factory->name) ?>
+            </div>
+            <div class="d-flex justify-content-end" style="width: 98.5%"> <?= $this->Html->link(__('Back'), ['action' => 'index'], ['class' => 'btn btn-primary ']) ?></div>
+            <h4><?= __('Related Skus') ?></h4>
+            
+            <div class="card-body">
                 <?php if (!empty($factory->skus)) : ?>
-                <div class="table-responsive">
-                    <table>
+                <table id="datatablesSimple">
+                    <thead>
                         <tr>
-                            <th><?= __('Id') ?></th>
-                            <th><?= __('Name') ?></th>
-                            <th><?= __('Price') ?></th>
-                            <th><?= __('Type Id') ?></th>
-                            <th><?= __('Factory Id') ?></th>
+                            <th><?= $this->Paginator->sort('Id') ?></th>
+                            <th><?= $this->Paginator->sort('Name') ?></th>
+                            <th><?= $this->Paginator->sort('Price') ?></th>
+                            <th><?= $this->Paginator->sort('Type Id') ?></th>
+                            <th><?= $this->Paginator->sort('Factory Id') ?></th>
                             <th class="actions"><?= __('Actions') ?></th>
                         </tr>
+                    </thead>
+                    <tbody>
                         <?php foreach ($factory->skus as $skus) : ?>
                         <tr>
                             <td><?= h($skus->id) ?></td>
@@ -50,14 +45,19 @@
                             <td class="actions">
                                 <?= $this->Html->link(__('View'), ['controller' => 'Skus', 'action' => 'view', $skus->id]) ?>
                                 <?= $this->Html->link(__('Edit'), ['controller' => 'Skus', 'action' => 'edit', $skus->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Skus', 'action' => 'delete', $skus->id], ['confirm' => __('Are you sure you want to delete # {0}?', $skus->id)]) ?>
                             </td>
                         </tr>
                         <?php endforeach; ?>
-                    </table>
-                </div>
+                    </tbody>
+                </table>
                 <?php endif; ?>
             </div>
+            
         </div>
+        </main>               
     </div>
 </div>
+                       
+
+</body>
+
