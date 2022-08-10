@@ -13,8 +13,14 @@
                 <br><br>
                 <div class=" card mb-4">
                     <div class="card-header">
-                        <i class="fas fa-table me-1"></i>
+                        <i class="fas fa-table me-1" style="padding-top: 11px"></i>
                         Product Types
+                        <?= $this->Form->postLink(
+                            __('Delete'),
+                            ['action' => 'delete', $type->id],
+                            ['confirm' => __('Are you sure you want to delete # {0}?', $type->id), 'class' => 'btn btn-danger', 'style' => 'float: right; background:']
+                        ) ?>
+                        <?= $this->Html->link(__('List Types'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
                     </div>
                     <div class="card-body">
                         <div class="column-responsive column-80">
@@ -22,24 +28,15 @@
                                 <?= $this->Form->create($type) ?>
                                 <fieldset>
                                     <legend><?= __('Edit Type') ?></legend>
-                                    <?php
-                                        echo $this->Form->control('name');
-                                    ?>
+                                    <div class="form-label">
+                                        <?php
+                                            echo $this->Form->control('name',['class'=>'form-control']);
+                                        ?>
+                                    </div>
                                 </fieldset>
-                                <?= $this->Form->button(__('Submit')) ?>
+                                <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
                                 <?= $this->Form->end() ?>
                             </div>
-                            <aside class="column">
-                                <div class="side-nav">
-                                    <h4 class="heading"><?= __('Actions') ?></h4>
-                                    <?= $this->Form->postLink(
-                                        __('Delete'),
-                                        ['action' => 'delete', $type->id],
-                                        ['confirm' => __('Are you sure you want to delete # {0}?', $type->id), 'class' => 'side-nav-item']
-                                    ) ?>
-                                    <?= $this->Html->link(__('List Types'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-                                </div>
-                            </aside>
                         </div>
                     </div>
                 </div>

@@ -15,29 +15,26 @@
                 <br><br>
                 <div class=" card mb-4">
                     <div class="card-header">
-                        <i class="fas fa-table me-1"></i>
-                        Products
+                        <i class="fas fa-table me-1" style="padding-top: 11px"></i>
+                        SKU
+                        <?= $this->Html->link(__('List Skus'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
                     </div>
                     <div class="card-body">
-                        <aside class="column">
-                            <div class="side-nav">
-                                <h4 class="heading"><?= __('Actions') ?></h4>
-                                <?= $this->Html->link(__('List Skus'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-                            </div>
-                        </aside>
                         <div class="column-responsive column-80">
                             <div class="skus form content">
                                 <?= $this->Form->create($skus) ?>
                                 <fieldset>
                                     <legend><?= __('Add Skus') ?></legend>
-                                    <?php
-                                        echo $this->Form->control('name');
-                                        echo $this->Form->control('price');
-                                        echo $this->Form->control('type_id', ['options' => $types]);
-                                        echo $this->Form->control('factory_id', ['options' => $factories]);
-                                    ?>
+                                    <div class="form-label">
+                                        <?php
+                                            echo $this->Form->control('name',['class'=>'form-control']);
+                                            echo $this->Form->control('price',['class'=>'form-control']);
+                                            echo $this->Form->control('type_id', ['class'=>'form-control', 'options' => $types]);
+                                            echo $this->Form->control('factory_id', ['class'=>'form-control', 'options' => $factories]);
+                                        ?>
+                                    </div>
                                 </fieldset>
-                                <?= $this->Form->button(__('Submit')) ?>
+                                <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
                                 <?= $this->Form->end() ?>
                             </div>
                         </div>

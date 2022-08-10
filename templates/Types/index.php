@@ -14,9 +14,9 @@
                 <br><br>
                 <div class=" card mb-4">
                     <div class="card-header">
-                        <i class="fas fa-table me-1"></i>
-                        Product Types
-                        <?= $this->Html->link(__('Add Product Type'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'position: relative; left: 72%']) ?>
+                        <i class="fas fa-table me-1" style="padding-top: 11px"></i>Product Types
+                        <?= $this->Html->link(__('New Product Type'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'float: right']) ?>
+<!--                        position: relative; left: 72%-->
                     </div>
                     <div class="card-body">
                         <table id="datatablesSimple">
