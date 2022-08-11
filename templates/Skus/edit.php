@@ -27,7 +27,7 @@
                     echo $this->Form->control('name');
                     echo $this->Form->control('price');
                     echo $this->Form->control('type_id', ['options' => $types]);
-                    echo $this->Form->control('factory_id', ['options' => $factories]);
+                   
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

@@ -26,10 +26,7 @@
                     <th><?= __('Type') ?></th>
                     <td><?= $skus->has('type') ? $this->Html->link($skus->type->name, ['controller' => 'Types', 'action' => 'view', $skus->type->id]) : '' ?></td>
                 </tr>
-                <tr>
-                    <th><?= __('Factory') ?></th>
-                    <td><?= $skus->has('factory') ? $this->Html->link($skus->factory->name, ['controller' => 'Factories', 'action' => 'view', $skus->factory->id]) : '' ?></td>
-                </tr>
+                
                 <tr>
                     <th><?= __('Id') ?></th>
                     <td><?= $this->Number->format($skus->id) ?></td>

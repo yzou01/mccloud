@@ -19,7 +19,7 @@ class SkusController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Types', 'Factories'],
+            'contain' => ['Types'],
         ];
         $skus = $this->paginate($this->Skus);
 
@@ -36,7 +36,7 @@ class SkusController extends AppController
     public function view($id = null)
     {
         $skus = $this->Skus->get($id, [
-            'contain' => ['Types', 'Factories'],
+            'contain' => ['Types'],
         ]);
 
         $this->set(compact('skus'));
@@ -60,8 +60,8 @@ class SkusController extends AppController
             $this->Flash->error(__('The skus could not be saved. Please, try again.'));
         }
         $types = $this->Skus->Types->find('list', ['limit' => 200])->all();
-        $factories = $this->Skus->Factories->find('list', ['limit' => 200])->all();
-        $this->set(compact('skus', 'types', 'factories'));
+       
+        $this->set(compact('skus', 'types'));
     }
 
     /**
@@ -86,8 +86,8 @@ class SkusController extends AppController
             $this->Flash->error(__('The skus could not be saved. Please, try again.'));
         }
         $types = $this->Skus->Types->find('list', ['limit' => 200])->all();
-        $factories = $this->Skus->Factories->find('list', ['limit' => 200])->all();
-        $this->set(compact('skus', 'types', 'factories'));
+        
+        $this->set(compact('skus', 'types'));
     }
 
     /**
