@@ -12,7 +12,6 @@ use Cake\ORM\Entity;
  * @property string $name
  * @property int $price
  * @property int $type_id
- * @property int $factory_id
  *
  * @property \App\Model\Entity\Type $type
  * @property \App\Model\Entity\Factory $factory
@@ -32,7 +31,6 @@ class Skus extends Entity
         'name' => true,
         'price' => true,
         'type_id' => true,
-        'factory_id' => true,
         'type' => true,
         'factory' => true,
     ];

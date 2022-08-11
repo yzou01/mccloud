@@ -29,7 +29,6 @@ class SkusFixture extends TestFixture
                 'name' => 'Lorem ipsum dolor sit amet',
                 'price' => 1,
                 'type_id' => 1,
-                'factory_id' => 1,
             ],
         ];
         parent::init();

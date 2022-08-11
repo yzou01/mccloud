@@ -14,6 +14,7 @@ use Cake\ORM\Entity;
  * @property string $currency_of_origin
  * @property float $currency_rate
  * @property int $add_cost_id
+ * @property int $factory_id
  *
  * @property \App\Model\Entity\Addcost $add_cost
  * @property \App\Model\Entity\InvoiceSku[] $invoice_sku
@@ -35,6 +36,7 @@ class Invoice extends Entity
         'currency_of_origin' => true,
         'currency_rate' => true,
         'add_cost_id' => true,
+        'factory_id' => true,
         'add_cost' => true,
         'invoice_sku' => true,
     ];
