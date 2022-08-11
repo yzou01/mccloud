@@ -31,8 +31,7 @@
                             <th><?= $this->Paginator->sort('Price') ?></th>
                             <th><?= $this->Paginator->sort('Type Id') ?></th>
                             <th><?= $this->Paginator->sort('Factory Id') ?></th>
-                            <th class="actions"><?= __('Actions') ?></th>
-                        </tr>
+                                                    </tr>
                     </thead>
                     <tbody>
                         <?php foreach ($factory->skus as $skus) : ?>
@@ -42,10 +41,7 @@
                             <td><?= h($skus->price) ?></td>
                             <td><?= h($skus->type_id) ?></td>
                             <td><?= h($skus->factory_id) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('View'), ['controller' => 'Skus', 'action' => 'view', $skus->id]) ?>
-                                <?= $this->Html->link(__('Edit'), ['controller' => 'Skus', 'action' => 'edit', $skus->id]) ?>
-                            </td>
+                            
                         </tr>
                         <?php endforeach; ?>
                     </tbody>
