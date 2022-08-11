@@ -10,21 +10,14 @@
     <?php echo $this->element('navbar/sidebar')?>
     <div id="layoutSidenav_content">
     <main>
-
-<div class=" card mb-4">
-    
-    <div class="card-header  ">
-       
-        <i class="fas fa-table me-1"></i>
-                            Factories
-    </div>
-     <div class="d-flex justify-content-end" style="width: 98.5%"> <?= $this->Html->link(__('Add Factory'), ['action' => 'add'], ['class' => 'btn btn-primary ']) ?>
-
-
-    </div>
-    
+        <br><br>
+        <div class=" card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1" style="padding-top: 11px"></i>Factories
+                <?= $this->Html->link(__('Add Factory'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'float: right']) ?>
+                <!--                        position: relative; left: 72%-->
+            </div>
     <div class="card-body">
-        
         <table id="datatablesSimple">
             <thead>
                 <tr>
@@ -46,13 +39,12 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
-        
+
     </div>
     </div>
                 </main>
                 </div>
-   
+
 
                 </div>
-                
-               
+

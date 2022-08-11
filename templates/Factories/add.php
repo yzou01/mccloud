@@ -10,13 +10,13 @@
     <?php echo $this->element('navbar/sidebar')?>
     <div id="layoutSidenav_content">
         <main>
-        <div class=" card mb-4">  
-            <div class="card-header  ">    
-                <i class="fas fa-table me-1"></i>  
-                Factories            </div>    
-            <div class="card-body">  
-                <div class="d-flex justify-content-end" style="width: 98.5%"> <?= $this->Html->link(__('Back'), ['action' => 'index'], ['class' => 'btn btn-primary ']) ?></div>
-
+            <br><br>
+            <div class=" card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1" style="padding-top: 11px"></i>Factories
+                    <?= $this->Html->link(__('Back'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right']) ?>
+                </div>
+            <div class="card-body">
                 <div class="column-responsive column-80">
                     <div class="factories form content">
                         <?= $this->Form->create($factory) ?>

@@ -28,8 +28,20 @@
                                     <div class="form-label">
                                         <?php
                                             echo $this->Form->control('name',['class'=>'form-control']);
+                                        ?>
+                                    </div>
+                                    <div class="form-label">
+                                        <?php
                                             echo $this->Form->control('price',['class'=>'form-control']);
+                                        ?>
+                                    </div>
+                                    <div class="form-label">
+                                        <?php
                                             echo $this->Form->control('type_id', ['class'=>'form-control', 'options' => $types]);
+                                        ?>
+                                    </div>
+                                    <div class="form-label">
+                                        <?php
                                             echo $this->Form->control('factory_id', ['class'=>'form-control', 'options' => $factories]);
                                         ?>
                                     </div>
