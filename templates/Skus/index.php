@@ -15,7 +15,7 @@
                     <th><?= $this->Paginator->sort('name') ?></th>
                     <th><?= $this->Paginator->sort('price') ?></th>
                     <th><?= $this->Paginator->sort('type_id') ?></th>
-                    <th><?= $this->Paginator->sort('factory_id') ?></th>
+                    
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
@@ -26,7 +26,7 @@
                     <td><?= h($skus->name) ?></td>
                     <td><?= $this->Number->format($skus->price) ?></td>
                     <td><?= $skus->has('type') ? $this->Html->link($skus->type->name, ['controller' => 'Types', 'action' => 'view', $skus->type->id]) : '' ?></td>
-                    <td><?= $skus->has('factory') ? $this->Html->link($skus->factory->name, ['controller' => 'Factories', 'action' => 'view', $skus->factory->id]) : '' ?></td>
+                    
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $skus->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $skus->id]) ?>
