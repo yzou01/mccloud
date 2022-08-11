@@ -16,15 +16,14 @@
             <div class=" card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table me-1" style="padding-top: 11px"></i>
-                    Add Invoices
-                    <?= $this->Html->link(__('List Invoices'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
+                    Add Bill Of Records
+                    <?= $this->Html->link(__('List Bill Of Records'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
                 </div>
                 <div class="card-body">
                     <div class="column-responsive column-80">
                         <div class="skus form content">
                             <?= $this->Form->create($invoice) ?>
                             <fieldset>
-                                <legend><?= __('Add Invoices') ?></legend>
                                 <div class="form-label">
                                     <?php
                                     echo $this->Form->control('number',['class'=>'form-control']);

@@ -11,15 +11,16 @@
     <?php echo $this->element('navbar/sidebar') ?>
     <div id="layoutSidenav_content">
         <main>
-
+            <br><br>
             <div class=" card mb-4">
 
                 <div class="card-header  ">
                     <i class="fas fa-table me-1"></i>
-                    Invoices
+                    Bill Of Records
                 </div>
+                <br>
                 <div class="d-flex justify-content-end"
-                     style="width: 98.5%"> <?= $this->Html->link(__('New Invoice'), ['action' => 'add'], ['class' => 'btn btn-primary ']) ?>
+                     style="width: 98.5%"> <?= $this->Html->link(__('New Bill Of Records'), ['action' => 'add'], ['class' => 'btn btn-primary ']) ?>
 
                 </div>
 
