@@ -25,9 +25,11 @@
             <?= $this->Form->create($factory) ?>
             <fieldset>
                 <legend><?= __('Edit Factory') ?></legend>
+                <div class="form-label">
                 <?php
-                    echo $this->Form->control('name');
+                    echo $this->Form->control('name',['class'=>'form-control']);
                 ?>
+                </div>
             </fieldset>
             <?= $this->Form->button(__('Submit'),['class'=>'btn btn-primary']) ?>
             

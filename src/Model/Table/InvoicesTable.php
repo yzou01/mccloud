@@ -48,6 +48,10 @@ class InvoicesTable extends Table
             'foreignKey' => 'add_cost_id',
             'joinType' => 'INNER',
         ]);
+        $this->belongsTo('Factories', [
+            'foreignKey' => 'factory_id',
+            'joinType' => 'INNER',
+        ]);
         $this->hasMany('InvoiceSku', [
             'foreignKey' => 'invoice_id',
         ]);
@@ -88,6 +92,11 @@ class InvoicesTable extends Table
             ->requirePresence('add_cost_id', 'create')
             ->notEmptyString('add_cost_id');
 
+        $validator
+            ->integer('factory_id')
+            ->requirePresence('factory_id', 'create')
+            ->notEmptyString('factory_id');
+
         return $validator;
     }
 
@@ -101,6 +110,7 @@ class InvoicesTable extends Table
     public function buildRules(RulesChecker $rules): RulesChecker
     {
         $rules->add($rules->existsIn('add_cost_id', 'AddCosts'), ['errorField' => 'add_cost_id']);
+        $rules->add($rules->existsIn('factory_id', 'Factories'), ['errorField' => 'factory_id']);
 
         return $rules;
     }

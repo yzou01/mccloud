@@ -12,7 +12,6 @@ use Cake\Validation\Validator;
  * Skus Model
  *
  * @property \App\Model\Table\TypesTable&\Cake\ORM\Association\BelongsTo $Types
- * @property \App\Model\Table\FactoriesTable&\Cake\ORM\Association\BelongsTo $Factories
  *
  * @method \App\Model\Entity\Skus newEmptyEntity()
  * @method \App\Model\Entity\Skus newEntity(array $data, array $options = [])
@@ -48,10 +47,6 @@ class SkusTable extends Table
             'foreignKey' => 'type_id',
             'joinType' => 'INNER',
         ]);
-        $this->belongsTo('Factories', [
-            'foreignKey' => 'factory_id',
-            'joinType' => 'INNER',
-        ]);
     }
 
     /**
@@ -78,11 +73,6 @@ class SkusTable extends Table
             ->requirePresence('type_id', 'create')
             ->notEmptyString('type_id');
 
-        $validator
-            ->integer('factory_id')
-            ->requirePresence('factory_id', 'create')
-            ->notEmptyString('factory_id');
-
         return $validator;
     }
 
@@ -96,7 +86,6 @@ class SkusTable extends Table
     public function buildRules(RulesChecker $rules): RulesChecker
     {
         $rules->add($rules->existsIn('type_id', 'Types'), ['errorField' => 'type_id']);
-        $rules->add($rules->existsIn('factory_id', 'Factories'), ['errorField' => 'factory_id']);
 
         return $rules;
     }

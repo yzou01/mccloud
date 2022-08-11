@@ -11,8 +11,6 @@ use Cake\Validation\Validator;
 /**
  * Factories Model
  *
- * @property \App\Model\Table\SkusTable&\Cake\ORM\Association\HasMany $Skus
- *
  * @method \App\Model\Entity\Factory newEmptyEntity()
  * @method \App\Model\Entity\Factory newEntity(array $data, array $options = [])
  * @method \App\Model\Entity\Factory[] newEntities(array $data, array $options = [])
@@ -43,7 +41,7 @@ class FactoriesTable extends Table
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
 
-        $this->hasMany('Skus', [
+        $this->hasMany('Invoices', [
             'foreignKey' => 'factory_id',
         ]);
     }
@@ -61,6 +59,12 @@ class FactoriesTable extends Table
             ->maxLength('name', 25)
             ->requirePresence('name', 'create')
             ->notEmptyString('name');
+
+        $validator
+            ->scalar('currency')
+            ->maxLength('currency', 20)
+            ->requirePresence('currency', 'create')
+            ->notEmptyString('currency');
 
         return $validator;
     }
