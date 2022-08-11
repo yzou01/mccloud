@@ -31,6 +31,7 @@
                             <th><?= $this->Paginator->sort('id') ?></th>
                             <th><?= $this->Paginator->sort('number') ?></th>
                             <th><?= $this->Paginator->sort('date') ?></th>
+                            <th><?= $this->Paginator->sort('factory_id') ?></th>
                             <th><?= $this->Paginator->sort('currency_of_origin') ?></th>
                             <th><?= $this->Paginator->sort('currency_rate') ?></th>
                             <th><?= $this->Paginator->sort('add_cost_id') ?></th>

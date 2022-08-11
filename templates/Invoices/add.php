@@ -36,6 +36,11 @@
                                 </div>
                                 <div class="form-label">
                                     <?php
+                                    echo $this->Form->control('factory_id',['class'=>'form-control']);
+                                    ?>
+                                </div>
+                                <div class="form-label">
+                                    <?php
                                     echo $this->Form->control('currency_of_origin',['class'=>'form-control']);
                                     ?>
                                 </div>
