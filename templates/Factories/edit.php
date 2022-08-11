@@ -28,6 +28,7 @@
                 <div class="form-label">
                 <?php
                     echo $this->Form->control('name',['class'=>'form-control']);
+                    echo $this->Form->control('currency',['class'=>'form-control']);
                 ?>
                 </div>
             </fieldset>
