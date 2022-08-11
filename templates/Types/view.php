@@ -40,32 +40,34 @@
                                     <div class="related">
                                         <h4><?= __('Related Skus') ?></h4>
                                         <?php if (!empty($type->skus)) : ?>
-                                            <div class="table-responsive">
-                                                <table>
-                                                    <tr>
-                                                        <th><?= __('Id') ?></th>
-                                                        <th><?= __('Name') ?></th>
-                                                        <th><?= __('Price') ?></th>
-                                                        <th><?= __('Type Id') ?></th>
-                                                        <th><?= __('Factory Id') ?></th>
-                                                        <th class="actions"><?= __('Actions') ?></th>
-                                                    </tr>
-                                                    <?php foreach ($type->skus as $skus) : ?>
-                                                        <tr>
-                                                            <td><?= h($skus->id) ?></td>
-                                                            <td><?= h($skus->name) ?></td>
-                                                            <td><?= h($skus->price) ?></td>
-                                                            <td><?= h($skus->type_id) ?></td>
-                                                            <td><?= h($skus->factory_id) ?></td>
-                                                            <td class="actions">
-                                                                <?= $this->Html->link(__('View'), ['controller' => 'Skus', 'action' => 'view', $skus->id]) ?>
-                                                                <?= $this->Html->link(__('Edit'), ['controller' => 'Skus', 'action' => 'edit', $skus->id]) ?>
-                                                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Skus', 'action' => 'delete', $skus->id], ['confirm' => __('Are you sure you want to delete # {0}?', $skus->id)]) ?>
-                                                            </td>
-                                                        </tr>
-                                                    <?php endforeach; ?>
-                                                </table>
-                                            </div>
+                                        <table id="datatablesSimple">
+                                            <thead>
+                                            <tr>
+                                                <th><?= __('Id') ?></th>
+                                                <th><?= __('Name') ?></th>
+                                                <th><?= __('Price') ?></th>
+                                                <th><?= __('Type Id') ?></th>
+                                                <th><?= __('Factory Id') ?></th>
+                                                <th class="actions"><?= __('Actions') ?></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <?php foreach ($type->skus as $skus) : ?>
+                                                <tr>
+                                                    <td><?= h($skus->id) ?></td>
+                                                    <td><?= h($skus->name) ?></td>
+                                                    <td><?= h($skus->price) ?></td>
+                                                    <td><?= h($skus->type_id) ?></td>
+                                                    <td><?= h($skus->factory_id) ?></td>
+                                                    <td class="actions">
+                                                        <?= $this->Html->link(__('View'), ['controller' => 'Skus', 'action' => 'view', $skus->id]) ?>
+                                                        <?= $this->Html->link(__('Edit'), ['controller' => 'Skus', 'action' => 'edit', $skus->id]) ?>
+                                                        <?= $this->Form->postLink(__('Delete'), ['controller' => 'Skus', 'action' => 'delete', $skus->id], ['confirm' => __('Are you sure you want to delete # {0}?', $skus->id)]) ?>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach; ?>
+                                            </tbody>
+                                        </table>
                                         <?php endif; ?>
                                     </div>
                                 </div>
