@@ -6,7 +6,7 @@
 CREATE TABLE `additionalcosts` (
   `id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
-  `amounts` float NOT NULL,
+  `amount` float NOT NULL,
   `invoice_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -101,4 +101,5 @@ ALTER TABLE `invoices_skus`
   ADD CONSTRAINT `invoices_skus_ibfk_2` FOREIGN KEY (`invoice_id`) REFERENCES `invoices` (`id`);
 
 ALTER TABLE `skus`
-  ADD CONSTRAINT `skus_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `types` (`id`);
+  ADD CONSTRAINT `skus_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `types` (`id`),
+  ADD CONSTRAINT `skus_ibfk_2` FOREIGN KEY (`factory_id`) REFERENCES `factories` (`id`);

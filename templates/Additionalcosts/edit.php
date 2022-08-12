@@ -24,7 +24,7 @@
                 <legend><?= __('Edit Additionalcost') ?></legend>
                 <?php
                     echo $this->Form->control('name');
-                    echo $this->Form->control('amounts');
+                    echo $this->Form->control('amount');
                     echo $this->Form->control('invoice_id', ['options' => $invoices]);
                 ?>
             </fieldset>

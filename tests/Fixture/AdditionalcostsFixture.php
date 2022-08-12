@@ -21,7 +21,7 @@ class AdditionalcostsFixture extends TestFixture
             [
                 'id' => 1,
                 'name' => 'Lorem ipsum dolor sit amet',
-                'amounts' => 1,
+                'amount' => 1,
                 'invoice_id' => 1,
             ],
         ];

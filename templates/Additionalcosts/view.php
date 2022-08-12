@@ -31,8 +31,8 @@
                     <td><?= $this->Number->format($additionalcost->id) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Amounts') ?></th>
-                    <td><?= $this->Number->format($additionalcost->amounts) ?></td>
+                    <th><?= __('Amount') ?></th>
+                    <td><?= $this->Number->format($additionalcost->amount) ?></td>
                 </tr>
             </table>
         </div>

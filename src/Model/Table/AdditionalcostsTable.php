@@ -64,9 +64,9 @@ class AdditionalcostsTable extends Table
             ->notEmptyString('name');
 
         $validator
-            ->numeric('amounts')
-            ->requirePresence('amounts', 'create')
-            ->notEmptyString('amounts');
+            ->numeric('amount')
+            ->requirePresence('amount', 'create')
+            ->notEmptyString('amount');
 
         $validator
             ->integer('invoice_id')
