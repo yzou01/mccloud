@@ -11,8 +11,7 @@ use Cake\Validation\Validator;
 /**
  * Invoices Model
  *
- * @property \App\Model\Table\AddcostsTable&\Cake\ORM\Association\BelongsTo $AddCosts
- * @property \App\Model\Table\InvoiceSkuTable&\Cake\ORM\Association\HasMany $InvoiceSku
+ * @property \App\Model\Table\FactoriesTable&\Cake\ORM\Association\BelongsTo $Factories
  *
  * @method \App\Model\Entity\Invoice newEmptyEntity()
  * @method \App\Model\Entity\Invoice newEntity(array $data, array $options = [])
@@ -44,16 +43,17 @@ class InvoicesTable extends Table
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
-        $this->belongsTo('AddCosts', [
-            'foreignKey' => 'add_cost_id',
-            'joinType' => 'INNER',
-        ]);
         $this->belongsTo('Factories', [
             'foreignKey' => 'factory_id',
             'joinType' => 'INNER',
         ]);
-        $this->hasMany('InvoiceSku', [
+        $this->hasMany('Additionalcosts', [
             'foreignKey' => 'invoice_id',
+        ]);
+        $this->belongsToMany('Skus', [
+            'foreignKey' => 'invoice_id',
+            'targetForeignKey' => 'skus_id',
+            'joinTable' => 'invoices_skus',
         ]);
     }
 
@@ -88,11 +88,6 @@ class InvoicesTable extends Table
             ->notEmptyString('currency_rate');
 
         $validator
-            ->integer('add_cost_id')
-            ->requirePresence('add_cost_id', 'create')
-            ->notEmptyString('add_cost_id');
-
-        $validator
             ->integer('factory_id')
             ->requirePresence('factory_id', 'create')
             ->notEmptyString('factory_id');
@@ -109,7 +104,6 @@ class InvoicesTable extends Table
      */
     public function buildRules(RulesChecker $rules): RulesChecker
     {
-        $rules->add($rules->existsIn('add_cost_id', 'AddCosts'), ['errorField' => 'add_cost_id']);
         $rules->add($rules->existsIn('factory_id', 'Factories'), ['errorField' => 'factory_id']);
 
         return $rules;

@@ -25,6 +25,7 @@ class FactoriesTableTest extends TestCase
      */
     protected $fixtures = [
         'app.Factories',
+        'app.Invoices',
         'app.Skus',
     ];
 

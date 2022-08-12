@@ -9,26 +9,26 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * InvoiceSku Model
+ * InvoicesSkus Model
  *
  * @property \App\Model\Table\InvoicesTable&\Cake\ORM\Association\BelongsTo $Invoices
  * @property \App\Model\Table\SkusTable&\Cake\ORM\Association\BelongsTo $Skus
  *
- * @method \App\Model\Entity\InvoiceSku newEmptyEntity()
- * @method \App\Model\Entity\InvoiceSku newEntity(array $data, array $options = [])
- * @method \App\Model\Entity\InvoiceSku[] newEntities(array $data, array $options = [])
- * @method \App\Model\Entity\InvoiceSku get($primaryKey, $options = [])
- * @method \App\Model\Entity\InvoiceSku findOrCreate($search, ?callable $callback = null, $options = [])
- * @method \App\Model\Entity\InvoiceSku patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
- * @method \App\Model\Entity\InvoiceSku[] patchEntities(iterable $entities, array $data, array $options = [])
- * @method \App\Model\Entity\InvoiceSku|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\InvoiceSku saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\InvoiceSku[]|\Cake\Datasource\ResultSetInterface|false saveMany(iterable $entities, $options = [])
- * @method \App\Model\Entity\InvoiceSku[]|\Cake\Datasource\ResultSetInterface saveManyOrFail(iterable $entities, $options = [])
- * @method \App\Model\Entity\InvoiceSku[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
- * @method \App\Model\Entity\InvoiceSku[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
+ * @method \App\Model\Entity\InvoicesSkus newEmptyEntity()
+ * @method \App\Model\Entity\InvoicesSkus newEntity(array $data, array $options = [])
+ * @method \App\Model\Entity\InvoicesSkus[] newEntities(array $data, array $options = [])
+ * @method \App\Model\Entity\InvoicesSkus get($primaryKey, $options = [])
+ * @method \App\Model\Entity\InvoicesSkus findOrCreate($search, ?callable $callback = null, $options = [])
+ * @method \App\Model\Entity\InvoicesSkus patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \App\Model\Entity\InvoicesSkus[] patchEntities(iterable $entities, array $data, array $options = [])
+ * @method \App\Model\Entity\InvoicesSkus|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\InvoicesSkus saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\InvoicesSkus[]|\Cake\Datasource\ResultSetInterface|false saveMany(iterable $entities, $options = [])
+ * @method \App\Model\Entity\InvoicesSkus[]|\Cake\Datasource\ResultSetInterface saveManyOrFail(iterable $entities, $options = [])
+ * @method \App\Model\Entity\InvoicesSkus[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
+ * @method \App\Model\Entity\InvoicesSkus[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
  */
-class InvoiceSkuTable extends Table
+class InvoicesSkusTable extends Table
 {
     /**
      * Initialize method
@@ -40,7 +40,9 @@ class InvoiceSkuTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('invoice_sku');
+        $this->setTable('invoices_skus');
+        $this->setDisplayField(['invoice_id', 'sku_id']);
+        $this->setPrimaryKey(['invoice_id', 'sku_id']);
 
         $this->belongsTo('Invoices', [
             'foreignKey' => 'invoice_id',
@@ -60,16 +62,6 @@ class InvoiceSkuTable extends Table
      */
     public function validationDefault(Validator $validator): Validator
     {
-        $validator
-            ->integer('invoice_id')
-            ->requirePresence('invoice_id', 'create')
-            ->notEmptyString('invoice_id');
-
-        $validator
-            ->integer('sku_id')
-            ->requirePresence('sku_id', 'create')
-            ->notEmptyString('sku_id');
-
         $validator
             ->integer('quantity')
             ->requirePresence('quantity', 'create')

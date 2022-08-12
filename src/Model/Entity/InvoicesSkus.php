@@ -6,7 +6,7 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * InvoiceSku Entity
+ * InvoicesSkus Entity
  *
  * @property int $invoice_id
  * @property int $sku_id
@@ -15,7 +15,7 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\Invoice $invoice
  * @property \App\Model\Entity\Skus $skus
  */
-class InvoiceSku extends Entity
+class InvoicesSkus extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -27,8 +27,6 @@ class InvoiceSku extends Entity
      * @var array<string, bool>
      */
     protected $_accessible = [
-        'invoice_id' => true,
-        'sku_id' => true,
         'quantity' => true,
         'invoice' => true,
         'skus' => true,

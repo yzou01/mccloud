@@ -11,6 +11,9 @@ use Cake\Validation\Validator;
 /**
  * Factories Model
  *
+ * @property \App\Model\Table\InvoicesTable&\Cake\ORM\Association\HasMany $Invoices
+ * @property \App\Model\Table\SkusTable&\Cake\ORM\Association\HasMany $Skus
+ *
  * @method \App\Model\Entity\Factory newEmptyEntity()
  * @method \App\Model\Entity\Factory newEntity(array $data, array $options = [])
  * @method \App\Model\Entity\Factory[] newEntities(array $data, array $options = [])
@@ -42,6 +45,9 @@ class FactoriesTable extends Table
         $this->setPrimaryKey('id');
 
         $this->hasMany('Invoices', [
+            'foreignKey' => 'factory_id',
+        ]);
+        $this->hasMany('Skus', [
             'foreignKey' => 'factory_id',
         ]);
     }

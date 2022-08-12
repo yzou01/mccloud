@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\SkusTable;
+use App\Model\Table\AdditionalcostsTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\SkusTable Test Case
+ * App\Model\Table\AdditionalcostsTable Test Case
  */
-class SkusTableTest extends TestCase
+class AdditionalcostsTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\SkusTable
+     * @var \App\Model\Table\AdditionalcostsTable
      */
-    protected $Skus;
+    protected $Additionalcosts;
 
     /**
      * Fixtures
@@ -24,8 +24,8 @@ class SkusTableTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
-        'app.Skus',
-        'app.Types',
+        'app.Additionalcosts',
+        'app.Invoices',
     ];
 
     /**
@@ -36,8 +36,8 @@ class SkusTableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('Skus') ? [] : ['className' => SkusTable::class];
-        $this->Skus = $this->getTableLocator()->get('Skus', $config);
+        $config = $this->getTableLocator()->exists('Additionalcosts') ? [] : ['className' => AdditionalcostsTable::class];
+        $this->Additionalcosts = $this->getTableLocator()->get('Additionalcosts', $config);
     }
 
     /**
@@ -47,7 +47,7 @@ class SkusTableTest extends TestCase
      */
     protected function tearDown(): void
     {
-        unset($this->Skus);
+        unset($this->Additionalcosts);
 
         parent::tearDown();
     }
@@ -56,7 +56,7 @@ class SkusTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
-     * @uses \App\Model\Table\SkusTable::validationDefault()
+     * @uses \App\Model\Table\AdditionalcostsTable::validationDefault()
      */
     public function testValidationDefault(): void
     {
@@ -67,7 +67,7 @@ class SkusTableTest extends TestCase
      * Test buildRules method
      *
      * @return void
-     * @uses \App\Model\Table\SkusTable::buildRules()
+     * @uses \App\Model\Table\AdditionalcostsTable::buildRules()
      */
     public function testBuildRules(): void
     {
