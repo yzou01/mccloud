@@ -6,7 +6,7 @@
 CREATE TABLE `additionalcosts` (
   `id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
-  `amounts` double NOT NULL,
+  `amounts` float NOT NULL,
   `invoice_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -34,7 +34,7 @@ CREATE TABLE `invoices_skus` (
 CREATE TABLE `skus` (
   `id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
-  `price` int(11) NOT NULL,
+  `price` float NOT NULL,
   `type_id` int(11) NOT NULL,
   `factory_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

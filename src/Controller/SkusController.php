@@ -19,7 +19,7 @@ class SkusController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Types'],
+            'contain' => ['Types', 'Factories'],
         ];
         $skus = $this->paginate($this->Skus);
 
@@ -36,7 +36,7 @@ class SkusController extends AppController
     public function view($id = null)
     {
         $skus = $this->Skus->get($id, [
-            'contain' => ['Types'],
+            'contain' => ['Types', 'Factories', 'Invoices'],
         ]);
 
         $this->set(compact('skus'));
@@ -60,7 +60,9 @@ class SkusController extends AppController
             $this->Flash->error(__('The skus could not be saved. Please, try again.'));
         }
         $types = $this->Skus->Types->find('list', ['limit' => 200])->all();
-        $this->set(compact('skus', 'types'));
+        $factories = $this->Skus->Factories->find('list', ['limit' => 200])->all();
+        $invoices = $this->Skus->Invoices->find('list', ['limit' => 200])->all();
+        $this->set(compact('skus', 'types', 'factories', 'invoices'));
     }
 
     /**
@@ -73,7 +75,7 @@ class SkusController extends AppController
     public function edit($id = null)
     {
         $skus = $this->Skus->get($id, [
-            'contain' => [],
+            'contain' => ['Invoices'],
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $skus = $this->Skus->patchEntity($skus, $this->request->getData());
@@ -85,7 +87,9 @@ class SkusController extends AppController
             $this->Flash->error(__('The skus could not be saved. Please, try again.'));
         }
         $types = $this->Skus->Types->find('list', ['limit' => 200])->all();
-        $this->set(compact('skus', 'types'));
+        $factories = $this->Skus->Factories->find('list', ['limit' => 200])->all();
+        $invoices = $this->Skus->Invoices->find('list', ['limit' => 200])->all();
+        $this->set(compact('skus', 'types', 'factories', 'invoices'));
     }
 
     /**

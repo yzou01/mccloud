@@ -12,6 +12,8 @@ use Cake\Validation\Validator;
  * Skus Model
  *
  * @property \App\Model\Table\TypesTable&\Cake\ORM\Association\BelongsTo $Types
+ * @property \App\Model\Table\FactoriesTable&\Cake\ORM\Association\BelongsTo $Factories
+ * @property \App\Model\Table\InvoicesTable&\Cake\ORM\Association\BelongsToMany $Invoices
  *
  * @method \App\Model\Entity\Skus newEmptyEntity()
  * @method \App\Model\Entity\Skus newEntity(array $data, array $options = [])
@@ -73,7 +75,7 @@ class SkusTable extends Table
             ->notEmptyString('name');
 
         $validator
-            ->integer('price')
+            ->numeric('price')
             ->requirePresence('price', 'create')
             ->notEmptyString('price');
 

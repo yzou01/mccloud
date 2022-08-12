@@ -24,6 +24,9 @@ class SkusControllerTest extends TestCase
     protected $fixtures = [
         'app.Skus',
         'app.Types',
+        'app.Factories',
+        'app.Invoices',
+        'app.InvoicesSkus',
     ];
 
     /**
