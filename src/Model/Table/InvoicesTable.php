@@ -12,6 +12,8 @@ use Cake\Validation\Validator;
  * Invoices Model
  *
  * @property \App\Model\Table\FactoriesTable&\Cake\ORM\Association\BelongsTo $Factories
+ * @property \App\Model\Table\AdditionalcostsTable&\Cake\ORM\Association\HasMany $Additionalcosts
+ * @property \App\Model\Table\SkusTable&\Cake\ORM\Association\BelongsToMany $Skus
  *
  * @method \App\Model\Entity\Invoice newEmptyEntity()
  * @method \App\Model\Entity\Invoice newEntity(array $data, array $options = [])

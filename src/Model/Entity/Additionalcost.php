@@ -10,7 +10,7 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $name
- * @property float $amounts
+ * @property float $amount
  * @property int $invoice_id
  *
  * @property \App\Model\Entity\Invoice $invoice
@@ -28,7 +28,7 @@ class Additionalcost extends Entity
      */
     protected $_accessible = [
         'name' => true,
-        'amounts' => true,
+        'amount' => true,
         'invoice_id' => true,
         'invoice' => true,
     ];
