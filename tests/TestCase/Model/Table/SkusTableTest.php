@@ -26,6 +26,8 @@ class SkusTableTest extends TestCase
     protected $fixtures = [
         'app.Skus',
         'app.Types',
+        'app.Factories',
+        'app.Invoices',
     ];
 
     /**
