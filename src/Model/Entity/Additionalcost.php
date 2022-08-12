@@ -6,16 +6,16 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Factory Entity
+ * Additionalcost Entity
  *
  * @property int $id
  * @property string $name
- * @property string $currency
+ * @property float $amounts
+ * @property int $invoice_id
  *
- * @property \App\Model\Entity\Invoice[] $invoices
- * @property \App\Model\Entity\Skus[] $skus
+ * @property \App\Model\Entity\Invoice $invoice
  */
-class Factory extends Entity
+class Additionalcost extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -28,8 +28,8 @@ class Factory extends Entity
      */
     protected $_accessible = [
         'name' => true,
-        'currency' => true,
-        'invoices' => true,
-        'skus' => true,
+        'amounts' => true,
+        'invoice_id' => true,
+        'invoice' => true,
     ];
 }

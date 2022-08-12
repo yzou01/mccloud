@@ -3,16 +3,16 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\InvoiceSkuController;
+use App\Controller\AdditionalcostsController;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Controller\InvoiceSkuController Test Case
+ * App\Controller\AdditionalcostsController Test Case
  *
- * @uses \App\Controller\InvoiceSkuController
+ * @uses \App\Controller\AdditionalcostsController
  */
-class InvoiceSkuControllerTest extends TestCase
+class AdditionalcostsControllerTest extends TestCase
 {
     use IntegrationTestTrait;
 
@@ -22,16 +22,15 @@ class InvoiceSkuControllerTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
-        'app.InvoiceSku',
+        'app.Additionalcosts',
         'app.Invoices',
-        'app.Skus',
     ];
 
     /**
      * Test index method
      *
      * @return void
-     * @uses \App\Controller\InvoiceSkuController::index()
+     * @uses \App\Controller\AdditionalcostsController::index()
      */
     public function testIndex(): void
     {
@@ -42,7 +41,7 @@ class InvoiceSkuControllerTest extends TestCase
      * Test view method
      *
      * @return void
-     * @uses \App\Controller\InvoiceSkuController::view()
+     * @uses \App\Controller\AdditionalcostsController::view()
      */
     public function testView(): void
     {
@@ -53,7 +52,7 @@ class InvoiceSkuControllerTest extends TestCase
      * Test add method
      *
      * @return void
-     * @uses \App\Controller\InvoiceSkuController::add()
+     * @uses \App\Controller\AdditionalcostsController::add()
      */
     public function testAdd(): void
     {
@@ -64,7 +63,7 @@ class InvoiceSkuControllerTest extends TestCase
      * Test edit method
      *
      * @return void
-     * @uses \App\Controller\InvoiceSkuController::edit()
+     * @uses \App\Controller\AdditionalcostsController::edit()
      */
     public function testEdit(): void
     {
@@ -75,7 +74,7 @@ class InvoiceSkuControllerTest extends TestCase
      * Test delete method
      *
      * @return void
-     * @uses \App\Controller\InvoiceSkuController::delete()
+     * @uses \App\Controller\AdditionalcostsController::delete()
      */
     public function testDelete(): void
     {

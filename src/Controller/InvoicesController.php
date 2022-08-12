@@ -19,7 +19,7 @@ class InvoicesController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['AddCosts'],
+            'contain' => ['AddCosts', 'Factories'],
         ];
         $invoices = $this->paginate($this->Invoices);
 
@@ -36,7 +36,7 @@ class InvoicesController extends AppController
     public function view($id = null)
     {
         $invoice = $this->Invoices->get($id, [
-            'contain' => ['AddCosts', 'InvoiceSku'],
+            'contain' => ['AddCosts', 'Factories', 'InvoiceSku'],
         ]);
 
         $this->set(compact('invoice'));
@@ -60,7 +60,8 @@ class InvoicesController extends AppController
             $this->Flash->error(__('The invoice could not be saved. Please, try again.'));
         }
         $addCosts = $this->Invoices->AddCosts->find('list', ['limit' => 200])->all();
-        $this->set(compact('invoice', 'addCosts'));
+        $factories = $this->Invoices->Factories->find('list', ['limit' => 200])->all();
+        $this->set(compact('invoice', 'addCosts', 'factories'));
     }
 
     /**
@@ -85,7 +86,8 @@ class InvoicesController extends AppController
             $this->Flash->error(__('The invoice could not be saved. Please, try again.'));
         }
         $addCosts = $this->Invoices->AddCosts->find('list', ['limit' => 200])->all();
-        $this->set(compact('invoice', 'addCosts'));
+        $factories = $this->Invoices->Factories->find('list', ['limit' => 200])->all();
+        $this->set(compact('invoice', 'addCosts', 'factories'));
     }
 
     /**

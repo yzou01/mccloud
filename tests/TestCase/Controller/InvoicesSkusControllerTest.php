@@ -3,16 +3,16 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\SkusController;
+use App\Controller\InvoicesSkusController;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Controller\SkusController Test Case
+ * App\Controller\InvoicesSkusController Test Case
  *
- * @uses \App\Controller\SkusController
+ * @uses \App\Controller\InvoicesSkusController
  */
-class SkusControllerTest extends TestCase
+class InvoicesSkusControllerTest extends TestCase
 {
     use IntegrationTestTrait;
 
@@ -22,15 +22,16 @@ class SkusControllerTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
+        'app.InvoicesSkus',
+        'app.Invoices',
         'app.Skus',
-        'app.Types',
     ];
 
     /**
      * Test index method
      *
      * @return void
-     * @uses \App\Controller\SkusController::index()
+     * @uses \App\Controller\InvoicesSkusController::index()
      */
     public function testIndex(): void
     {
@@ -41,7 +42,7 @@ class SkusControllerTest extends TestCase
      * Test view method
      *
      * @return void
-     * @uses \App\Controller\SkusController::view()
+     * @uses \App\Controller\InvoicesSkusController::view()
      */
     public function testView(): void
     {
@@ -52,7 +53,7 @@ class SkusControllerTest extends TestCase
      * Test add method
      *
      * @return void
-     * @uses \App\Controller\SkusController::add()
+     * @uses \App\Controller\InvoicesSkusController::add()
      */
     public function testAdd(): void
     {
@@ -63,7 +64,7 @@ class SkusControllerTest extends TestCase
      * Test edit method
      *
      * @return void
-     * @uses \App\Controller\SkusController::edit()
+     * @uses \App\Controller\InvoicesSkusController::edit()
      */
     public function testEdit(): void
     {
@@ -74,7 +75,7 @@ class SkusControllerTest extends TestCase
      * Test delete method
      *
      * @return void
-     * @uses \App\Controller\SkusController::delete()
+     * @uses \App\Controller\InvoicesSkusController::delete()
      */
     public function testDelete(): void
     {

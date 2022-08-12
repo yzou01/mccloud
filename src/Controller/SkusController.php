@@ -60,7 +60,6 @@ class SkusController extends AppController
             $this->Flash->error(__('The skus could not be saved. Please, try again.'));
         }
         $types = $this->Skus->Types->find('list', ['limit' => 200])->all();
-       
         $this->set(compact('skus', 'types'));
     }
 
@@ -86,7 +85,6 @@ class SkusController extends AppController
             $this->Flash->error(__('The skus could not be saved. Please, try again.'));
         }
         $types = $this->Skus->Types->find('list', ['limit' => 200])->all();
-        
         $this->set(compact('skus', 'types'));
     }
 

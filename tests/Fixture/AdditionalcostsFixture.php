@@ -6,16 +6,10 @@ namespace App\Test\Fixture;
 use Cake\TestSuite\Fixture\TestFixture;
 
 /**
- * InvoiceSkuFixture
+ * AdditionalcostsFixture
  */
-class InvoiceSkuFixture extends TestFixture
+class AdditionalcostsFixture extends TestFixture
 {
-    /**
-     * Table name
-     *
-     * @var string
-     */
-    public $table = 'invoice_sku';
     /**
      * Init method
      *
@@ -25,9 +19,10 @@ class InvoiceSkuFixture extends TestFixture
     {
         $this->records = [
             [
+                'id' => 1,
+                'name' => 'Lorem ipsum dolor sit amet',
+                'amounts' => 1,
                 'invoice_id' => 1,
-                'sku_id' => 1,
-                'quantity' => 1,
             ],
         ];
         parent::init();
