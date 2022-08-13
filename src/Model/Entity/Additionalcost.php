@@ -12,6 +12,7 @@ use Cake\ORM\Entity;
  * @property string $name
  * @property float $amount
  * @property int $invoice_id
+ * @property int|null $comment
  *
  * @property \App\Model\Entity\Invoice $invoice
  */
@@ -30,6 +31,7 @@ class Additionalcost extends Entity
         'name' => true,
         'amount' => true,
         'invoice_id' => true,
+        'comment' => true,
         'invoice' => true,
     ];
 }

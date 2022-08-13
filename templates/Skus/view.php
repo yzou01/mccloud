@@ -32,6 +32,10 @@
                                         </tr>
                                         <tr>
                                             <th><?= __('Type') ?></th>
+                                            <td><?= $skus->has('type') ? $this->Html->link($skus->factories->name, ['controller' => 'Factories', 'action' => 'view', $skus->factory->id]) : '' ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th><?= __('Type') ?></th>
                                             <td><?= $skus->has('type') ? $this->Html->link($skus->type->name, ['controller' => 'Types', 'action' => 'view', $skus->type->id]) : '' ?></td>
                                         </tr>
 

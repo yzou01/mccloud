@@ -73,6 +73,10 @@ class AdditionalcostsTable extends Table
             ->requirePresence('invoice_id', 'create')
             ->notEmptyString('invoice_id');
 
+        $validator
+            ->integer('comment')
+            ->allowEmptyString('comment');
+
         return $validator;
     }
 

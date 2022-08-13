@@ -42,6 +42,11 @@
                                     </div>
                                     <div class="form-label">
                                         <?php
+                                            echo $this->Form->control('fctory_id',['class'=>'form-control']);
+                                        ?>
+                                    </div>
+                                    <div class="form-label">
+                                        <?php
                                             echo $this->Form->control('type_id', ['options' => $types, 'class'=> 'form-control']);
                                         ?>
                                     </div>

@@ -34,6 +34,10 @@
                     <th><?= __('Amount') ?></th>
                     <td><?= $this->Number->format($additionalcost->amount) ?></td>
                 </tr>
+                <tr>
+                    <th><?= __('Comment') ?></th>
+                    <td><?= $additionalcost->comment === null ? '' : $this->Number->format($additionalcost->comment) ?></td>
+                </tr>
             </table>
         </div>
     </div>
