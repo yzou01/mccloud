@@ -21,6 +21,7 @@
                     echo $this->Form->control('name');
                     echo $this->Form->control('amount');
                     echo $this->Form->control('invoice_id', ['options' => $invoices]);
+                    echo $this->Form->control('comment');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

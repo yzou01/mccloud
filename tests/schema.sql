@@ -3,11 +3,13 @@
 -- If you are not using CakePHP migrations you can put
 -- your application's schema in this file and use it in tests.
 
+
 CREATE TABLE `additionalcosts` (
   `id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
   `amount` float NOT NULL,
-  `invoice_id` int(11) NOT NULL
+  `invoice_id` int(11) NOT NULL,
+  `comment` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `factories` (

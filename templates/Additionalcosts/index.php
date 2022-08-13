@@ -15,6 +15,7 @@
                     <th><?= $this->Paginator->sort('name') ?></th>
                     <th><?= $this->Paginator->sort('amount') ?></th>
                     <th><?= $this->Paginator->sort('invoice_id') ?></th>
+                    <th><?= $this->Paginator->sort('comment') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
@@ -25,6 +26,7 @@
                     <td><?= h($additionalcost->name) ?></td>
                     <td><?= $this->Number->format($additionalcost->amount) ?></td>
                     <td><?= $additionalcost->has('invoice') ? $this->Html->link($additionalcost->invoice->id, ['controller' => 'Invoices', 'action' => 'view', $additionalcost->invoice->id]) : '' ?></td>
+                    <td><?= $additionalcost->comment === null ? '' : $this->Number->format($additionalcost->comment) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $additionalcost->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $additionalcost->id]) ?>

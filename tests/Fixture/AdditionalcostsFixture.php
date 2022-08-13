@@ -23,6 +23,7 @@ class AdditionalcostsFixture extends TestFixture
                 'name' => 'Lorem ipsum dolor sit amet',
                 'amount' => 1,
                 'invoice_id' => 1,
+                'comment' => 1,
             ],
         ];
         parent::init();
