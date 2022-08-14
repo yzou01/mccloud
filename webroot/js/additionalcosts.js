@@ -1,4 +1,6 @@
 $(document).ready(function () {
+
+
     let additionalcostsContainer = $('#additionalcosts-container')
     let additionalcostsTemplate = _.template($('#additionalcosts-template').remove().text());
     let numbersRows = additionalcostsContainer.find('.additionalcosts-row').length;
@@ -10,7 +12,7 @@ $(document).ready(function () {
         additionalcostsTemplate[0].scrollTop = additionalcostsContainer[0].scrollHeight
     })
 
-    additionalcostsContainer.on('click',function (e){
+    additionalcostsContainer.on('click','a.additionalcosts-delete',function (e){
         e.preventDefault();
         $(this).closest('.row').fadeOut('fast',function (){
             $(this).remove()

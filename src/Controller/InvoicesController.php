@@ -49,7 +49,7 @@ class InvoicesController extends AppController
      */
     public function add()
     {
-        $invoice = $this->Invoices->newEmptyEntity();
+        $invoice = $this->Invoices->newEmptyEntity(['associated'=>['Additionalcosts']]);
         if ($this->request->is('post')) {
             $invoice = $this->Invoices->patchEntity($invoice, $this->request->getData());
             if ($this->Invoices->save($invoice)) {

@@ -2,11 +2,10 @@
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Invoice $invoice
- * @var \Cake\Collection\CollectionInterface|string[] $addCosts
+ * @var \Cake\Collection\CollectionInterface|string[] $additionalcosts
  */
 $key = isset($key) ? $key : '<%= key %>';
 ?>
-
 <body class="sb-nav-fixed">
     <?php echo $this->element('navbar/navbar')?>
     <div id="layoutSidenav">
@@ -25,7 +24,7 @@ $key = isset($key) ? $key : '<%= key %>';
 <!--                            DETAILS COLUMN-->
                             <div class="col-4" style="float: left">
                                 <h4>Details</h4>
-                                <div class="skus form content">
+                                <div class=" form content">
                                     <?= $this->Form->create($invoice) ?>
                                     <fieldset>
                                         <div class="form-label">
@@ -53,9 +52,9 @@ $key = isset($key) ? $key : '<%= key %>';
                                             echo $this->Form->control('currency_rate',['class'=>'form-control']);
                                             ?>
                                         </div>
+                                        
                                     </fieldset>
-                                    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
-                                    <?= $this->Form->end() ?>
+                                    
                                 </div>
                             </div>
 
@@ -63,6 +62,7 @@ $key = isset($key) ? $key : '<%= key %>';
 <!--                            ADDITIONAL COST COLUMN-->
                             <div class="col-7", style="float: right">
                                 <h4>Additional Costs</h4>
+                                <div class="card-body">
                                 <div id="additionalcosts-container">
                                     <div class="row additionalcosts-row">
                                         <?php echo $this->Form->hidden("additionalcosts.0.id",['class'=>'form-control']);?>
@@ -81,8 +81,10 @@ $key = isset($key) ? $key : '<%= key %>';
                                                             'Agency',
                                                             'Customs',
                                                             'TT Charge',
-                                                            'Others',
+                                                            'Others'
                                                         ), ['class'=>'form-control']);
+
+                                                        
                                                         ?>
                                                     </div>
                                                 </div>
@@ -101,7 +103,7 @@ $key = isset($key) ? $key : '<%= key %>';
                                                     </div>
                                                 </div>
                                                 <div style="width: 2%;display: table-cell">
-                                                    <a class="contact-delete" href="#"><i class="fa fa-fw fa-trash"></i></a>
+                                                    <a class="additionalcosts-delete" href="#"><i class="fa fa-fw fa-trash"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -130,7 +132,7 @@ $key = isset($key) ? $key : '<%= key %>';
                                                             'Agency',
                                                             'Customs',
                                                             'TT Charge',
-                                                            'Others',
+                                                            'Others'
                                                         ), ['class'=>'form-control']);
                                                         ?>
                                                     </div>
@@ -150,14 +152,19 @@ $key = isset($key) ? $key : '<%= key %>';
                                                     </div>
                                                 </div>
                                                 <div style="width: 2%;display: table-cell">
-                                                    <a class="contact-delete" href="#"><i class="fa fa-fw fa-trash"></i></a>
+                                                    <a class="additionalcosts-delete" href="#"><i class="fa fa-fw fa-trash"></i></a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </script>
                             </div>
+                                </div>
+                                
                         </div>
+                        <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
+                                    <?= $this->Form->end() ?>
+                                    <?= $this->Flash->render()?>
                     </div>
                 </div>
             </main>
@@ -165,7 +172,7 @@ $key = isset($key) ? $key : '<%= key %>';
     </div>
 </body>
 
-<?php echo $this->Html->script(['underscore-min.js','additionalcosts'],['block'=>true]) ?>
+<?php echo $this->Html->script(['underscore-min.js','additionalcosts.js'],['block'=>true]) ?>
 
 
 

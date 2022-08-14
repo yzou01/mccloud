@@ -27,7 +27,7 @@
                                     <th><?= $this->Paginator->sort('Number') ?></th>
                                     <th><?= $this->Paginator->sort('Date') ?></th>
                                     <th><?= $this->Paginator->sort('Currency Rate') ?></th>
-                                    <th><?= $this->Paginator->sort('Add Cost Id') ?></th>
+                                    
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -37,7 +37,7 @@
                                     <td><?= h($invoices->number) ?></td>
                                     <td><?= h($invoices->date) ?></td>
                                     <td><?= h($invoices->currency_rate) ?></td>
-                                    <td><?= h($invoices->add_cost_id) ?></td>
+                                    
                                 </tr>
                                 <?php endforeach; ?>
                                 </tbody>

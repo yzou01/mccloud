@@ -74,7 +74,8 @@ class AdditionalcostsTable extends Table
             ->notEmptyString('invoice_id');
 
         $validator
-            ->integer('comment')
+            ->scalar('comment')
+            ->maxLength('comment', 50)
             ->allowEmptyString('comment');
 
         return $validator;
