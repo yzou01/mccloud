@@ -14,15 +14,18 @@
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
-    <?= $this->fetch('script') ?>
+    
+    <?= $this->Html->script(['jquery.min.js','jquery.easing.min.js','scripts.js']) ?>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <?= $this->Html->css(['styles.css']) ?>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <?= $this->Html->script('scripts.js') ?>
+        
+        
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
             <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         
         <?= $this->Html->script('datatables-simple-demo.js') ?>
+        
 
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
@@ -37,4 +40,5 @@
     <footer>
     </footer>
 </body>
+<?= $this->fetch('script') ?>
 </html>

@@ -19,6 +19,35 @@
                     </div>
                     <div class="card-body">
                         <h4><?= __('Related Skus') ?></h4>
+                        <?php if (!empty($factory->skus)) : ?>
+                            <table id="datatablesSimple">
+                                <thead>
+                                <tr>
+                                    <th><?= $this->Paginator->sort('Id') ?></th>
+                                    <th><?= $this->Paginator->sort('Name') ?></th>
+                                    <th><?= $this->Paginator->sort('Price') ?></th>
+                                    
+                                    <th><?= $this->Paginator->sort('Type ID') ?></th>
+
+                                    
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php foreach ($factory->skus as $skus) : ?>
+                                <tr>
+                                    <td><?= h($skus->id) ?></td>
+                                    <td><?= h($skus->name) ?></td>
+                                    <td><?= h($skus->price) ?></td>
+                                   <td><?= h($skus->type_id) ?></td>
+                                    
+                                </tr>
+                                <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        <?php endif; ?>
+                    </div>
+                    <div class="card-body">
+                        <h4><?= __('Related Invoices') ?></h4>
                         <?php if (!empty($factory->invoices)) : ?>
                             <table id="datatablesSimple">
                                 <thead>
@@ -27,7 +56,7 @@
                                     <th><?= $this->Paginator->sort('Number') ?></th>
                                     <th><?= $this->Paginator->sort('Date') ?></th>
                                     <th><?= $this->Paginator->sort('Currency Rate') ?></th>
-                                    <th><?= $this->Paginator->sort('Add Cost Id') ?></th>
+                                    
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -37,13 +66,14 @@
                                     <td><?= h($invoices->number) ?></td>
                                     <td><?= h($invoices->date) ?></td>
                                     <td><?= h($invoices->currency_rate) ?></td>
-                                    <td><?= h($invoices->add_cost_id) ?></td>
+                                    
                                 </tr>
                                 <?php endforeach; ?>
                                 </tbody>
                             </table>
                         <?php endif; ?>
                     </div>
+
                 </div>
             </main>
         </div>

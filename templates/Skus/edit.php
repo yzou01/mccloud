@@ -42,7 +42,7 @@
                                     </div>
                                     <div class="form-label">
                                         <?php
-                                            echo $this->Form->control('fctory_id',['class'=>'form-control']);
+                                            echo $this->Form->control('factory_id',['options' => $factories,'class'=>'form-control']);
                                         ?>
                                     </div>
                                     <div class="form-label">

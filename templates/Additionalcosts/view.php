@@ -27,16 +27,16 @@
                     <td><?= $additionalcost->has('invoice') ? $this->Html->link($additionalcost->invoice->id, ['controller' => 'Invoices', 'action' => 'view', $additionalcost->invoice->id]) : '' ?></td>
                 </tr>
                 <tr>
+                    <th><?= __('Comment') ?></th>
+                    <td><?= h($additionalcost->comment) ?></td>
+                </tr>
+                <tr>
                     <th><?= __('Id') ?></th>
                     <td><?= $this->Number->format($additionalcost->id) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Amount') ?></th>
                     <td><?= $this->Number->format($additionalcost->amount) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Comment') ?></th>
-                    <td><?= $additionalcost->comment === null ? '' : $this->Number->format($additionalcost->comment) ?></td>
                 </tr>
             </table>
         </div>
