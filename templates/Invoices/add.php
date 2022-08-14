@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="form-label">
                                     <?php
-                                    echo $this->Form->control('currency_rate',['class'=>'form-control']);
+                                    echo $this->Form->control('currency_rate',['class'=>'form-control', 'min'=>0]);
                                     ?>
                                 </div>
                                 <div class="form-label">
