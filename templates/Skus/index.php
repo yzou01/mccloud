@@ -34,12 +34,17 @@
                                     <td><?= $this->Number->format($skus->id) ?></td>
                                     <td><?= h($skus->name) ?></td>
                                     <td><?= $this->Number->format($skus->price) ?></td>
-                                    <td><?= $skus->has('factory') ? $this->Html->link($skus->factory->name, ['controller' => 'factory', 'action' => 'view', $skus->factory->name]) : '' ?></td>
+                                    <td><?=
+                                     //$skus->has('factory') ? $this->Html->link($skus->factory->name, ['controller' => 'Factories', 'action' => 'view', $skus->factory->id]) : '' 
+                                     $skus->factory->name
+                                     ?></td>
 
-                                    <td><?= $skus->has('type') ? $this->Html->link($skus->type->name, ['controller' => 'Types', 'action' => 'view', $skus->type->name]) : '' ?></td>
+                                    <td><?= //$skus->has('type') ? $this->Html->link($skus->type->name, ['controller' => 'Types', 'action' => 'view', $skus->type->id]) : '' 
+                                    $skus->type->name
+                                    ?></td>
 
                                     <td class="actions">
-                                        <?= $this->Html->link(__('View'), ['action' => 'view', $skus->id]) ?>
+                                        <?= $this->Html->link(__('View'), ['controller' => 'Skus','action' => 'view', $skus->id]) ?>
                                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $skus->id]) ?>
                                         <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $skus->id], ['confirm' => __('Are you sure you want to delete # {0}?', $skus->id)]) ?>
                                     </td>

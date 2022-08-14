@@ -26,23 +26,21 @@
                                 <div class="skus view content">
                                     <h3><?= h($skus->name) ?></h3>
                                     <table>
-                                        <tr>
-                                            <th style="width: 100px"><?= __('Name') ?></th>
-                                            <td><?= h($skus->name) ?></td>
-                                        </tr>
-                                        <tr>
-                                            <th><?= __('Type') ?></th>
-                                            <td><?= $skus->has('type') ? $this->Html->link($skus->factories->name, ['controller' => 'Factories', 'action' => 'view', $skus->factory->id]) : '' ?></td>
-                                        </tr>
-                                        <tr>
-                                            <th><?= __('Type') ?></th>
-                                            <td><?= $skus->has('type') ? $this->Html->link($skus->type->name, ['controller' => 'Types', 'action' => 'view', $skus->type->id]) : '' ?></td>
-                                        </tr>
-
-                                        <tr>
+                                    <tr>
                                             <th><?= __('ID') ?></th>
                                             <td><?= $this->Number->format($skus->id) ?></td>
                                         </tr>
+                                        
+                                        <tr>
+                                            <th><?= __('Factory') ?></th>
+                                            <td><?= $skus->factory->name ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th><?= __('Type') ?></th>
+                                            <td><?= $skus->type->name ?></td>
+                                        </tr>
+
+                                        
                                         <tr>
                                             <th><?= __('Price') ?></th>
                                             <td><?= $this->Number->format($skus->price) ?></td>

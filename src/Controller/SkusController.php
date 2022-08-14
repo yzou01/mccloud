@@ -36,7 +36,7 @@ class SkusController extends AppController
     public function view($id = null)
     {
         $skus = $this->Skus->get($id, [
-            'contain' => ['Types', 'Factories', 'Invoices'],
+            'contain' => ['Types', 'Factories'],
         ]);
 
         $this->set(compact('skus'));
@@ -75,7 +75,7 @@ class SkusController extends AppController
     public function edit($id = null)
     {
         $skus = $this->Skus->get($id, [
-            'contain' => ['Invoices'],
+            'contain' => ['Types','Factories'],
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $skus = $this->Skus->patchEntity($skus, $this->request->getData());
@@ -88,7 +88,7 @@ class SkusController extends AppController
         }
         $types = $this->Skus->Types->find('list', ['limit' => 200])->all();
         $factories = $this->Skus->Factories->find('list', ['limit' => 200])->all();
-        $invoices = $this->Skus->Invoices->find('list', ['limit' => 200])->all();
+        
         $this->set(compact('skus', 'types', 'factories', 'invoices'));
     }
 
