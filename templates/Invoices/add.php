@@ -53,9 +53,8 @@ $key = isset($key) ? $key : '<%= key %>';
 
 
 <!--                            ADDITIONAL COST COLUMN-->
-                            <div class="col-7", style="float: right">
+                            <div> <!--class="col-7", style="float: right"-->
                                 <h4>Additional Costs</h4>
-                                <div class="card-body">
                                 <div id="additionalcosts-container">
                                     <div class="row additionalcosts-row">
                                         <?php echo $this->Form->hidden("additionalcosts.0.id",['class'=>'form-control']);?>
@@ -76,8 +75,6 @@ $key = isset($key) ? $key : '<%= key %>';
                                                             'TT Charge',
                                                             'Others'
                                                         ), ['class'=>'form-control']);
-
-                                                        
                                                         ?>
                                                     </div>
                                                 </div>
@@ -100,64 +97,123 @@ $key = isset($key) ? $key : '<%= key %>';
                                                 </div>
                                             </div>
                                         </div>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <button class="btn btn-primary" id="add-additionalcosts-button" >Add Additional Costs</button>
                                     </div>
-                                </div>
 
-
-                                <script id="additionalcosts-template" type="text/x-underscore-template">
-                                    <div class="row additionalcosts-row">
-                                        <?php echo $this->Form->hidden("additionalcosts.{$key}.id",['class'=>'form-control']);?>
-                                        <div style="display: table">
-                                            <div style="display: table-row">
-                                                <div style="width: 13%; display: table-cell; padding-right: 2%">
-                                                    <div class="form-label">
-                                                        Cost
-                                                        <?php
-                                                        echo $this->Form->select("additionalcosts.{$key}.name", array(
-                                                            'Duty',
-                                                            'Freight',
-                                                            'Cartage',
-                                                            'Insurance',
-                                                            'Licence',
-                                                            'Agency',
-                                                            'Customs',
-                                                            'TT Charge',
-                                                            'Others'
-                                                        ), ['class'=>'form-control']);
-                                                        ?>
+                                    <script id="additionalcosts-template" type="text/x-underscore-template">
+                                        <div class="row additionalcosts-row">
+                                            <?php echo $this->Form->hidden("additionalcosts.{$key}.id",['class'=>'form-control']);?>
+                                            <div style="display: table">
+                                                <div style="display: table-row">
+                                                    <div style="width: 13%; display: table-cell; padding-right: 2%">
+                                                        <div class="form-label">
+                                                            Cost
+                                                            <?php
+                                                            echo $this->Form->select("additionalcosts.{$key}.name", array(
+                                                                'Duty',
+                                                                'Freight',
+                                                                'Cartage',
+                                                                'Insurance',
+                                                                'Licence',
+                                                                'Agency',
+                                                                'Customs',
+                                                                'TT Charge',
+                                                                'Others'
+                                                            ), ['class'=>'form-control']);
+                                                            ?>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div style="width: 10%;display: table-cell; padding-right: 2%">
-                                                    <div class="form-label">
-                                                        <?php
-                                                        echo $this->Form->control("additionalcosts.{$key}.amount",['class'=>'form-control']);
-                                                        ?>
+                                                    <div style="width: 10%;display: table-cell; padding-right: 2%">
+                                                        <div class="form-label">
+                                                            <?php
+                                                            echo $this->Form->control("additionalcosts.{$key}.amount",['class'=>'form-control']);
+                                                            ?>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div style="width: 20%;display: table-cell; padding-right: 2%">
-                                                    <div class="form-label">
-                                                        <?php
-                                                        echo $this->Form->control("additionalcosts.{$key}.comment",['class'=>'form-control']);
-                                                        ?>
+                                                    <div style="width: 20%;display: table-cell; padding-right: 2%">
+                                                        <div class="form-label">
+                                                            <?php
+                                                            echo $this->Form->control("additionalcosts.{$key}.comment",['class'=>'form-control']);
+                                                            ?>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div style="width: 2%;display: table-cell">
-                                                    <a class="additionalcosts-delete" href="#"><i class="fa fa-fw fa-trash"></i></a>
+                                                    <div style="width: 2%;display: table-cell">
+                                                        <a class="additionalcosts-delete" href="#"><i class="fa fa-fw fa-trash"></i></a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </script>
-                            </div>
+                                    </script>
                                 </div>
-                                
-                        </div>
-                        <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
-                                    <?= $this->Form->end() ?>
-                                    <?= $this->Flash->render()?>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <button class="btn btn-primary" id="add-additionalcosts-button" style=" margin-bottom: 5px">Add Additional Costs</button>
+                                    </div>
+                                </div>
+
+<!--                                ADD SKU TO BOR COLUMN-->
+                                <div> <!--class="col-7", style="float: right"-->
+                                    <h4>Add Items</h4>
+                                    <div id="skus-container">
+                                        <div class="row skus-row">
+                                            <div style="display: table">
+                                                <div style="display: table-row">
+                                                    <div style="width: 13%; display: table-cell; padding-right: 2%">
+                                                        <div class="form-label">
+                                                            <?php
+                                                            echo $this->Form->control("sku",['class'=>'form-control']);
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                    <div style="width: 13%; display: table-cell; padding-right: 2%">
+                                                        <div class="form-label">
+                                                            <?php
+                                                            echo $this->Form->control("Quantity",['class'=>'form-control']);
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                    <div style="width: 2%;display: table-cell">
+                                                        <a class="skus-delete" href="#"><i class="fa fa-fw fa-trash"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <script id="skus-template" type="text/x-underscore-template">
+                                            <div class="row skus-row">
+                                                <div style="display: table">
+                                                    <div style="display: table-row">
+                                                        <div style="width: 13%; display: table-cell; padding-right: 2%">
+                                                            <div class="form-label">
+                                                                <?php
+                                                                echo $this->Form->control("sku",['class'=>'form-control']);
+                                                                ?>
+                                                            </div>
+                                                        </div>
+                                                        <div style="width: 13%; display: table-cell; padding-right: 2%">
+                                                            <div class="form-label">
+                                                                <?php
+                                                                echo $this->Form->control("Quantity",['class'=>'form-control']);
+                                                                ?>
+                                                            </div>
+                                                        </div>
+                                                        <div style="width: 2%;display: table-cell">
+                                                            <a class="skus-delete" href="#"><i class="fa fa-fw fa-trash"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </script>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <button class="btn btn-primary" id="add-skus-button" style=" margin-bottom: 5px">Add SKUs</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
+                            <?= $this->Form->end() ?>
+                            <?= $this->Flash->render()?>
                     </div>
                 </div>
             </main>
