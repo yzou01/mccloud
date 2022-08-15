@@ -67,19 +67,20 @@ $key = isset($key) ? $key : '<%= key %>';
                                             <div style="display: table-row">
                                                 <div style="width: 13%; display: table-cell; padding-right: 2%">
                                                     <div class="form-label">
-                                                        Cost
+                                                        
                                                         <?php
-                                                        echo $this->Form->select("additionalcosts.0.name", array(
-                                                            'Duty',
-                                                            'Freight',
-                                                            'Cartage',
-                                                            'Insurance',
-                                                            'Licence',
-                                                            'Agency',
-                                                            'Customs',
-                                                            'TT Charge',
-                                                            'Others'
-                                                        ), ['class'=>'form-control']);
+                                                        echo $this->Form->control("additionalcosts.0.name",['class'=>'form-control','label'=>'Cost',
+                                                         'options'=>[
+                                                            'Duty'=>'Duty',
+                                                            'Freight'=>'Freight',
+                                                            'Cartage'=>'Cartage',
+                                                            'Insurance'=>'Insurance',
+                                                            'Licence'=>'Licence',
+                                                            'Agency'=>'Agency',
+                                                            'Customs'=>'Customs',
+                                                            'TT Charge'=>'TT Charge',
+                                                            'Others'=>'Others']
+                                                        ]);
                                                         ?>
                                                     </div>
                                                 </div>
@@ -113,17 +114,17 @@ $key = isset($key) ? $key : '<%= key %>';
                                                         <div class="form-label">
                                                             Cost
                                                             <?php
-                                                            echo $this->Form->select("additionalcosts.{$key}.name", array(
-                                                                'Duty',
-                                                                'Freight',
-                                                                'Cartage',
-                                                                'Insurance',
-                                                                'Licence',
-                                                                'Agency',
-                                                                'Customs',
-                                                                'TT Charge',
-                                                                'Others'
-                                                            ), ['class'=>'form-control']);
+                                                            echo $this->Form->control("additionalcosts.{$key}.name",['class'=>'form-control','label'=>'Cost',
+                                                         'options'=>[
+                                                            'Duty'=>'Duty',
+                                                            'Freight'=>'Freight',
+                                                            'Cartage'=>'Cartage',
+                                                            'Insurance'=>'Insurance',
+                                                            'Licence'=>'Licence',
+                                                            'Agency'=>'Agency',
+                                                            'Customs'=>'Customs',
+                                                            'TT Charge'=>'TT Charge',
+                                                            'Others'=>'Others']]);
                                                             ?>
                                                         </div>
                                                     </div>
