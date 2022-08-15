@@ -54,7 +54,7 @@ class InvoicesController extends AppController
             $invoice = $this->Invoices->patchEntity($invoice, $this->request->getData(), ['associated'=>['Additionalcosts']]);
             if ($this->Invoices->save($invoice)) {
 
-                debug($invoice); exit;
+                //debug($invoice); exit;
                 $this->Flash->success(__('The invoice has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -62,11 +62,12 @@ class InvoicesController extends AppController
             debug($invoice); exit;
             $this->Flash->error(__('The invoice could not be saved. Please, try again.'));
         }
-
+        $this->loadModel('Skus');
+        $skus=$this->Skus->find('list',['limit'=>200])->all();
         $factories = $this->Invoices->Factories->find('list', ['limit' => 200])->all();
         $additionalcosttypes = $this->Invoices->Additionalcosts->find('list')->toArray();
-        debug($additionalcosttypes); exit;
-        $this->set(compact('invoice', 'factories', 'additionalcosttypes'));
+        //debug($additionalcosttypes); exit;
+        $this->set(compact('invoice', 'factories', 'additionalcosttypes','skus'));
     }
 
     /**

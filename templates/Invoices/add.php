@@ -160,14 +160,14 @@ $key = isset($key) ? $key : '<%= key %>';
                                                     <div style="width: 13%; display: table-cell; padding-right: 2%">
                                                         <div class="form-label">
                                                             <?php
-                                                            echo $this->Form->control("sku",['class'=>'form-control']);
+                                                            echo $this->Form->control("sku_id",['options'=>$skus,'class'=>'form-control']);
                                                             ?>
                                                         </div>
                                                     </div>
                                                     <div style="width: 13%; display: table-cell; padding-right: 2%">
                                                         <div class="form-label">
                                                             <?php
-                                                            echo $this->Form->control("Quantity",['class'=>'form-control']);
+                                                            echo $this->Form->control("quantity",['class'=>'form-control']);
                                                             ?>
                                                         </div>
                                                     </div>
@@ -185,7 +185,7 @@ $key = isset($key) ? $key : '<%= key %>';
                                                         <div style="width: 13%; display: table-cell; padding-right: 2%">
                                                             <div class="form-label">
                                                                 <?php
-                                                                echo $this->Form->control("sku",['class'=>'form-control']);
+                                                                echo $this->Form->control("sku_id",['options'=>$skus,'class'=>'form-control']);
                                                                 ?>
                                                             </div>
                                                         </div>
