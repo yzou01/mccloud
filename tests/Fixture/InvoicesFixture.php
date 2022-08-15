@@ -21,9 +21,10 @@ class InvoicesFixture extends TestFixture
             [
                 'id' => 1,
                 'number' => 'Lorem ip',
-                'date' => '2022-08-12',
+                'date' => '2022-08-15',
                 'currency_of_origin' => 'Lorem ipsum dolor ',
                 'currency_rate' => 1,
+                'gst' => 1,
                 'factory_id' => 1,
             ],
         ];

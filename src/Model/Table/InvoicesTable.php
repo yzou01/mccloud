@@ -90,6 +90,10 @@ class InvoicesTable extends Table
             ->notEmptyString('currency_rate');
 
         $validator
+            ->numeric('gst')
+            ->allowEmptyString('gst');
+
+        $validator
             ->integer('factory_id')
             ->requirePresence('factory_id', 'create')
             ->notEmptyString('factory_id');

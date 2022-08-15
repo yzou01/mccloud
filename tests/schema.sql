@@ -9,7 +9,7 @@ CREATE TABLE `additionalcosts` (
   `name` varchar(30) NOT NULL,
   `amount` float NOT NULL,
   `invoice_id` int(11) NOT NULL,
-  `comment` varchar(50) DEFAULT NULL
+  `comment` varchar(50) DEFAULT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `factories` (
@@ -24,6 +24,7 @@ CREATE TABLE `invoices` (
   `date` date NOT NULL,
   `currency_of_origin` varchar(20) NOT NULL,
   `currency_rate` double(10,0) NOT NULL,
+  `gst`float DEFAULT NULL,
   `factory_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
