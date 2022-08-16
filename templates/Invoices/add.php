@@ -20,9 +20,10 @@ $key = isset($key) ? $key : '<%= key %>';
                     <?= $this->Html->link(__('List Bill Of Records'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
                 </div>
                 <div class="card-body">
+                <?= $this->Form->create($invoice) ?>
                     <div class="column-responsive column-80">
                         <div class="skus form content">
-                            <?= $this->Form->create($invoice) ?>
+                            
                             <fieldset>
                                 <div class="form-label">
                                     <?php
@@ -62,7 +63,7 @@ $key = isset($key) ? $key : '<%= key %>';
                                 <h4>Additional Costs</h4>
                                 <div id="additionalcosts-container">
                                     <div class="row additionalcosts-row">
-                                        <?php echo $this->Form->hidden("additionalcosts.0.id",['class'=>'form-control']);?>
+                                        
                                         <div style="display: table">
                                             <div style="display: table-row">
                                                 <div style="width: 13%; display: table-cell; padding-right: 2%">
@@ -107,12 +108,12 @@ $key = isset($key) ? $key : '<%= key %>';
 
                                     <script id="additionalcosts-template" type="text/x-underscore-template">
                                         <div class="row additionalcosts-row">
-                                            <?php echo $this->Form->hidden("additionalcosts.{$key}.id",['class'=>'form-control']);?>
+                                            
                                             <div style="display: table">
                                                 <div style="display: table-row">
                                                     <div style="width: 13%; display: table-cell; padding-right: 2%">
                                                         <div class="form-label">
-                                                            Cost
+                                                            
                                                             <?php
                                                             echo $this->Form->control("additionalcosts.{$key}.name",['class'=>'form-control','label'=>'Cost',
                                                          'options'=>[
@@ -164,16 +165,17 @@ $key = isset($key) ? $key : '<%= key %>';
                                             <div style="display: table">
                                                 <div style="display: table-row">
                                                     <div style="width: 13%; display: table-cell; padding-right: 2%">
+                                                    
                                                         <div class="form-label">
                                                             <?php
-                                                            echo $this->Form->control("sku_id",['options'=>$skus,'class'=>'form-control']);
+                                                            echo $this->Form->control("orders.0.sku_id",['label'=>'SKU','options'=>$skus,'class'=>'form-control']);
                                                             ?>
                                                         </div>
                                                     </div>
                                                     <div style="width: 13%; display: table-cell; padding-right: 2%">
                                                         <div class="form-label">
                                                             <?php
-                                                            echo $this->Form->control("quantity",['class'=>'form-control']);
+                                                            echo $this->Form->control("orders.0.quantity",['class'=>'form-control']);
                                                             ?>
                                                         </div>
                                                     </div>
@@ -191,14 +193,14 @@ $key = isset($key) ? $key : '<%= key %>';
                                                         <div style="width: 13%; display: table-cell; padding-right: 2%">
                                                             <div class="form-label">
                                                                 <?php
-                                                                echo $this->Form->control("sku_id",['options'=>$skus,'class'=>'form-control']);
+                                                                echo $this->Form->control("orders.{$key}.sku_id",['options'=>$skus,'class'=>'form-control']);
                                                                 ?>
                                                             </div>
                                                         </div>
                                                         <div style="width: 13%; display: table-cell; padding-right: 2%">
                                                             <div class="form-label">
                                                                 <?php
-                                                                echo $this->Form->control("Quantity",['class'=>'form-control']);
+                                                                echo $this->Form->control("orders.{$key}.quantity",['class'=>'form-control']);
                                                                 ?>
                                                             </div>
                                                         </div>

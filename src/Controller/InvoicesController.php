@@ -36,7 +36,7 @@ class InvoicesController extends AppController
     public function view($id = null)
     {
         $invoice = $this->Invoices->get($id, [
-            'contain' => [ 'Factories', 'InvoiceSku'],
+            'contain' => [ 'Factories'],
         ]);
 
         $this->set(compact('invoice'));
@@ -49,9 +49,10 @@ class InvoicesController extends AppController
      */
     public function add()
     {
-        $invoice = $this->Invoices->newEmptyEntity();
+        $invoice = $this->Invoices->newEmptyEntity(['associated'=>['Additionalcosts','Orders']]);
         if ($this->request->is('post')) {
-            $invoice = $this->Invoices->patchEntity($invoice, $this->request->getData(), ['associated'=>['Additionalcosts']]);
+            $invoice = $this->Invoices->patchEntity($invoice, $this->request->getData());
+            //debug($this->request->getData()); exit;
             if ($this->Invoices->save($invoice)) {
 
                 //debug($invoice); exit;
@@ -59,7 +60,7 @@ class InvoicesController extends AppController
 
                 return $this->redirect(['action' => 'index']);
             }
-            debug($invoice); exit;
+            //debug($invoice); exit;
             $this->Flash->error(__('The invoice could not be saved. Please, try again.'));
         }
         $this->loadModel('Skus');

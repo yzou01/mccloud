@@ -13,7 +13,7 @@ use Cake\Validation\Validator;
  *
  * @property \App\Model\Table\FactoriesTable&\Cake\ORM\Association\BelongsTo $Factories
  * @property \App\Model\Table\AdditionalcostsTable&\Cake\ORM\Association\HasMany $Additionalcosts
- * @property \App\Model\Table\SkusTable&\Cake\ORM\Association\BelongsToMany $Skus
+ * @property \App\Model\Table\OrdersTable&\Cake\ORM\Association\HasMany $Orders
  *
  * @method \App\Model\Entity\Invoice newEmptyEntity()
  * @method \App\Model\Entity\Invoice newEntity(array $data, array $options = [])
@@ -52,10 +52,8 @@ class InvoicesTable extends Table
         $this->hasMany('Additionalcosts', [
             'foreignKey' => 'invoice_id',
         ]);
-        $this->belongsToMany('Skus', [
+        $this->hasMany('Orders', [
             'foreignKey' => 'invoice_id',
-            'targetForeignKey' => 'skus_id',
-            'joinTable' => 'invoices_skus',
         ]);
     }
 

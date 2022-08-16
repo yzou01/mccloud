@@ -18,7 +18,7 @@ use Cake\ORM\Entity;
  *
  * @property \App\Model\Entity\Factory $factory
  * @property \App\Model\Entity\Additionalcost[] $additionalcosts
- * @property \App\Model\Entity\Skus[] $skus
+ * @property \App\Model\Entity\Order[] $orders
  */
 class Invoice extends Entity
 {
@@ -40,6 +40,6 @@ class Invoice extends Entity
         'factory_id' => true,
         'factory' => true,
         'additionalcosts' => true,
-        'skus' => true,
+        'orders' => true,
     ];
 }

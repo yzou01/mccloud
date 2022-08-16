@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\InvoicesSkusTable;
+use App\Model\Table\OrdersTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\InvoicesSkusTable Test Case
+ * App\Model\Table\OrdersTable Test Case
  */
-class InvoicesSkusTableTest extends TestCase
+class OrdersTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\InvoicesSkusTable
+     * @var \App\Model\Table\OrdersTable
      */
-    protected $InvoicesSkus;
+    protected $Orders;
 
     /**
      * Fixtures
@@ -24,7 +24,7 @@ class InvoicesSkusTableTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
-        'app.InvoicesSkus',
+        'app.Orders',
         'app.Invoices',
         'app.Skus',
     ];
@@ -37,8 +37,8 @@ class InvoicesSkusTableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('InvoicesSkus') ? [] : ['className' => InvoicesSkusTable::class];
-        $this->InvoicesSkus = $this->getTableLocator()->get('InvoicesSkus', $config);
+        $config = $this->getTableLocator()->exists('Orders') ? [] : ['className' => OrdersTable::class];
+        $this->Orders = $this->getTableLocator()->get('Orders', $config);
     }
 
     /**
@@ -48,7 +48,7 @@ class InvoicesSkusTableTest extends TestCase
      */
     protected function tearDown(): void
     {
-        unset($this->InvoicesSkus);
+        unset($this->Orders);
 
         parent::tearDown();
     }
@@ -57,7 +57,7 @@ class InvoicesSkusTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
-     * @uses \App\Model\Table\InvoicesSkusTable::validationDefault()
+     * @uses \App\Model\Table\OrdersTable::validationDefault()
      */
     public function testValidationDefault(): void
     {
@@ -68,7 +68,7 @@ class InvoicesSkusTableTest extends TestCase
      * Test buildRules method
      *
      * @return void
-     * @uses \App\Model\Table\InvoicesSkusTable::buildRules()
+     * @uses \App\Model\Table\OrdersTable::buildRules()
      */
     public function testBuildRules(): void
     {

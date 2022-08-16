@@ -1,7 +1,7 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \App\Model\Entity\InvoicesSkus $invoicesSkus
+ * @var \App\Model\Entity\Order $order
  * @var \Cake\Collection\CollectionInterface|string[] $invoices
  * @var \Cake\Collection\CollectionInterface|string[] $skus
  */
@@ -10,15 +10,17 @@
     <aside class="column">
         <div class="side-nav">
             <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('List Invoices Skus'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+            <?= $this->Html->link(__('List Orders'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
         </div>
     </aside>
     <div class="column-responsive column-80">
-        <div class="invoicesSkus form content">
-            <?= $this->Form->create($invoicesSkus) ?>
+        <div class="orders form content">
+            <?= $this->Form->create($order) ?>
             <fieldset>
-                <legend><?= __('Add Invoices Skus') ?></legend>
+                <legend><?= __('Add Order') ?></legend>
                 <?php
+                    echo $this->Form->control('invoice_id', ['options' => $invoices]);
+                    echo $this->Form->control('sku_id', ['options' => $skus]);
                     echo $this->Form->control('quantity');
                 ?>
             </fieldset>
