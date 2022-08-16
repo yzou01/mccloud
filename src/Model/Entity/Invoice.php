@@ -13,11 +13,12 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenDate $date
  * @property string $currency_of_origin
  * @property float $currency_rate
+ * @property float|null $gst
  * @property int $factory_id
  *
  * @property \App\Model\Entity\Factory $factory
  * @property \App\Model\Entity\Additionalcost[] $additionalcosts
- * @property \App\Model\Entity\Skus[] $skus
+ * @property \App\Model\Entity\Order[] $orders
  */
 class Invoice extends Entity
 {
@@ -35,9 +36,10 @@ class Invoice extends Entity
         'date' => true,
         'currency_of_origin' => true,
         'currency_rate' => true,
+        'gst' => true,
         'factory_id' => true,
         'factory' => true,
         'additionalcosts' => true,
-        'skus' => true,
+        'orders' => true,
     ];
 }

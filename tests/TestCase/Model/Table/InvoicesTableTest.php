@@ -27,7 +27,7 @@ class InvoicesTableTest extends TestCase
         'app.Invoices',
         'app.Factories',
         'app.Additionalcosts',
-        'app.Skus',
+        'app.Orders',
     ];
 
     /**

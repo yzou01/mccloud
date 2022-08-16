@@ -13,7 +13,6 @@ use Cake\Validation\Validator;
  *
  * @property \App\Model\Table\TypesTable&\Cake\ORM\Association\BelongsTo $Types
  * @property \App\Model\Table\FactoriesTable&\Cake\ORM\Association\BelongsTo $Factories
- * @property \App\Model\Table\InvoicesTable&\Cake\ORM\Association\BelongsToMany $Invoices
  *
  * @method \App\Model\Entity\Skus newEmptyEntity()
  * @method \App\Model\Entity\Skus newEntity(array $data, array $options = [])
@@ -52,11 +51,6 @@ class SkusTable extends Table
         $this->belongsTo('Factories', [
             'foreignKey' => 'factory_id',
             'joinType' => 'INNER',
-        ]);
-        $this->belongsToMany('Invoices', [
-            'foreignKey' => 'skus_id',
-            'targetForeignKey' => 'invoice_id',
-            'joinTable' => 'invoices_skus',
         ]);
     }
 
