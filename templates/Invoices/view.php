@@ -60,9 +60,9 @@
                             <td><?= h($invoiceSku->sku_id) ?></td>
                             <td><?= h($invoiceSku->quantity) ?></td>
                             <td class="actions">
-                                <?= $this->Html->link(__('View'), ['controller' => 'InvoiceSku', 'action' => 'view', $invoiceSku->]) ?>
-                                <?= $this->Html->link(__('Edit'), ['controller' => 'InvoiceSku', 'action' => 'edit', $invoiceSku->]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'InvoiceSku', 'action' => 'delete', $invoiceSku->], ['confirm' => __('Are you sure you want to delete # {0}?', $invoiceSku->)]) ?>
+                                <?= $this->Html->link(__('View'), ['controller' => 'InvoiceSku', 'action' => 'view', $invoiceSku->id]) ?>
+                                <?= $this->Html->link(__('Edit'), ['controller' => 'InvoiceSku', 'action' => 'edit', $invoiceSku->id]) ?>
+                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'InvoiceSku', 'action' => 'delete', $invoiceSku->id], ['confirm' => __('Are you sure you want to delete # {0}?', $invoiceSku->)]) ?>
                             </td>
                         </tr>
                         <?php endforeach; ?>

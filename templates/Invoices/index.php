@@ -11,11 +11,9 @@
         <?php echo $this->element('navbar/sidebar') ?>
         <div id="layoutSidenav_content">
             <main>
-                <br><br>
-                <div class=" card mb-4">
-
+                <div class=" card mb-4" style="margin-top: 50px">
                     <div class="card-header  ">
-                        <i class="fas fa-table me-1"></i>
+                        <i class="fa-solid fa-receipt" style="padding-top: 11px; padding-right: 2px" ></i>
                         Bill Of Records
                         <?= $this->Html->link(__('New Bill Of Records'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
                     </div>

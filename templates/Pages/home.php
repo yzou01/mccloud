@@ -6,9 +6,17 @@
         <!-- navbar -->
         <?php echo $this->element('navbar/navbar')?>
         <div id="layoutSidenav">
-        <?php echo $this->element('navbar/sidebar')?>
+            <?php echo $this->element('navbar/sidebar')?>
             <div id="layoutSidenav_content">
-<!--                <main>-->
+                <main>
+                    <div class=" card mb-4" style="margin-top: 50px">
+                        <div class="card-header">
+                            <i class="fa-solid fa-chart-line" style="padding-top: 11px; padding-right: 2px"></i>
+                            Analytics
+                        </div>
+                        <div class="card-body">
+                            <em style="color: grey">Coming soon in later iterations</em>
+                        </div>
 <!--                    <div class="container-fluid px-4">-->
 <!--                        <h1 class="mt-4">Dashboard</h1>-->
 <!--                        <ol class="breadcrumb mb-4">-->
@@ -114,20 +122,20 @@
 <!--                            </div>-->
 <!--                        </div>-->
 <!--                    </div>-->
-<!--                </main>-->
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2022</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
+                </main>
+<!--                <footer class="py-4 bg-light mt-auto">-->
+<!--                    <div class="container-fluid px-4">-->
+<!--                        <div class="d-flex align-items-center justify-content-between small">-->
+<!--                            <div class="text-muted">Copyright &copy; Your Website 2022</div>-->
+<!--                            <div>-->
+<!--                                <a href="#">Privacy Policy</a>-->
+<!--                                &middot;-->
+<!--                                <a href="#">Terms &amp; Conditions</a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </footer>-->
             </div>
         </div>
-            </body>
+    </body>
 </html>

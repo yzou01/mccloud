@@ -61,7 +61,6 @@ class SkusController extends AppController
         }
         $types = $this->Skus->Types->find('list', ['limit' => 200])->all();
         $factories = $this->Skus->Factories->find('list', ['limit' => 200])->all();
-        $invoices = $this->Skus->Invoices->find('list', ['limit' => 200])->all();
         $this->set(compact('skus', 'types', 'factories', 'invoices'));
     }
 
@@ -88,7 +87,7 @@ class SkusController extends AppController
         }
         $types = $this->Skus->Types->find('list', ['limit' => 200])->all();
         $factories = $this->Skus->Factories->find('list', ['limit' => 200])->all();
-        
+
         $this->set(compact('skus', 'types', 'factories', 'invoices'));
     }
 

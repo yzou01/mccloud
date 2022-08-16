@@ -10,10 +10,9 @@
         <?php echo $this->element('navbar/sidebar')?>
         <div id="layoutSidenav_content">
             <main>
-                <br><br>
-                <div class=" card mb-4">
+                <div class=" card mb-4" style="margin-top: 50px">
                     <div class="card-header">
-                        <i class="fas fa-table me-1" style="padding-top: 11px"></i>
+                        <i class="fa-solid fa-rectangle-list" style="padding-top: 11px; padding-right: 2px"></i>
                         Product Types
                         <?= $this->Form->postLink(
                             __('Delete'),

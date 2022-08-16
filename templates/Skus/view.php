@@ -10,10 +10,9 @@
         <?php echo $this->element('navbar/sidebar')?>
         <div id="layoutSidenav_content">
             <main>
-                <br><br>
-                <div class=" card mb-4">
+                <div class=" card mb-4" style="margin-top: 50px">
                     <div class="card-header">
-                        <i class="fas fa-table me-1" style="padding-top: 11px"></i>
+                        <i class="fa-solid fa-bag-shopping" style="padding-top: 11px; padding-right: 2px"></i>
                         SKUs
                         <?= $this->Form->postLink(__('Delete SKUs'), ['action' => 'delete', $skus->id], ['confirm' => __('Are you sure you want to delete # {0}?', $skus->id), 'class' => 'btn btn-danger', 'style' => 'float: right']) ?>
                         <?= $this->Html->link(__('Edit SKUs'), ['action' => 'edit', $skus->id], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px;']) ?>
@@ -25,27 +24,28 @@
                             <div class="column-responsive column-80">
                                 <div class="skus view content">
                                     <h3><?= h($skus->name) ?></h3>
-                                    <table>
-                                    <tr>
-                                            <th><?= __('ID') ?></th>
-                                            <td><?= $this->Number->format($skus->id) ?></td>
-                                        </tr>
-                                        
-                                        <tr>
-                                            <th><?= __('Factory') ?></th>
-                                            <td><?= $skus->factory->name ?></td>
-                                        </tr>
-                                        <tr>
-                                            <th><?= __('Type') ?></th>
-                                            <td><?= $skus->type->name ?></td>
-                                        </tr>
-
-                                        
-                                        <tr>
-                                            <th><?= __('Price') ?></th>
-                                            <td><?= $this->Number->format($skus->price) ?></td>
-                                        </tr>
-                                    </table>
+                                    <fieldset>
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->control('ID',['label'=> 'ID', 'value'=> $this->Number->format($skus->id),'class'=>'form-control', 'disabled' => 'true']);
+                                            ?>
+                                        </div>
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->control('Factory',['label'=> 'Factory', 'value'=> $skus->factory->name,'class'=>'form-control', 'disabled' => 'true']);
+                                            ?>
+                                        </div>
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->control('Type',['label'=> 'Type', 'value'=> $skus->type->name,'class'=>'form-control', 'disabled' => 'true']);
+                                            ?>
+                                        </div>
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->control('Price',['label'=> 'Price', 'value'=> $this->Number->format($skus->price),'class'=>'form-control', 'disabled' => 'true']);
+                                            ?>
+                                        </div>
+                                    </fieldset>
                                 </div>
                             </div>
                         </div>

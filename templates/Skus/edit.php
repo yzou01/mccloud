@@ -12,11 +12,10 @@
         <?php echo $this->element('navbar/sidebar')?>
         <div id="layoutSidenav_content">
             <main>
-                <br><br>
-                <div class=" card mb-4">
+                <div class=" card mb-4" style="margin-top: 50px">
                     <div class="card-header">
-                        <i class="fas fa-table me-1" style="padding-top: 11px"></i>
-                        Product Types
+                        <i class="fa-solid fa-bag-shopping" style="padding-top: 11px; padding-right: 2px"></i>
+                        SKUs
                         <?= $this->Form->postLink(
                             __('Delete'),
                             ['action' => 'delete', $skus->id],

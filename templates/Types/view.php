@@ -11,10 +11,9 @@
         <?php echo $this->element('navbar/sidebar')?>
         <div id="layoutSidenav_content">
             <main>
-                <br><br>
-                <div class=" card mb-4">
+                <div class=" card mb-4" style="margin-top: 50px">
                     <div class="card-header">
-                        <i class="fas fa-table me-1" style="padding-top: 11px"></i>
+                        <i class="fa-solid fa-rectangle-list" style="padding-top: 11px; padding-right: 2px"></i>
                         Product Types
                         <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $type->id], ['confirm' => __('Are you sure you want to delete # {0}?', $type->id), 'class' => 'btn btn-danger', 'style' => 'float: right']) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $type->id], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px;']) ?>
@@ -26,18 +25,14 @@
                             <div class="column-responsive column-80">
                                 <div class="types view content">
                                     <h3><?= h($type->name) ?></h3>
-                                    <table>
-                                        <tr>
-                                            <th style="width: 100px"><?= __('Name') ?></th>
-                                            <td><?= h($type->name) ?></td>
-                                        </tr>
-                                        <tr>
-                                            <th><?= __('ID') ?></th>
-                                            <td><?= $this->Number->format($type->id) ?></td>
-                                        </tr>
-                                    </table>
-                                    <br>
-                                    <div class="related">
+                                    <fieldset>
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->control('ID',['label'=> 'ID', 'value'=> $this->Number->format($type->id),'class'=>'form-control', 'disabled' => 'true']);
+                                            ?>
+                                        </div>
+                                    </fieldset>
+                                    <div class="related" style="margin-top: 15px">
                                         <h4><?= __('Related Skus') ?></h4>
                                         <?php if (!empty($type->skus)) : ?>
                                         <table id="datatablesSimple">
