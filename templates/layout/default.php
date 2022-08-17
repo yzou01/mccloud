@@ -32,8 +32,8 @@
 <body>
 
 <?=$this->Html->meta(
-            'mccloud-shoes-melb-pty-ltd-melbourne-3000-billboard-large.jpg',
-            'Assets/mccloud-shoes-melb-pty-ltd-melbourne-3000-billboard-large.jpg',
+            'mccloud-shoes-melb-pty-ltd-melbourne-3000-billboard-large.ico',
+            'Assets/mccloud-shoes-melb-pty-ltd-melbourne-3000-billboard-large.ico',
             ['type' => 'icon']
             );?>
 
