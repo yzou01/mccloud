@@ -18,7 +18,7 @@
                         <?= $this->Html->link(__('Edit Factory'), ['action' => 'edit',$factory->id], ['class' => 'btn btn-primary', 'style' => 'float: right;margin-right: 5px;']) ?>
                         <?= $this->Html->link(__('List Factories'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right;margin-right: 5px;']) ?>
 
-                        <?= $this->Html->link(__('Add Product'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'float: right;margin-right: 5px;']) ?>
+                        <?= $this->Html->link(__('Add Factory'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'float: right;margin-right: 5px;']) ?>
                     </div>
                     <div class="card-body">
                         <legend><?= __('Related Product') ?></legend>
