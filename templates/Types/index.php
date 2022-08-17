@@ -13,7 +13,8 @@
             <main>
                 <div class=" card mb-4" style="margin-top: 50px">
                     <div class="card-header">
-                        <i class="fa-solid fa-rectangle-list" style="padding-top: 11px; padding-right: 2px"></i>Product Types
+                        <i class="fa-solid fa-rectangle-list" style="padding-top: 11px; padding-right: 2px"></i>
+                        Product Types
                         <?= $this->Html->link(__('New Product Type'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'float: right']) ?>
 <!--                        position: relative; left: 72%-->
                     </div>
@@ -34,7 +35,7 @@
                                     <td class="actions">
                                         <?= $this->Html->link(__('View'), ['action' => 'view', $type->id]) ?>
                                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $type->id]) ?>
-                                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $type->id], ['confirm' => __('Are you sure you want to delete # {0}?', $type->id)]) ?>
+<!--                                        <= $this->Form->postLink(__('Delete'), ['action' => 'delete', $type->id], ['confirm' => __('Are you sure you want to delete # {0}?', $type->id)]) ?>-->
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

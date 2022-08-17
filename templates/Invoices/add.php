@@ -15,7 +15,7 @@ $key = isset($key) ? $key : '<%= key %>';
                 <div class=" card mb-4" style="margin-top: 50px">
                     <div class="card-header">
                         <i class="fa-solid fa-receipt" style="padding-top: 11px; padding-right: 2px"></i>
-                        Add Bill Of Records
+                        Bill Of Records
                         <?= $this->Html->link(__('List Bill Of Records'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
                     </div>
                     <div class="card-body">
@@ -172,7 +172,7 @@ $key = isset($key) ? $key : '<%= key %>';
                                                             <div style="width: 25%; display: table-cell; padding-right: 2%">
                                                                 <div class="form-label">
                                                                     <?php
-                                                                    echo $this->Form->control("orders.0.sku_id",['label'=>'SKU','options'=>$skus,'class'=>'form-select']);
+                                                                    echo $this->Form->control("orders.0.sku_id",['label'=>'Product','options'=>$skus,'class'=>'form-select']);
                                                                     ?>
                                                                 </div>
                                                             </div>
@@ -197,7 +197,7 @@ $key = isset($key) ? $key : '<%= key %>';
                                                                 <div style="width: 25%; display: table-cell; padding-right: 2%">
                                                                     <div class="form-label">
                                                                         <?php
-                                                                        echo $this->Form->control("orders.{$key}.sku_id",['label'=>'SKU', 'options'=>$skus,'class'=>'form-select']);
+                                                                        echo $this->Form->control("orders.{$key}.sku_id",['label'=>'Product', 'options'=>$skus,'class'=>'form-select']);
                                                                         ?>
                                                                     </div>
                                                                 </div>

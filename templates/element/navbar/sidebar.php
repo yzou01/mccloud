@@ -19,9 +19,9 @@
                                     <a class="nav-link" href="<?php echo $this->Url->build(['controller'=>'Invoices','action'=>'index']) ?>">Manage Bill of Records</a>
                                 </nav>
                             </div>
-                            <a class="nav-link" href="<?php echo $this->Url->build(['controller'=>'Skus','action'=>'add']) ?>">
+                            <a class="nav-link" href="<?php echo $this->Url->build(['controller'=>'Skus','action'=>'index']) ?>">
                                 <div class="sb-nav-link-icon" style="padding-left:2px"><i class="fa-solid fa-bag-shopping"></i></div>
-                                Add New Product
+                                Products
                             </a>
                             <div class="sb-sidenav-menu-heading">Sources</div>
                             <a class="nav-link" href=<?php echo $this->Url->build(['controller'=>'Factories','action'=>'index']) ?>>
@@ -30,7 +30,7 @@
                             </a>
                             <a class="nav-link" href=<?php echo $this->Url->build(['controller'=>'Types','action'=>'index']) ?>>
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-rectangle-list"></i></div>
-                                Type of Products
+                                Product Types
                             </a>
                         </div>
                     </div>

@@ -15,7 +15,7 @@
                     <div class="card-header  ">
                         <i class="fa-solid fa-receipt" style="padding-top: 11px; padding-right: 2px" ></i>
                         Bill Of Records
-                        <?= $this->Html->link(__('New Bill Of Records'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
+                        <?= $this->Html->link(__('Add Bill Of Records'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
                     </div>
                     <div class="card-body">
                         <table id="datatablesSimple">
@@ -27,7 +27,7 @@
                                 <th><?= $this->Paginator->sort('factory_id') ?></th>
                                 <th><?= $this->Paginator->sort('currency_of_origin') ?></th>
                                 <th><?= $this->Paginator->sort('currency_rate') ?></th>
-                                <th><?= $this->Paginator->sort('add_cost_id') ?></th>
+                                <th><?= $this->Paginator->sort('gst') ?></th>
                                 <th class="actions"><?= __('Actions') ?></th>
                             </tr>
                             </thead>
@@ -40,11 +40,11 @@
                                     <td><?= h($invoice->factory_id) ?></td>
                                     <td><?= h($invoice->currency_of_origin) ?></td>
                                     <td><?= $this->Number->format($invoice->currency_rate) ?></td>
-                                    <td><?= $invoice->has('add_cost') ? $this->Html->link($invoice->add_cost->id, ['controller' => 'Addcosts', 'action' => 'view', $invoice->add_cost->id]) : '' ?></td>
+                                    <td><?= h($invoice->gst) ?></td>
                                     <td class="actions">
                                         <?= $this->Html->link(__('View'), ['action' => 'view', $invoice->id]) ?>
                                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $invoice->id]) ?>
-                                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $invoice->id], ['confirm' => __('Are you sure you want to delete # {0}?', $invoice->id)]) ?>
+<!--                                        <= $this->Form->postLink(__('Delete'), ['action' => 'delete', $invoice->id], ['confirm' => __('Are you sure you want to delete # {0}?', $invoice->id)]) ?>-->
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

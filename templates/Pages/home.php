@@ -10,7 +10,7 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class=" card mb-4" style="margin-top: 50px">
-                        <div class="card-header">
+                        <div class="card-header" style="padding-bottom: 15px">
                             <i class="fa-solid fa-chart-line" style="padding-top: 11px; padding-right: 2px"></i>
                             Analytics
                         </div>

@@ -12,8 +12,9 @@
             <main>
                 <div class=" card mb-4" style="margin-top: 50px">
                     <div class="card-header">
-                        <i class="fa-solid fa-bag-shopping" style="padding-top: 11px; padding-right: 2px"></i>SKUs
-                        <?= $this->Html->link(__('New Skus'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'float: right']) ?>
+                        <i class="fa-solid fa-bag-shopping" style="padding-top: 11px; padding-right: 2px"></i>
+                        Products
+                        <?= $this->Html->link(__('Add Product'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'float: right']) ?>
                     </div>
                     <div class="card-body">
                         <table id="datatablesSimple">
@@ -45,7 +46,7 @@
                                     <td class="actions">
                                         <?= $this->Html->link(__('View'), ['controller' => 'Skus','action' => 'view', $skus->id]) ?>
                                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $skus->id]) ?>
-                                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $skus->id], ['confirm' => __('Are you sure you want to delete # {0}?', $skus->id)]) ?>
+<!--                                        <= $this->Form->postLink(__('Delete'), ['action' => 'delete', $skus->id], ['confirm' => __('Are you sure you want to delete # {0}?', $skus->id)]) ?>-->
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

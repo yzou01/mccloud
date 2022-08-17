@@ -13,7 +13,8 @@
             <main>
                 <div class=" card mb-4" style="margin-top: 50px">
                     <div class="card-header">
-                        <i class="fa-solid fa-industry" style="padding-top: 11px; padding-right: 2px"></i>Factories
+                        <i class="fa-solid fa-industry" style="padding-top: 11px; padding-right: 2px"></i>
+                        Factories
                         <?= $this->Html->link(__('Back'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right']) ?>
                     </div>
                     <div class="card-body">

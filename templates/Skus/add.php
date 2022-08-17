@@ -15,15 +15,15 @@
                 <div class=" card mb-4" style="margin-top: 50px">
                     <div class="card-header">
                         <i class="fa-solid fa-bag-shopping" style="padding-top: 11px; padding-right: 2px"></i>
-                        SKUs
-                        <?= $this->Html->link(__('List Skus'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
+                        Products
+                        <?= $this->Html->link(__('List Products'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
                     </div>
                     <div class="card-body">
                         <div class="column-responsive column-80">
                             <div class="skus form content">
                                 <?= $this->Form->create($skus) ?>
                                 <fieldset>
-                                    <legend><?= __('Add Skus') ?></legend>
+                                    <legend><?= __('Add Products') ?></legend>
                                     <div class="form-label">
                                         <?php
                                             echo $this->Form->control('name',['class'=>'form-control']);

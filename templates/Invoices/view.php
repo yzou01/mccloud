@@ -4,72 +4,99 @@
  * @var \App\Model\Entity\Invoice $invoice
  */
 ?>
-<div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('Edit Invoice'), ['action' => 'edit', $invoice->id], ['class' => 'side-nav-item']) ?>
-            <?= $this->Form->postLink(__('Delete Invoice'), ['action' => 'delete', $invoice->id], ['confirm' => __('Are you sure you want to delete # {0}?', $invoice->id), 'class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('List Invoices'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('New Invoice'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
-    <div class="column-responsive column-80">
-        <div class="invoices view content">
-            <h3><?= h($invoice->id) ?></h3>
-            <table>
-                <tr>
-                    <th><?= __('Number') ?></th>
-                    <td><?= h($invoice->number) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Currency Of Origin') ?></th>
-                    <td><?= h($invoice->currency_of_origin) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Add Cost') ?></th>
-                    <td><?= $invoice->has('add_cost') ? $this->Html->link($invoice->add_cost->id, ['controller' => 'Addcosts', 'action' => 'view', $invoice->add_cost->id]) : '' ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Id') ?></th>
-                    <td><?= $this->Number->format($invoice->id) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Currency Rate') ?></th>
-                    <td><?= $this->Number->format($invoice->currency_rate) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Date') ?></th>
-                    <td><?= h($invoice->date) ?></td>
-                </tr>
-            </table>
-            <div class="related">
-                <h4><?= __('Related Invoice Sku') ?></h4>
-                <?php if (!empty($invoice->invoice_sku)) : ?>
-                <div class="table-responsive">
-                    <table>
-                        <tr>
-                            <th><?= __('Invoice Id') ?></th>
-                            <th><?= __('Sku Id') ?></th>
-                            <th><?= __('Quantity') ?></th>
-                            <th class="actions"><?= __('Actions') ?></th>
-                        </tr>
-                        <?php foreach ($invoice->invoice_sku as $invoiceSku) : ?>
-                        <tr>
-                            <td><?= h($invoiceSku->invoice_id) ?></td>
-                            <td><?= h($invoiceSku->sku_id) ?></td>
-                            <td><?= h($invoiceSku->quantity) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('View'), ['controller' => 'InvoiceSku', 'action' => 'view', $invoiceSku->id]) ?>
-                                <?= $this->Html->link(__('Edit'), ['controller' => 'InvoiceSku', 'action' => 'edit', $invoiceSku->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'InvoiceSku', 'action' => 'delete', $invoiceSku->id], ['confirm' => __('Are you sure you want to delete # {0}?', $invoiceSku->)]) ?>
-                            </td>
-                        </tr>
-                        <?php endforeach; ?>
-                    </table>
+
+<body class="sb-nav-fixed">
+    <?php echo $this->element('navbar/navbar')?>
+    <div id="layoutSidenav">
+        <?php echo $this->element('navbar/sidebar')?>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class=" card mb-4" style="margin-top: 50px">
+                    <div class="card-header">
+                        <i class="fa-solid fa-receipt" style="padding-top: 11px; padding-right: 2px"></i>
+                        Bill Of Records
+                        <?= $this->Html->link(__('Edit Bill of Records'), ['action' => 'edit', $invoice->id], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px;']) ?>
+<!--                        <= $this->Form->postLink(__('Delete Invoice'), ['action' => 'delete', $invoice->id], ['confirm' => __('Are you sure you want to delete # {0}?', $invoice->id), 'class' => 'side-nav-item']) ?>-->
+                        <?= $this->Html->link(__('List Bill of Records'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px;']) ?>
+                        <?= $this->Html->link(__('Add Bill of Records'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px;']) ?>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="column-responsive column-80">
+                                <div class="invoices view content">
+                                    <legend><?= h($invoice->id) ?></legend>
+                                    <fieldset>
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->control('Number',['label'=> 'Number', 'value'=> h($invoice->number),'class'=>'form-control', 'disabled' => 'true']);
+                                            ?>
+                                        </div>
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->control('Currency',['label'=> 'Currency', 'value'=> h($invoice->currency_of_origin),'class'=>'form-control', 'disabled' => 'true']);
+                                            ?>
+                                        </div>
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->control('ID',['label'=> 'ID', 'value'=> $this->Number->format($invoice->id),'class'=>'form-control', 'disabled' => 'true']);
+                                            ?>
+                                        </div>
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->control('Exchange Rate',['label'=> 'Exchange Rate', 'value'=> $this->Number->format($invoice->currency_rate),'class'=>'form-control', 'disabled' => 'true']);
+                                            ?>
+                                        </div>
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->control('GST',['label'=> 'GST', 'value'=> $this->Number->format($invoice->gst),'class'=>'form-control', 'disabled' => 'true']);
+                                            ?>
+                                        </div>
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->control('Date',['label'=> 'Date', 'value'=> h($invoice->date),'class'=>'form-control', 'disabled' => 'true']);
+                                            ?>
+                                        </div>
+                                    </fieldset>
+
+                                    <div class="related">
+                                        <h4><?= __('Related Invoice Sku') ?></h4>
+                                        <?php if (!empty($invoice->order)) : ?>
+                                            <div class="table-responsive">
+                                                <table>
+                                                    <tr>
+                                                        <th><?= __('Invoice Id') ?></th>
+                                                        <th><?= __('Sku Id') ?></th>
+                                                        <th><?= __('Quantity') ?></th>
+                                                        <th class="actions"><?= __('Actions') ?></th>
+                                                    </tr>
+                                                    <?php foreach ($invoice->order as $order) : ?>
+                                                        <tr>
+                                                            <td><?= h($order->invoice_id) ?></td>
+                                                            <td><?= h($order->sku_id) ?></td>
+                                                            <td><?= h($order->quantity) ?></td>
+                                                            <td class="actions">
+                                                                <?= $this->Html->link(__('View'), ['controller' => 'Order', 'action' => 'view', $order->id]) ?>
+                                                                <?= $this->Html->link(__('Edit'), ['controller' => 'Order', 'action' => 'edit', $order->id]) ?>
+                                                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Order', 'action' => 'delete', $order->id], ['confirm' => __('Are you sure you want to delete # {0}?', $order->id)]) ?>
+                                                            </td>
+                                                        </tr>
+                                                    <?php endforeach; ?>
+                                                </table>
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <?php endif; ?>
-            </div>
+            </main>
         </div>
     </div>
-</div>
+</body>
+
+
+
+
+
+

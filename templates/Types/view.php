@@ -15,7 +15,7 @@
                     <div class="card-header">
                         <i class="fa-solid fa-rectangle-list" style="padding-top: 11px; padding-right: 2px"></i>
                         Product Types
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $type->id], ['confirm' => __('Are you sure you want to delete # {0}?', $type->id), 'class' => 'btn btn-danger', 'style' => 'float: right']) ?>
+<!--                        <= $this->Form->postLink(__('Delete'), ['action' => 'delete', $type->id], ['confirm' => __('Are you sure you want to delete # {0}?', $type->id), 'class' => 'btn btn-danger', 'style' => 'float: right']) ?>-->
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $type->id], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px;']) ?>
                         <?= $this->Html->link(__('List Types'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px;']) ?>
                         <?= $this->Html->link(__('New Type'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px;']) ?>
@@ -24,7 +24,7 @@
                         <div class="row">
                             <div class="column-responsive column-80">
                                 <div class="types view content">
-                                    <h3><?= h($type->name) ?></h3>
+                                    <legend><?= h($type->name) ?></legend>
                                     <fieldset>
                                         <div class="form-label">
                                             <?php
@@ -33,7 +33,7 @@
                                         </div>
                                     </fieldset>
                                     <div class="related" style="margin-top: 15px">
-                                        <h4><?= __('Related Skus') ?></h4>
+                                        <h4><?= __('Related Products') ?></h4>
                                         <?php if (!empty($type->skus)) : ?>
                                         <table id="datatablesSimple">
                                             <thead>
@@ -57,7 +57,7 @@
                                                     <td class="actions">
                                                         <?= $this->Html->link(__('View'), ['controller' => 'Skus', 'action' => 'view', $skus->id]) ?>
                                                         <?= $this->Html->link(__('Edit'), ['controller' => 'Skus', 'action' => 'edit', $skus->id]) ?>
-                                                        <?= $this->Form->postLink(__('Delete'), ['controller' => 'Skus', 'action' => 'delete', $skus->id], ['confirm' => __('Are you sure you want to delete # {0}?', $skus->id)]) ?>
+<!--                                                        <= $this->Form->postLink(__('Delete'), ['controller' => 'Skus', 'action' => 'delete', $skus->id], ['confirm' => __('Are you sure you want to delete # {0}?', $skus->id)]) ?>-->
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>
