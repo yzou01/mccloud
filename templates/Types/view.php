@@ -41,7 +41,7 @@
                                                 <th><?= __('Id') ?></th>
                                                 <th><?= __('Name') ?></th>
                                                 <th><?= __('Price') ?></th>
-                                                <th><?= __('Type Id') ?></th>
+                                                
                                                 <th><?= __('Factory Id') ?></th>
                                                 <th class="actions"><?= __('Actions') ?></th>
                                             </tr>
@@ -52,7 +52,7 @@
                                                     <td><?= h($skus->id) ?></td>
                                                     <td><?= h($skus->name) ?></td>
                                                     <td><?= h($skus->price) ?></td>
-                                                    <td><?= h($skus->type_id) ?></td>
+                                                    
                                                     <td><?= h($skus->factory_id) ?></td>
                                                     <td class="actions">
                                                         <?= $this->Html->link(__('View'), ['controller' => 'Skus', 'action' => 'view', $skus->id]) ?>
