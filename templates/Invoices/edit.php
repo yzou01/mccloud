@@ -3,7 +3,7 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Invoice $invoice
  * @var string[]|\Cake\Collection\CollectionInterface $addCosts
- * @var \App\Model\Entity\Skus $skus
+ * @var \App\Model\Entity\Skus $sku
  * @var \App\Model\Entity\Additionalcost $additionalcosts
  */
 $key = isset($key) ? $key : '<%= key %>';
@@ -73,39 +73,37 @@ $key = isset($key) ? $key : '<%= key %>';
                                                 <div style="width: 13%; display: table-cell; padding-right: 2%">
                                                     <div class="form-label">
 
-                                                        <?php
-                                                        echo $this->Form->control("additionalcost.name",['class'=>'form-control','label'=>'Cost',
-                                                            'options'=>[
-                                                                'Duty'=>'Duty',
-                                                                'Freight'=>'Freight',
-                                                                'Cartage'=>'Cartage',
-                                                                'Insurance'=>'Insurance',
-                                                                'Licence'=>'Licence',
-                                                                'Agency'=>'Agency',
-                                                                'Customs'=>'Customs',
-                                                                'TT Charge'=>'TT Charge',
-                                                                'Others'=>'Others']
-                                                        ]);
-                                                        ?>
+                                                        <div class="input text required">
+                                                            <?php echo $this->Form->control('additionalcosts{$i}[name]',['label'=>'Cost','class'=>'form-control', 'value'=> $additionalcost -> name ,'options'=>[
+                                                                'Duty' => 'Duty',
+                                                                'Freight' => 'Freight',
+                                                                'Cartage' => 'Cartage',
+                                                                'Insurance' => 'Insurance',
+                                                                'Licence' => 'Licence',
+                                                                'Agency' => 'Agency',
+                                                                'Customs' => 'Customs',
+                                                                'TT Charge' => 'TT Charge',
+                                                                'Others' => 'Others'
+
+                                                            ]
+                                                            ]);?>
+
                                                     </div>
                                                 </div>
                                                 <div style="width: 10%;display: table-cell; padding-right: 2%">
                                                     <div class="form-label">
                                                         <div class="input text required">
-                                                            <label>Amount</label>
-                                                            <input type="number" name="additionalcosts[<?php echo $i?>][amount]" class="form-control" required="required"  value="<?php echo $additionalcost['amount']?>"/>
+                                                            <?php echo $this->Form->control('additionalcosts{$i}[amount]',['label'=>'Amount','class'=>'form-control', 'value'=> $additionalcost -> amount
+                                                            ]);?>
                                                         </div>
 
-                                                        <?php
-                                                        echo $this->Form->control("additionalcost",['class'=>'form-control']);
-                                                        ?>
                                                     </div>
                                                 </div>
                                                 <div style="width: 20%;display: table-cell; padding-right: 2%">
                                                     <div class="form-label">
-                                                        <?php
-                                                        echo $this->Form->control("additionalcost.comment",['class'=>'form-control']);
-                                                        ?>
+                                                        <?php echo $this->Form->control('additionalcosts{$i}[comment]',['label'=>'Comment','class'=>'form-control', 'value'=> $additionalcost -> comment
+                                                        ]);?>
+
                                                     </div>
                                                 </div>
                                                 <div style="width: 2%;display: table-cell">
@@ -125,6 +123,7 @@ $key = isset($key) ? $key : '<%= key %>';
                                             <div style="display: table-row">
                                                 <div style="width: 13%; display: table-cell; padding-right: 2%">
                                                     <div class="form-label">
+
 
                                                         <?php
                                                         echo $this->Form->control("additionalcosts.{$key}.name", ['class' => 'form-control', 'label' => 'Cost',
@@ -189,16 +188,16 @@ $key = isset($key) ? $key : '<%= key %>';
                                                 <div style="width: 13%; display: table-cell; padding-right: 2%">
 
                                                     <div class="form-label">
-                                                        <?php
-                                                        echo $this->Form->control("orders.0.sku_id", ['label' => 'SKU', 'options' => $skus, 'class' => 'form-control']);
-                                                        ?>
+                                                        <?php echo $this->Form->control('orders{$i}[sku_id]',['label'=>'SKU','class'=>'form-control', 'value'=> $sku->name
+                                                        ]);?>
+
+
                                                     </div>
                                                 </div>
                                                 <div style="width: 13%; display: table-cell; padding-right: 2%">
                                                     <div class="form-label">
-                                                        <?php
-                                                        echo $this->Form->control("orders.0.quantity", ['class' => 'form-control']);
-                                                        ?>
+                                                        <?php echo $this->Form->control('orders{$i}[quantity]',['label'=>'Quantity','class'=>'form-control', 'value'=> $order -> quantity
+                                                        ]);?>
                                                     </div>
                                                 </div>
                                                 <div style="width: 2%;display: table-cell">
