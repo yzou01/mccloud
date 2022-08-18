@@ -6,6 +6,7 @@
  * @var \App\Model\Entity\Skus $sku
  * @var \App\Model\Entity\Additionalcost $additionalcosts
  */
+$i = isset($i) ? $i : '<%= i %>';
 $key = isset($key) ? $key : '<%= key %>';
 ?>
 
@@ -75,7 +76,14 @@ $key = isset($key) ? $key : '<%= key %>';
                                                     <div class="form-label">
 
                                                         <div class="input text required">
-                                                            <?php echo $this->Form->control('additionalcosts{$i}[name]',['label'=>'Cost','class'=>'form-control', 'value'=> $additionalcost -> name ,'options'=>[
+                                                            <div class="form-label">
+                                                                <div class="input text required">
+                                                                    <?php echo $this->Form->hidden('additionalcosts.'.$i.'.id',[ 'value'=> $additionalcost -> id
+                                                                    ]);?>
+                                                                </div>
+
+                                                            </div>
+                                                            <?php echo $this->Form->control('additionalcosts.'.$i.'.name',['label'=>'Cost','class'=>'form-control', 'value'=> $additionalcost -> name ,'options'=>[
                                                                 'Duty' => 'Duty',
                                                                 'Freight' => 'Freight',
                                                                 'Cartage' => 'Cartage',
@@ -94,7 +102,7 @@ $key = isset($key) ? $key : '<%= key %>';
                                                 <div style="width: 10%;display: table-cell; padding-right: 2%">
                                                     <div class="form-label">
                                                         <div class="input text required">
-                                                            <?php echo $this->Form->control('additionalcosts{$i}[amount]',['label'=>'Amount','class'=>'form-control', 'value'=> $additionalcost -> amount
+                                                            <?php echo $this->Form->control('additionalcosts.'.$i.'.amount',['label'=>'Amount','class'=>'form-control', 'value'=> $additionalcost -> amount
                                                             ]);?>
                                                         </div>
 
@@ -102,7 +110,7 @@ $key = isset($key) ? $key : '<%= key %>';
                                                 </div>
                                                 <div style="width: 20%;display: table-cell; padding-right: 2%">
                                                     <div class="form-label">
-                                                        <?php echo $this->Form->control('additionalcosts{$i}[comment]',['label'=>'Comment','class'=>'form-control', 'value'=> $additionalcost -> comment
+                                                        <?php echo $this->Form->control('additionalcosts.'.$i.'.comment',['label'=>'Comment','class'=>'form-control', 'value'=> $additionalcost -> comment
                                                         ]);?>
 
                                                     </div>
@@ -164,16 +172,16 @@ $key = isset($key) ? $key : '<%= key %>';
                                 <?php endif; ?>
                             </div>
 
-                            <div class="row">
-                                <div class="col-12">
-                                    <button class="btn btn-primary" id="add-additionalcosts-button"
-                                            style=" margin-bottom: 5px">Add Additional Costs
-                                    </button>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <button class="btn btn-primary" id="add-additionalcosts-button"
+                                                style=" margin-bottom: 5px">Add Additional Costs
+                                        </button>
+                                    </div>
                                 </div>
+
+
                             </div>
-
-
-                        </div>
                         <!--                            ADD SKU TO BOR COLUMN-->
                         <div> <!--class="col-7", style="float: right"-->
                             <h4>Add Items</h4>
@@ -185,20 +193,28 @@ $key = isset($key) ? $key : '<%= key %>';
                                         <div style="display: table">
                                             <div style="display: table-row">
                                                 <div style="width: 13%; display: table-cell; padding-right: 2%">
-
                                                     <div class="form-label">
-                                                        <?php echo $this->Form->control('orders{$i}[sku_id]',['label'=>'SKU','class'=>'form-control','value' => $order-> sku_id, 'options'=> $skus
-                                                        ]);?>
-
+                                                        <div class="input text required">
+                                                            <?php echo $this->Form->hidden('orders.'.$i.'.id',[ 'value'=> $order -> id
+                                                            ]);?>
+                                                        </div>
 
                                                     </div>
+                                                    <div class="form-label">
+                                                        <?php echo $this->Form->control('orders.'.$i.'.sku_id',['label'=>'SKU','class'=>'form-control','value' => $order-> sku_id, 'options'=> $skus
+                                                        ]);?>
+
+                                                    </div>
+
                                                 </div>
                                                 <div style="width: 13%; display: table-cell; padding-right: 2%">
                                                     <div class="form-label">
-                                                        <?php echo $this->Form->control('orders{$i}[quantity]',['label'=>'Quantity','class'=>'form-control', 'value'=> $order -> quantity
+                                                        <?php echo $this->Form->control('orders.'.$i.'.quantity',['label'=>'Quantity','class'=>'form-control', 'value'=> $order -> quantity
                                                         ]);?>
                                                     </div>
                                                 </div>
+
+
                                                 <div style="width: 2%;display: table-cell">
                                                     <a class="skus-delete" href="#"><i
                                                             class="fa fa-fw fa-trash"></i></a>
@@ -252,6 +268,8 @@ $key = isset($key) ? $key : '<%= key %>';
 
                         </div>
                     </div>
+                        <?= $this->Form->hidden('order_delete[]', ['value' => '62'])?>
+                        <?= $this->Form->hidden('order_delete[]', ['value' => '61'])?>
                     <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
                     <?= $this->Form->end() ?>
                     <?= $this->Flash->render() ?>
