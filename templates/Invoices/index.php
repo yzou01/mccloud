@@ -43,7 +43,7 @@
                                     <td><?= h($invoice->gst) ?></td>
                                     <td class="actions">
                                         <?= $this->Html->link(__('View'), ['action' => 'view', $invoice->id]) ?>
-                                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $invoice->id]) ?>
+ <!--                                      <=  $this->Html->link(__('Edit'), ['action' => 'edit', $invoice->id]) ?>-->
 <!--                                        <= $this->Form->postLink(__('Delete'), ['action' => 'delete', $invoice->id], ['confirm' => __('Are you sure you want to delete # {0}?', $invoice->id)]) ?>-->
                                     </td>
                                 </tr>
