@@ -80,21 +80,30 @@ class InvoicesController extends AppController
      */
     public function edit($id = null)
     {
+
         $invoice = $this->Invoices->get($id, [
-            'contain' => [],
+            'contain' => ['Additionalcosts','Orders'],
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
+//            debug($this->request->getData());
             $invoice = $this->Invoices->patchEntity($invoice, $this->request->getData());
+//            debug($invoice);
             if ($this->Invoices->save($invoice)) {
+                // delete any orders if given
+                $orders_to_delete = $this->Invoices->Orders->find()->where(['id IN' => $this->request->getData('order_delete')]);
+//                debug($orders_to_delete); exit;
+                $this->Invoices->Orders->deleteMany($orders_to_delete);
+
                 $this->Flash->success(__('The invoice has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The invoice could not be saved. Please, try again.'));
         }
-
+        $this->loadModel('Skus');
+        $skus=$this->Skus->find('list',['limit'=>200])->all();
         $factories = $this->Invoices->Factories->find('list', ['limit' => 200])->all();
-        $this->set(compact('invoice',  'factories'));
+        $this->set(compact('invoice',  'factories','skus'));
     }
 
     /**
