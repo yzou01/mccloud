@@ -22,9 +22,10 @@ $key = isset($key) ? $key : '<%= key %>';
                     <?= $this->Html->link(__('Back'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right']) ?>
                 </div>
                 <div class="card-body">
+                    <?= $this->Form->create($invoice) ?>
                     <div class="column-responsive column-80">
                         <div class="invoices form content">
-                            <?= $this->Form->create($invoice) ?>
+
                             <fieldset>
                                 <div class="form-label">
                                     <?php
@@ -123,8 +124,6 @@ $key = isset($key) ? $key : '<%= key %>';
                                             <div style="display: table-row">
                                                 <div style="width: 13%; display: table-cell; padding-right: 2%">
                                                     <div class="form-label">
-
-
                                                         <?php
                                                         echo $this->Form->control("additionalcosts.{$key}.name", ['class' => 'form-control', 'label' => 'Cost',
                                                             'options' => [
@@ -188,7 +187,7 @@ $key = isset($key) ? $key : '<%= key %>';
                                                 <div style="width: 13%; display: table-cell; padding-right: 2%">
 
                                                     <div class="form-label">
-                                                        <?php echo $this->Form->control('orders{$i}[sku_id]',['label'=>'SKU','class'=>'form-control', 'value'=> $sku->name
+                                                        <?php echo $this->Form->control('orders{$i}[sku_id]',['label'=>'SKU','class'=>'form-control','value' => $order-> sku_id, 'options'=> $skus
                                                         ]);?>
 
 
