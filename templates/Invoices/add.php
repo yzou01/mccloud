@@ -57,8 +57,73 @@ $key = isset($key) ? $key : '<%= key %>';
                             </div>
 
                             <div style="margin-top: 20px">
-    <!--                            ADDITIONAL COST COLUMN-->
+<!--                                ADD SKU TO BOR COLUMN-->
                                 <div style="width: 50%; float: left; padding-right: 2%">
+                                    <div class="card mb-4">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <button class="btn btn-primary" id="add-skus-button" style="float: right"><i class="fa-solid fa-plus"></i></button>
+                                                    <h5 style="padding-top: 6px">Add Items</h5>
+                                                </div>
+                                            </div>
+                                            <div id="skus-container">
+                                                <div class="row skus-row">
+                                                    <div style="display: table">
+                                                        <div style="display: table-row">
+                                                            <div style="width: 25%; display: table-cell; padding-right: 2%">
+                                                                <div class="form-label">
+                                                                    <?php
+                                                                    echo $this->Form->control("orders.0.sku_id",['label'=>'Product','options'=>$skus,'class'=>'form-select']);
+                                                                    ?>
+                                                                </div>
+                                                            </div>
+                                                            <div style="width: 15%; display: table-cell; padding-right: 2%">
+                                                                <div class="form-label">
+                                                                    <?php
+                                                                    echo $this->Form->control("orders.0.quantity",['class'=>'form-control']);
+                                                                    ?>
+                                                                </div>
+                                                            </div>
+                                                            <div style="width: 1%;display: table-cell; text-align: center; vertical-align: middle">
+                                                                <a class="skus-delete" href="#"><i class="fa fa-fw fa-trash"></i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <script id="skus-template" type="text/x-underscore-template">
+                                                    <div class="row skus-row">
+                                                        <div style="display: table">
+                                                            <div style="display: table-row">
+                                                                <div style="width: 25%; display: table-cell; padding-right: 2%">
+                                                                    <div class="form-label">
+                                                                        <?php
+                                                                        echo $this->Form->control("orders.{$key}.sku_id",['label'=>'Product', 'options'=>$skus,'class'=>'form-select']);
+                                                                        ?>
+                                                                    </div>
+                                                                </div>
+                                                                <div style="width: 15%; display: table-cell; padding-right: 2%">
+                                                                    <div class="form-label">
+                                                                        <?php
+                                                                        echo $this->Form->control("orders.{$key}.quantity",['class'=>'form-control']);
+                                                                        ?>
+                                                                    </div>
+                                                                </div>
+                                                                <div style="width: 1%; display: table-cell; text-align: center; vertical-align: middle">
+                                                                    <a class="skus-delete" href="#"><i class="fa fa-fw fa-trash"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+    <!--                            ADDITIONAL COST COLUMN-->
+                                <div style="width: 50%; float: right">
                                     <div class="card mb-4">
                                         <div class="card-body">
                                             <div class="row">
@@ -83,7 +148,7 @@ $key = isset($key) ? $key : '<%= key %>';
                                                                         'Agency'=>'Agency',
                                                                         'Customs'=>'Customs',
                                                                         'TT Charge'=>'TT Charge',
-                                                                        'Others'=>'Others']
+                                                                        'Others'=>'Others',]
                                                                     ]);
                                                                     ?>
                                                                 </div>
@@ -145,71 +210,6 @@ $key = isset($key) ? $key : '<%= key %>';
                                                                 </div>
                                                                 <div style="width: 1%;display: table-cell; text-align: center; vertical-align: middle">
                                                                     <a class="additionalcosts-delete" href="#"><i class="fa fa-fw fa-trash"></i></a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </script>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-        <!--                                ADD SKU TO BOR COLUMN-->
-                                <div style="width: 50%; float: right">
-                                    <div class="card mb-4">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <button class="btn btn-primary" id="add-skus-button" style="float: right"><i class="fa-solid fa-plus"></i></button>
-                                                    <h5 style="padding-top: 6px">Add Items</h5>
-                                                </div>
-                                            </div>
-                                            <div id="skus-container">
-                                                <div class="row skus-row">
-                                                    <div style="display: table">
-                                                        <div style="display: table-row">
-                                                            <div style="width: 25%; display: table-cell; padding-right: 2%">
-                                                                <div class="form-label">
-                                                                    <?php
-                                                                    echo $this->Form->control("orders.0.sku_id",['label'=>'Product','options'=>$skus,'class'=>'form-select']);
-                                                                    ?>
-                                                                </div>
-                                                            </div>
-                                                            <div style="width: 15%; display: table-cell; padding-right: 2%">
-                                                                <div class="form-label">
-                                                                    <?php
-                                                                    echo $this->Form->control("orders.0.quantity",['class'=>'form-control']);
-                                                                    ?>
-                                                                </div>
-                                                            </div>
-                                                            <div style="width: 1%;display: table-cell; text-align: center; vertical-align: middle">
-                                                                <a class="skus-delete" href="#"><i class="fa fa-fw fa-trash"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <script id="skus-template" type="text/x-underscore-template">
-                                                    <div class="row skus-row">
-                                                        <div style="display: table">
-                                                            <div style="display: table-row">
-                                                                <div style="width: 25%; display: table-cell; padding-right: 2%">
-                                                                    <div class="form-label">
-                                                                        <?php
-                                                                        echo $this->Form->control("orders.{$key}.sku_id",['label'=>'Product', 'options'=>$skus,'class'=>'form-select']);
-                                                                        ?>
-                                                                    </div>
-                                                                </div>
-                                                                <div style="width: 15%; display: table-cell; padding-right: 2%">
-                                                                    <div class="form-label">
-                                                                        <?php
-                                                                        echo $this->Form->control("orders.{$key}.quantity",['class'=>'form-control']);
-                                                                        ?>
-                                                                    </div>
-                                                                </div>
-                                                                <div style="width: 1%; display: table-cell; text-align: center; vertical-align: middle">
-                                                                    <a class="skus-delete" href="#"><i class="fa fa-fw fa-trash"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
