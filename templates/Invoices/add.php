@@ -40,7 +40,17 @@ $key = isset($key) ? $key : '<%= key %>';
                                     </div>
                                     <div class="form-label">
                                         <?php
-                                        echo $this->Form->control('currency_of_origin',['class'=>'form-control']);
+                                        echo $this->Form->control("currency_of_origin",['label'=>'Currency','class'=>'form-select', 'options'=>[
+                                            'Euro'=>'EUR - Euro',
+                                            'Pound Sterling'=>'GBP - Pound Sterling',
+                                            'Japanese Yen'=>'JPY - Japanese Yen',
+                                            'Chinese Yuan'=>'CNY - Chinese Yuan',
+                                            'South African Rand'=>'ZAR - South African Rand',
+                                            'US Dollar'=>'USD - United States Dollar',
+                                            'NZ Dollar'=>'NZD -  New Zealand Dollar',
+                                            'Australian Dollar'=>'AUD - Australian Dollar',
+                                        ]
+                                        ]);
                                         ?>
                                     </div>
                                     <div class="form-label">

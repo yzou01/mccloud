@@ -25,7 +25,21 @@
                                     <div class="form-label">
                                         <?php
                                            echo $this->Form->control('name',['class'=>'form-control']);
-                                           echo $this->Form->control('currency',['class'=>'form-control']);
+                                        ?>
+                                    </div>
+                                    <div class="form-label">
+                                        <?php
+                                        echo $this->Form->control("currency",['class'=>'form-select', 'options'=>[
+                                            'Euro'=>'EUR - Euro',
+                                            'Pound Sterling'=>'GBP - Pound Sterling',
+                                            'Japanese Yen'=>'JPY - Japanese Yen',
+                                            'Chinese Yuan'=>'CNY - Chinese Yuan',
+                                            'South African Rand'=>'ZAR - South African Rand',
+                                            'US Dollar'=>'USD - United States Dollar',
+                                            'NZ Dollar'=>'NZD -  New Zealand Dollar',
+                                            'Australian Dollar'=>'AUD - Australian Dollar',
+                                            ]
+                                        ]);
                                         ?>
                                     </div>
                                 </fieldset>
