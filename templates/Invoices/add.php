@@ -30,7 +30,7 @@ $key = isset($key) ? $key : '<%= key %>';
                                     </div>
                                     <div class="form-label">
                                         <?php
-                                        echo $this->Form->control('date',['class'=>'form-control']);
+                                        echo $this->Form->control('date',['class'=>'form-control', 'min' =>"2000-01-01" , 'max' => "2100-01-01"]);
                                         ?>
                                     </div>
                                     <div class="form-label">
