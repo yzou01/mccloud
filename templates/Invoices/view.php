@@ -4,6 +4,26 @@
  * @var \App\Model\Entity\Invoice $invoice
  */
 ?>
+<style>
+    table {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    th, td {
+        border: 1px solid #dee2e6;
+        height: 40px;
+        padding: 0.5rem 0.5rem
+    }
+
+    .th-custom {
+        border-bottom: 2px solid black;
+    }
+
+    .no-border {
+        border: 0px;
+    }
+</style>
 
 <body class="sb-nav-fixed">
     <?php echo $this->element('navbar/navbar')?>
@@ -58,34 +78,95 @@
                                         </div>
                                     </fieldset>
 
-                                    <div class="related">
-                                        <h4><?= __('Invoice Details') ?></h4>
-                                        <h6>Coming in later iterations</h6>
-                                        <?php if (!empty($invoice->order)) : ?>
-                                            <div class="table-responsive">
-                                                <table>
+<!--                                    ITEMS BREAKDOWN-->
+                                    <div style="margin-top: 20px">
+                                        <div class="card mb-4">
+                                            <div class="card-body">
+                                                <h4>Items</h4>
+                                                <table class="table-custom">
                                                     <tr>
-                                                        <th><?= __('Invoice Id') ?></th>
-                                                        <th><?= __('Sku Id') ?></th>
-                                                        <th><?= __('Quantity') ?></th>
-                                                        <th class="actions"><?= __('Actions') ?></th>
+                                                        <th class="th-custom">No.</th>
+                                                        <th class="th-custom">Product</th>
+                                                        <th class="th-custom">Quantity</th>
+                                                        <th class="th-custom">Unit Cost</th>
+                                                        <th class="th-custom">Total Cost</th>
+                                                        <th class="th-custom">Cost in AUD</th>
                                                     </tr>
-                                                    <?php foreach ($invoice->order as $order) : ?>
-                                                        <tr>
-                                                            <td><?= h($order->invoice_id) ?></td>
-                                                            <td><?= h($order->sku_id) ?></td>
-                                                            <td><?= h($order->quantity) ?></td>
-                                                            <td class="actions">
-                                                                <?= $this->Html->link(__('View'), ['controller' => 'Order', 'action' => 'view', $order->id]) ?>
-                                                                <?= $this->Html->link(__('Edit'), ['controller' => 'Order', 'action' => 'edit', $order->id]) ?>
-                                                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Order', 'action' => 'delete', $order->id], ['confirm' => __('Are you sure you want to delete # {0}?', $order->id)]) ?>
-                                                            </td>
-                                                        </tr>
-                                                    <?php endforeach; ?>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="no-border"></td>
+                                                        <td class="no-border"></td>
+                                                        <td class="no-border"></td>
+                                                        <th>Discount</th>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="no-border"></td>
+                                                        <td class="no-border"></td>
+                                                        <td class="no-border"></td>
+                                                        <th>Total</th>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
                                                 </table>
                                             </div>
-                                        <?php endif; ?>
+                                        </div>
                                     </div>
+
+<!--                                    ADD COST BREAKDOWN-->
+                                    <div style="width: 50%; float: left; padding-right: 2%">
+                                        <div class="card mb-4" >
+                                            <div class="card-body">
+                                                <h4>Additional Costs</h4>
+                                                <table>
+                                                    <tr>
+                                                        <th class="th-custom">Cost</th>
+                                                        <th class="th-custom">Amount</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Total</th>
+                                                        <td></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+<!--                                    TOTALS BREAKDOWN-->
+                                    <div style="width: 50%; float: right">
+                                        <div class="card mb-4">
+                                            <div class="card-body">
+                                                <h4>Totals</h4>
+                                                <table>
+                                                    <tr>
+                                                        <th>Total costs of items</th>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Total of additional costs</th>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Grand Total</th>
+                                                        <td></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary" style="width: 100% ;float:right"><i class="fa-solid fa-download"></i> Download PDF</button>
                                 </div>
                             </div>
                         </div>
@@ -95,7 +176,6 @@
         </div>
     </div>
 </body>
-
 
 
 
