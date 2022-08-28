@@ -65,7 +65,6 @@ class SkusTable extends Table
         $validator
             ->scalar('name')
             ->maxLength('name', 30)
-            ->regex('name', '/^[A-Za-z0-9 ]+$/', 'The provided value is invalid. Special characters are not allowed.')
             ->requirePresence('name', 'create')
             ->notEmptyString('name');
 
@@ -83,6 +82,10 @@ class SkusTable extends Table
             ->integer('factory_id')
             ->requirePresence('factory_id', 'create')
             ->notEmptyString('factory_id');
+
+        $validator
+            ->boolean('archive')
+            ->notEmptyString('archive');
 
         return $validator;
     }

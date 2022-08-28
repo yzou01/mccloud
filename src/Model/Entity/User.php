@@ -6,15 +6,14 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Type Entity
+ * User Entity
  *
  * @property int $id
- * @property string $name
+ * @property string $username
+ * @property string $password
  * @property bool $archive
- *
- * @property \App\Model\Entity\Skus[] $skus
  */
-class Type extends Entity
+class User extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -26,8 +25,17 @@ class Type extends Entity
      * @var array<string, bool>
      */
     protected $_accessible = [
-        'name' => true,
+        'username' => true,
+        'password' => true,
         'archive' => true,
-        'skus' => true,
+    ];
+
+    /**
+     * Fields that are excluded from JSON versions of the entity.
+     *
+     * @var array<string>
+     */
+    protected $_hidden = [
+        'password',
     ];
 }

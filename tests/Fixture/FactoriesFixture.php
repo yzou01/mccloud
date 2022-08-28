@@ -22,6 +22,7 @@ class FactoriesFixture extends TestFixture
                 'id' => 1,
                 'name' => 'Lorem ipsum dolor sit a',
                 'currency' => 'Lorem ipsum dolor ',
+                'archive' => 1,
             ],
         ];
         parent::init();

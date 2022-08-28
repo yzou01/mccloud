@@ -17,9 +17,7 @@
                     <div class="card-header  ">
                         <i class="fa-solid fa-receipt" style="padding-top: 11px; padding-right: 2px" ></i>
                         Bill Of Records
-                        <?= $this->Html->link(__('View archive Records'), ['action' => 'archive'], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
- 
-                        <?= $this->Html->link(__('Add Bill Of Records'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
+                        <?= $this->Html->link(__('View Bill Of Records'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
                     </div>
                     <div class="card-body">
                         <table id="datatablesSimple">
@@ -29,7 +27,7 @@
                                 <th><?= $this->Paginator->sort('number') ?></th>
                                 <th><?= $this->Paginator->sort('date') ?></th>
                                 <th><?= $this->Paginator->sort('factory_id') ?></th>
-                                <th><?= $this->Paginator->sort('currency') ?></th>
+                                <th><?= $this->Paginator->sort('currency_of_origin') ?></th>
                                 <th><?= $this->Paginator->sort('currency_rate') ?></th>
                                 <th><?= $this->Paginator->sort('gst') ?></th>
                                 <th class="actions"><?= __('Actions') ?></th>
@@ -40,7 +38,7 @@
                                 <?php
                                         $status=h($invoice->archive);
 
-                                        if($status==false){ ?>
+                                        if($status==true){ ?>
 
                                        
                                                          
@@ -54,9 +52,10 @@
                                     <td><?= h($invoice->gst) ?></td>
                                     <td class="actions">
                                         <?= $this->Html->link(__('View'), ['action' => 'view', $invoice->id]) ?>
-                                        <?=  $this->Html->link(__('Edit'), ['action' => 'edit', $invoice->id]) ?>
-                                       <?= $this->Form->postLink(__('Archive'), ['action' => 'update', $invoice->id,0], ['confirm' => __('Are you sure you want to archive # {0}?', $invoice->id)]) ?>
-                                    </td>
+                                        <?= $this->Form->postLink(__('Unarchive'), ['action' => 'update', $invoice->id,1], ['confirm' => __('Are you sure you want to unarchive # {0}?', $invoice->id)]) ?>
+
+                                                                                                                   </td>
+                                     
                                 </tr>
                                 <?php } ?> 
                             <?php endforeach; ?>
@@ -69,5 +68,4 @@
         </div>
     </div>
 </body>
-
 
