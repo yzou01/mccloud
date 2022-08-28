@@ -150,7 +150,7 @@ $key = isset($key) ? $key : '<%= key %>';
                                             <div id="additionalcosts-container">
                                                 <?php $i = 0; ?>
                                                 <?php foreach ($invoice['additionalcosts'] as $additionalcost): ?>
-                                                <div class="row additionalcosts-row">
+                                                <div class="row additionalcosts-row" data-item-id="<?= $additionalcost -> id ?>">
                                                     <div style="display: table">
                                                         <div style="display: table-row">
                                                             <div style="width: 13%; display: table-cell; padding-right: 2%">
@@ -246,8 +246,7 @@ $key = isset($key) ? $key : '<%= key %>';
                                 </div>
                             </div>
                         </div>
-                        <?= $this->Form->hidden('order_delete[]', ['value' => '62'])?>
-                        <?= $this->Form->hidden('order_delete[]', ['value' => '61'])?>
+                        <div id="to_be_deleted"></div>
                         <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary', 'style' => 'width: 100%']) ?>
                         <?= $this->Form->end() ?>
                         <?= $this->Flash->render() ?>

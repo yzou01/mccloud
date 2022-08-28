@@ -89,10 +89,14 @@ class InvoicesController extends AppController
             $invoice = $this->Invoices->patchEntity($invoice, $this->request->getData());
 //            debug($invoice);
             if ($this->Invoices->save($invoice)) {
-                // delete any orders if given
-                $orders_to_delete = $this->Invoices->Orders->find()->where(['id IN' => $this->request->getData('order_delete')]);
+//                debug($this->request->getData('order_delete')); exit;
 //                debug($orders_to_delete); exit;
+                // delete any orders if given
+                $orders_to_delete = $this->Invoices->Orders->find()->where(['id IN' => $this->request->getData('delete_orders')]);
                 $this->Invoices->Orders->deleteMany($orders_to_delete);
+                // delete any additionalcosts if given
+                $additionalcosts_to_delte = $this->Invoices->Additionalcosts->find()->where(['id IN' => $this->request->getData('delete_additionalcosts')]);
+                $this->Invoices->Additionalcosts->deleteMany($additionalcosts_to_delte);
 
                 $this->Flash->success(__('The invoice has been saved.'));
 
