@@ -59,7 +59,7 @@
                                     </fieldset>
 
                                     <div class="related">
-                                        <h4><?= __('Related Invoice Sku') ?></h4>
+                                        <h4><?= __('Invoice Details') ?></h4>
                                         <h6>Coming in later iterations</h6>
                                         <?php if (!empty($invoice->order)) : ?>
                                             <div class="table-responsive">

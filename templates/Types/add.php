@@ -31,6 +31,7 @@
                                 </fieldset>
                                 <?= $this->Form->button(__('Submit'), ['class'=>'btn btn-primary']) ?>
                                 <?= $this->Form->end() ?>
+                                <?= $this->Flash->render()?>
                             </div>
                         </div>
                     </div>

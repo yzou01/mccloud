@@ -22,7 +22,7 @@
                                 <tr>
                                     <th><?= $this->Paginator->sort('id') ?></th>
                                     <th><?= $this->Paginator->sort('name') ?></th>
-                                    <th><?= $this->Paginator->sort('currency') ?></th>
+                                    <th><?= $this->Paginator->sort('currency_of_origin') ?></th>
                                     <th class="actions"><?= __('Actions') ?></th>
                                 </tr>
                             </thead>
