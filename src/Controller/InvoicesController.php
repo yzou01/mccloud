@@ -129,4 +129,39 @@ class InvoicesController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    public function update($id = null,$flag=null)
+    {   
+        if ($this->request->is(['patch', 'post', 'put'])) {
+        $invoice = $this->Invoices->get($id);
+        if($flag==0){
+            $invoice->archive=true;
+        }elseif($flag==1){
+            $invoice->archive=false;
+        }
+
+        
+        if ($this->Invoices->save($invoice)) {
+            $this->Flash->success(__('The invoice has been archived.'));
+        }else{
+            $this->Flash->error(__('The invoice could not be archived. Please, try again.'));
+        }
+            
+        
+        
+        
+    }
+        return $this->redirect(['action' => 'index']);
+    }
+    public function archive()
+    {
+        $this->paginate = [
+            'contain' => [ 'Factories'],
+        ];
+        $invoices = $this->paginate($this->Invoices);
+
+        $this->set(compact('invoices'));
+    }
+
+    
 }
