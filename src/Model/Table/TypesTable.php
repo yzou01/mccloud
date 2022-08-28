@@ -59,9 +59,12 @@ class TypesTable extends Table
         $validator
             ->scalar('name')
             ->maxLength('name', 25)
-            ->regex('name', '/^[A-Za-z0-9 ]+$/', 'The provided value is invalid. Special characters are not allowed.')
             ->requirePresence('name', 'create')
             ->notEmptyString('name');
+
+        $validator
+            ->boolean('archive')
+            ->notEmptyString('archive');
 
         return $validator;
     }

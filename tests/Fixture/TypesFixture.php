@@ -21,6 +21,7 @@ class TypesFixture extends TestFixture
             [
                 'id' => 1,
                 'name' => 'Lorem ipsum dolor sit a',
+                'archive' => 1,
             ],
         ];
         parent::init();
