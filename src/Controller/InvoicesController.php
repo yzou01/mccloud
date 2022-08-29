@@ -136,16 +136,24 @@ class InvoicesController extends AppController
         $invoice = $this->Invoices->get($id);
         if($flag==0){
             $invoice->archive=true;
+            if ($this->Invoices->save($invoice)) {
+                $this->Flash->success(__('The invoice has been archived.'));
+            }else{
+                $this->Flash->error(__('The invoice could not be archived. Please, try again.'));
+            }
+            return $this->redirect(['action' => 'index']);
         }elseif($flag==1){
             $invoice->archive=false;
+            if ($this->Invoices->save($invoice)) {
+                $this->Flash->success(__('The invoice has been unarchived.'));
+            }else{
+                $this->Flash->error(__('The invoice could not be unarchived. Please, try again.'));
+            }
+            return $this->redirect(['action' => 'archive']);
         }
 
         
-        if ($this->Invoices->save($invoice)) {
-            $this->Flash->success(__('The invoice has been archived.'));
-        }else{
-            $this->Flash->error(__('The invoice could not be archived. Please, try again.'));
-        }
+        
             
         
         

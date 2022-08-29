@@ -13,7 +13,7 @@
                 <div class=" card mb-4" style="margin-top: 50px">
                     <div class="card-header">
                         <i class="fa-solid fa-bag-shopping" style="padding-top: 11px; padding-right: 2px"></i>
-                        Products
+                        Archive Products
                         <?= $this->Html->link(__('View all products'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right']) ?>
 
                                             </div>
@@ -59,6 +59,7 @@
                             <?php endforeach; ?>
                             </tbody>
                         </table>
+                        <?= $this->Flash->render()?>
                     </div>
                 </div>
             </main>
