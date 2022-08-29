@@ -64,11 +64,11 @@ class InvoicesController extends AppController
             $this->Flash->error(__('The invoice could not be saved. Please, try again.'));
         }
         $this->loadModel('Skus');
-        $skus=$this->Skus->find('list',['limit'=>200])->all();
+        $skus=$this->Skus->find('list',['limit'=>200,'condition'=>['Skus.archive' => false]])->all();
         $factories = $this->Invoices->Factories->find('list', ['limit' => 200])->all();
-        $additionalcosttypes = $this->Invoices->Additionalcosts->find('list')->toArray();
+       // $additionalcosttypes = $this->Invoices->Additionalcosts->find('list')->toArray();
         //debug($additionalcosttypes); exit;
-        $this->set(compact('invoice', 'factories', 'additionalcosttypes','skus'));
+        $this->set(compact('invoice', 'factories','skus'));
     }
 
     /**
@@ -105,7 +105,7 @@ class InvoicesController extends AppController
             $this->Flash->error(__('The invoice could not be saved. Please, try again.'));
         }
         $this->loadModel('Skus');
-        $skus=$this->Skus->find('list',['limit'=>200])->all();
+        $skus=$this->Skus->find('list',['limit'=>200,'condition'=>['Skus.archive' => false]])->all();
         $factories = $this->Invoices->Factories->find('list', ['limit' => 200])->all();
         $this->set(compact('invoice',  'factories','skus'));
     }
