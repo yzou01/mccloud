@@ -36,7 +36,7 @@ class InvoicesController extends AppController
     public function view($id = null)
     {
         $invoice = $this->Invoices->get($id, [
-            'contain' => [ 'Factories'],
+            'contain' => [ 'Factories','Orders'],
         ]);
 
         $this->set(compact('invoice'));
@@ -131,7 +131,7 @@ class InvoicesController extends AppController
     }
 
     public function update($id = null,$flag=null)
-    {   
+    {
         if ($this->request->is(['patch', 'post', 'put'])) {
         $invoice = $this->Invoices->get($id);
         if($flag==0){
@@ -140,16 +140,16 @@ class InvoicesController extends AppController
             $invoice->archive=false;
         }
 
-        
+
         if ($this->Invoices->save($invoice)) {
             $this->Flash->success(__('The invoice has been archived.'));
         }else{
             $this->Flash->error(__('The invoice could not be archived. Please, try again.'));
         }
-            
-        
-        
-        
+
+
+
+
     }
         return $this->redirect(['action' => 'index']);
     }
@@ -163,5 +163,5 @@ class InvoicesController extends AppController
         $this->set(compact('invoices'));
     }
 
-    
+
 }

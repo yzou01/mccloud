@@ -2,6 +2,7 @@
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Invoice $invoice
+
  */
 ?>
 <style>
@@ -40,6 +41,7 @@
                         <?= $this->Html->link(__('List Bill of Records'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px;']) ?>
                         <?= $this->Html->link(__('Add Bill of Records'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px;']) ?>
                     </div>
+                    <?= $this->Form->create($invoice) ?>
                     <div class="card-body">
                         <div class="row">
                             <div class="column-responsive column-80">
@@ -76,6 +78,11 @@
                                             echo $this->Form->control('Date',['label'=> 'Date', 'value'=> h($invoice->date),'class'=>'form-control', 'disabled' => 'true']);
                                             ?>
                                         </div>
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->control('Discount',['label'=> 'Discount', 'value'=> h($invoice->discount),'class'=>'form-control', 'disabled' => 'true']);
+                                            ?>
+                                        </div>
                                     </fieldset>
 
 <!--                                    ITEMS BREAKDOWN-->
@@ -93,12 +100,23 @@
                                                         <th class="th-custom">Cost in AUD</th>
                                                     </tr>
                                                     <tr>
+                                                        <td>
+                                                            <?=h($invoice->orders[0]->id) ?>
+                                                        </td>
+
+                                                        <!--   Invoice -> Order -> Sku_id find the sku_name using sku_id in the sku table -->
+                                                        <td>
+                                                            <?=h($invoice->orders[0]->sku_id) ?>
+                                                        </td>
+
+                                                        <td>
+                                                            <?=h($invoice->orders[0]->quantity) ?>
+                                                        </td>
+
+<!--                                      Invoice -> Order -> Sku_id find the sku price using sku_id in the sku table -->
                                                         <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
+                                                        <td> <?=h($invoice->orders[0]->quantity) ?></td>
+                                                        <td> <?=h($invoice->currency_rate /$invoice->orders[0]->quantity) ?> </td>
                                                     </tr>
                                                     <tr>
                                                         <td class="no-border"></td>
