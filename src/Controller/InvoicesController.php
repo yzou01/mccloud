@@ -131,7 +131,7 @@ class InvoicesController extends AppController
     }
 
     public function update($id = null,$flag=null)
-    {   
+    {
         if ($this->request->is(['patch', 'post', 'put'])) {
         $invoice = $this->Invoices->get($id);
         if($flag==0){
@@ -152,12 +152,12 @@ class InvoicesController extends AppController
             return $this->redirect(['action' => 'archive']);
         }
 
-        
-        
-            
-        
-        
-        
+
+
+
+
+
+
     }
         return $this->redirect(['action' => 'index']);
     }
@@ -171,5 +171,19 @@ class InvoicesController extends AppController
         $this->set(compact('invoices'));
     }
 
-    
+    public function pdf($id = null)
+    {
+        $this->viewBuilder()->enableAutoLayout(false);
+        $report = $this->Invoices->get($id);
+        $this->viewBuilder()->setClassName('CakePdf.Pdf');
+        $this->viewBuilder()->setOption(
+            'pdfConfig',
+            [
+                'orientation' => 'portrait',
+                'download' => true, // This can be omitted if "filename" is specified.
+                'filename' => 'Import_' . $id . '.pdf' //// This can be omitted if you want file name based on URL.
+            ]
+        );
+        $this->set('report', $report);
+    }
 }

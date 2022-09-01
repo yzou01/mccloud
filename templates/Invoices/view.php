@@ -21,7 +21,7 @@
     }
 
     .no-border {
-        border: 0px;
+        border: 0;
     }
 </style>
 
@@ -44,7 +44,7 @@
                         <div class="row">
                             <div class="column-responsive column-80">
                                 <div class="invoices view content">
-                                    <legend><?= h($invoice->id) ?></legend>
+                                    <h4><?= h($invoice->id) ?></h4>
                                     <fieldset>
                                         <div class="form-label">
                                             <?php
@@ -166,7 +166,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <button class="btn btn-primary" style="width: 100% ;float:right"><i class="fa-solid fa-download"></i> Download PDF</button>
+                                    <?= $this->Html->link("<button class='btn btn-primary' style='width: 100%'><i class='fa-solid fa-download'></i> Download PDF</button>", ['action' => 'pdf', $invoice->id],['escape' => false,]) ?>
                                 </div>
                             </div>
                         </div>
@@ -176,8 +176,3 @@
         </div>
     </div>
 </body>
-
-
-
-
-
