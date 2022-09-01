@@ -106,7 +106,7 @@
 
                                                         <!--   Invoice -> Order -> Sku_id find the sku_name using sku_id in the sku table -->
                                                         <td>
-                                                            <?=h($invoice->orders[0]->sku_id) ?>
+                                                            <?=h($invoice->orders[0]->skus->name) ?>
                                                         </td>
 
                                                         <td>
@@ -114,25 +114,26 @@
                                                         </td>
 
 <!--                                      Invoice -> Order -> Sku_id find the sku price using sku_id in the sku table -->
-                                                        <td></td>
-                                                        <td> <?=h($invoice->orders[0]->quantity) ?></td>
-                                                        <td> <?=h($invoice->currency_rate /$invoice->orders[0]->quantity) ?> </td>
+                                                        <td> <?=h($invoice->orders[0]->skus->price) ?></td>
+                                                        <td> <?=h($invoice->orders[0]->quantity * $invoice->orders[0]->skus->price ) ?></td>
+
+                                                        <td> <?=h(($invoice->orders[0]->quantity * $invoice->orders[0]->skus->price) / $invoice->currency_rate ) ?> </td>
                                                     </tr>
                                                     <tr>
                                                         <td class="no-border"></td>
                                                         <td class="no-border"></td>
                                                         <td class="no-border"></td>
                                                         <th>Discount</th>
-                                                        <td></td>
-                                                        <td></td>
+                                                        <td> <?=h($invoice->orders[0]->quantity * $invoice->orders[0]->skus->price * $invoice->discount) ?></td>
+                                                        <td> <?=h(($invoice->orders[0]->quantity * $invoice->orders[0]->skus->price) / $invoice->currency_rate *  $invoice->discount) ?> </td>
                                                     </tr>
                                                     <tr>
                                                         <td class="no-border"></td>
                                                         <td class="no-border"></td>
                                                         <td class="no-border"></td>
                                                         <th>Total</th>
-                                                        <td></td>
-                                                        <td></td>
+                                                        <td><?=h($invoice->orders[0]->quantity * $invoice->orders[0]->skus->price - $invoice->orders[0]->quantity * $invoice->orders[0]->skus->price * $invoice->discount) ?></td>
+                                                        <td><?=h(($invoice->orders[0]->quantity * $invoice->orders[0]->skus->price) / $invoice->currency_rate - $invoice->orders[0]->quantity * $invoice->orders[0]->skus->price / $invoice->currency_rate *  $invoice->discount) ?></td>
                                                     </tr>
                                                 </table>
                                             </div>
@@ -150,8 +151,8 @@
                                                         <th class="th-custom">Amount</th>
                                                     </tr>
                                                     <tr>
-                                                        <td></td>
-                                                        <td></td>
+                                                        <td><?=h($invoice->additionalcosts[0]->name) ?></td>
+                                                        <td><?=h($invoice->additionalcosts[0]->amount) ?></td>
                                                     </tr>
                                                     <tr>
                                                         <th>Total</th>
@@ -170,7 +171,7 @@
                                                 <table>
                                                     <tr>
                                                         <th>Total costs of items</th>
-                                                        <td></td>
+                                                        <td> <?=h($invoice->orders[0]->quantity * $invoice->orders[0]->skus->price ) ?></td>
                                                     </tr>
                                                     <tr>
                                                         <th>Total of additional costs</th>
