@@ -15,8 +15,8 @@ $key = isset($key) ? $key : '<%= key %>';
                 <div class=" card mb-4" style="margin-top: 50px">
                     <div class="card-header">
                         <i class="fa-solid fa-receipt" style="padding-top: 11px; padding-right: 2px"></i>
-                        Bill Of Records
-                        <?= $this->Html->link(__('List Bill Of Records'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
+                        Import Records
+                        <?= $this->Html->link(__('List Import Records'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
                     </div>
                     <div class="card-body">
                         <?= $this->Form->create($invoice) ?>

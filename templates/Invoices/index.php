@@ -16,10 +16,9 @@
                 <div class=" card mb-4" style="margin-top: 50px">
                     <div class="card-header  ">
                         <i class="fa-solid fa-receipt" style="padding-top: 11px; padding-right: 2px" ></i>
-                        Bill Of Records
-                        <?= $this->Html->link(__('View archive Records'), ['action' => 'archive'], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
- 
-                        <?= $this->Html->link(__('Add Bill Of Records'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
+                        Import Records
+                        <?= $this->Html->link(__('View Archived Imports'), ['action' => 'archive'], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
+                        <?= $this->Html->link(__('Add Imports'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
                     </div>
                     <div class="card-body">
                         <table id="datatablesSimple">
@@ -42,8 +41,8 @@
 
                                         if($status==false){ ?>
 
-                                       
-                                                         
+
+
                                 <tr>
                                     <td><?= $this->Number->format($invoice->id) ?></td>
                                     <td><?= h($invoice->number) ?></td>
@@ -58,7 +57,7 @@
                                        <?= $this->Form->postLink(__('Archive'), ['action' => 'update', $invoice->id,0], ['confirm' => __('Are you sure you want to archive # {0}?', $invoice->id)]) ?>
                                     </td>
                                 </tr>
-                                <?php } ?> 
+                                <?php } ?>
                             <?php endforeach; ?>
                             </tbody>
                         </table>

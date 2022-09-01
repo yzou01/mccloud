@@ -19,7 +19,7 @@ $key = isset($key) ? $key : '<%= key %>';
                 <div class=" card mb-4" style="margin-top: 50px">
                     <div class="card-header">
                         <i class="fas fa-table me-1" style="padding-top: 11px"></i>
-                        Bill Of Records
+                        Import Records
                         <?= $this->Html->link(__('Back'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right']) ?>
                     </div>
                     <div class="card-body">

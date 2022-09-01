@@ -16,8 +16,8 @@
                 <div class=" card mb-4" style="margin-top: 50px">
                     <div class="card-header  ">
                         <i class="fa-solid fa-receipt" style="padding-top: 11px; padding-right: 2px" ></i>
-                        Archive Records
-                        <?= $this->Html->link(__('View Bill Of Records'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
+                        Archived Import Records
+                        <?= $this->Html->link(__('View Imports'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
                     </div>
                     <div class="card-body">
                         <table id="datatablesSimple">
@@ -40,8 +40,8 @@
 
                                         if($status==true){ ?>
 
-                                       
-                                                         
+
+
                                 <tr>
                                     <td><?= $this->Number->format($invoice->id) ?></td>
                                     <td><?= h($invoice->number) ?></td>
@@ -55,9 +55,9 @@
                                         <?= $this->Form->postLink(__('Unarchive'), ['action' => 'update', $invoice->id,1], ['confirm' => __('Are you sure you want to unarchive # {0}?', $invoice->id)]) ?>
 
                                                                                                                    </td>
-                                     
+
                                 </tr>
-                                <?php } ?> 
+                                <?php } ?>
                             <?php endforeach; ?>
                             </tbody>
                         </table>

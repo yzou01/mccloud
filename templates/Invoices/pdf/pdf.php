@@ -31,7 +31,7 @@
         <div class=" card mb-4" style="margin-top: 50px">
             <div class="card-header">
                 <i class="fa-solid fa-receipt" style="padding-top: 11px; padding-right: 2px"></i>
-                Bill Of Records
+                Import Records
             </div>
             <div class="card-body">
                 <div class="row">
