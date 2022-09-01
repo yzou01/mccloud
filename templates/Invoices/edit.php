@@ -137,9 +137,9 @@ $key = isset($key) ? $key : '<%= key %>';
                                                                         ?>
                                                                     </div>
                                                                 </div>
-                                                                <div style="width: 1%;display: table-cell; text-align: center; vertical-align: middle">
-                                                                    <a class="skus-delete" href="#"><i class="fa fa-fw fa-trash"></i></a>
-                                                                </div>
+<!--                                                                <div style="width: 1%;display: table-cell; text-align: center; vertical-align: middle">-->
+<!--                                                                    <a class="skus-delete" href="#"><i class="fa fa-fw fa-trash"></i></a>-->
+<!--                                                                </div>-->
                                                             </div>
                                                         </div>
                                                     </div>
@@ -202,9 +202,9 @@ $key = isset($key) ? $key : '<%= key %>';
                                                                     ?>
                                                                 </div>
                                                             </div>
-                                                            <div style="width: 1%; display: table-cell; text-align: center;vertical-align: middle">
-                                                                <a class="additionalcosts-delete" href="#"><i class="fa fa-fw fa-trash"></i></a>
-                                                            </div>
+<!--                                                            <div style="width: 1%; display: table-cell; text-align: center;vertical-align: middle">-->
+<!--                                                                <a class="additionalcosts-delete" href="#"><i class="fa fa-fw fa-trash"></i></a>-->
+<!--                                                            </div>-->
                                                         </div>
                                                     </div>
                                                 </div>
@@ -246,9 +246,9 @@ $key = isset($key) ? $key : '<%= key %>';
                                                                         ?>
                                                                     </div>
                                                                 </div>
-                                                                <div style="width: 1%; display: table-cell; text-align: center;vertical-align: middle">
-                                                                    <a class="additionalcosts-delete" href="#"><i class="fa fa-fw fa-trash"></i></a>
-                                                                </div>
+<!--                                                                <div style="width: 1%; display: table-cell; text-align: center;vertical-align: middle">-->
+<!--                                                                    <a class="additionalcosts-delete" href="#"><i class="fa fa-fw fa-trash"></i></a>-->
+<!--                                                                </div>-->
                                                             </div>
                                                         </div>
                                                     </div>
@@ -260,7 +260,7 @@ $key = isset($key) ? $key : '<%= key %>';
                                 </div>
                             </div>
                         </div>
-                        <div id="to_be_deleted"></div>
+<!--                        <div id="to_be_deleted"></div>-->
                         <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary', 'style' => 'width: 100%']) ?>
                         <?= $this->Form->end() ?>
                         <?= $this->Flash->render() ?>

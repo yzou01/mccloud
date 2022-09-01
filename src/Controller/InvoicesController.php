@@ -68,14 +68,14 @@ class InvoicesController extends AppController
             $this->Flash->error(__('The invoice could not be saved. Please, try again.'));
         }
         $this->loadModel('Skus');
-        
+
         $skus=$this->Skus->find('list',['limit'=>200,'conditions'=>['Skus.archive' => false,'Skus.factory_id'=>$factory_id]])->all();
         $this->loadModel('Factories');
         $factory= $this->Factories->get($id, [
             'contain' => ['Skus']
         ]);
-         
-        
+
+
         $this->set(compact('invoice','factory', 'skus'));
     }
 
@@ -100,11 +100,11 @@ class InvoicesController extends AppController
 //                debug($this->request->getData('order_delete')); exit;
 //                debug($orders_to_delete); exit;
                 // delete any orders if given
-                $orders_to_delete = $this->Invoices->Orders->find()->where(['id IN' => $this->request->getData('delete_orders')]);
-                $this->Invoices->Orders->deleteMany($orders_to_delete);
-                // delete any additionalcosts if given
-                $additionalcosts_to_delte = $this->Invoices->Additionalcosts->find()->where(['id IN' => $this->request->getData('delete_additionalcosts')]);
-                $this->Invoices->Additionalcosts->deleteMany($additionalcosts_to_delte);
+//                $orders_to_delete = $this->Invoices->Orders->find()->where(['id IN' => $this->request->getData('delete_orders')]);
+//                $this->Invoices->Orders->deleteMany($orders_to_delete);
+//                // delete any additionalcosts if given
+//                $additionalcosts_to_delte = $this->Invoices->Additionalcosts->find()->where(['id IN' => $this->request->getData('delete_additionalcosts')]);
+//                $this->Invoices->Additionalcosts->deleteMany($additionalcosts_to_delte);
 
                 $this->Flash->success(__('The invoice has been saved.'));
 
