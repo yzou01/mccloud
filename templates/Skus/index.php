@@ -60,6 +60,7 @@
                             <?php endforeach; ?>
                             </tbody>
                         </table>
+                        <?= $this->Flash->render()?>
                     </div>
                 </div>
             </main>

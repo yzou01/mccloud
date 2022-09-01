@@ -22,7 +22,7 @@
     }
 
     .no-border {
-        border: 0px;
+        border: 0;
     }
 </style>
 
@@ -35,18 +35,18 @@
                 <div class=" card mb-4" style="margin-top: 50px">
                     <div class="card-header">
                         <i class="fa-solid fa-receipt" style="padding-top: 11px; padding-right: 2px"></i>
-                        Bill Of Records
-                        <?= $this->Html->link(__('Edit Bill of Records'), ['action' => 'edit', $invoice->id], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px;']) ?>
+                        Import Records
+                        <?= $this->Html->link(__('Edit Imports'), ['action' => 'edit', $invoice->id], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px;']) ?>
 <!--                        <= $this->Form->postLink(__('Delete Invoice'), ['action' => 'delete', $invoice->id], ['confirm' => __('Are you sure you want to delete # {0}?', $invoice->id), 'class' => 'side-nav-item']) ?>-->
-                        <?= $this->Html->link(__('List Bill of Records'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px;']) ?>
-                        <?= $this->Html->link(__('Add Bill of Records'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px;']) ?>
+                        <?= $this->Html->link(__('List Imports'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px;']) ?>
+                        <?= $this->Html->link(__('Add Imports'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px;']) ?>
                     </div>
                     <?= $this->Form->create($invoice) ?>
                     <div class="card-body">
                         <div class="row">
                             <div class="column-responsive column-80">
                                 <div class="invoices view content">
-                                    <legend><?= h($invoice->id) ?></legend>
+                                    <h4><?= h($invoice->id) ?></h4>
                                     <fieldset>
                                         <div class="form-label">
                                             <?php
@@ -199,7 +199,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <button class="btn btn-primary" style="width: 100% ;float:right"><i class="fa-solid fa-download"></i> Download PDF</button>
+                                    <?= $this->Html->link("<button class='btn btn-primary' style='width: 100%'><i class='fa-solid fa-download'></i> Download PDF</button>", ['action' => 'pdf', $invoice->id],['escape' => false,]) ?>
                                 </div>
                             </div>
                         </div>
@@ -209,8 +209,3 @@
         </div>
     </div>
 </body>
-
-
-
-
-
