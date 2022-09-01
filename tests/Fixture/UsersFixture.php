@@ -6,16 +6,10 @@ namespace App\Test\Fixture;
 use Cake\TestSuite\Fixture\TestFixture;
 
 /**
- * SkusFixture
+ * UsersFixture
  */
-class SkusFixture extends TestFixture
+class UsersFixture extends TestFixture
 {
-    /**
-     * Table name
-     *
-     * @var string
-     */
-    public $table = 'skus';
     /**
      * Init method
      *
@@ -26,10 +20,8 @@ class SkusFixture extends TestFixture
         $this->records = [
             [
                 'id' => 1,
-                'name' => 'Lorem ipsum dolor sit amet',
-                'price' => 1,
-                'type_id' => 1,
-                'factory_id' => 1,
+                'username' => 'Lorem ipsum dolor sit amet',
+                'password' => 'Lorem ipsum dolor sit amet',
                 'archive' => 1,
             ],
         ];

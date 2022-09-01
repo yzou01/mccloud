@@ -11,14 +11,17 @@
         <?php echo $this->element('navbar/sidebar')?>
         <div id="layoutSidenav_content">
             <main>
-                <br><br>
-                <div class=" card mb-4">
+                <div class=" card mb-4" style="margin-top: 50px">
                     <div class="card-header">
-                        <i class="fas fa-table me-1" style="padding-top: 11px"></i><?= h($factory->name) ?>
-                        <?= $this->Html->link(__('Back'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right']) ?>
+                        <i class="fa-solid fa-industry" style="padding-top: 11px; padding-right: 2px"></i>
+                        <?= h($factory->name) ?>
+                        <?= $this->Html->link(__('Edit Factory'), ['action' => 'edit',$factory->id], ['class' => 'btn btn-primary', 'style' => 'float: right;margin-right: 5px;']) ?>
+                        <?= $this->Html->link(__('List Factories'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right;margin-right: 5px;']) ?>
+
+                        <?= $this->Html->link(__('Add Factory'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'float: right;margin-right: 5px;']) ?>
                     </div>
                     <div class="card-body">
-                        <h4><?= __('Related Skus') ?></h4>
+                        <legend><?= __('Related Product') ?></legend>
                         <?php if (!empty($factory->skus)) : ?>
                             <table id="datatablesSimple">
                                 <thead>
@@ -26,10 +29,7 @@
                                     <th><?= $this->Paginator->sort('Id') ?></th>
                                     <th><?= $this->Paginator->sort('Name') ?></th>
                                     <th><?= $this->Paginator->sort('Price') ?></th>
-                                    
                                     <th><?= $this->Paginator->sort('Type ID') ?></th>
-
-                                    
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -39,41 +39,12 @@
                                     <td><?= h($skus->name) ?></td>
                                     <td><?= h($skus->price) ?></td>
                                    <td><?= h($skus->type_id) ?></td>
-                                    
                                 </tr>
                                 <?php endforeach; ?>
                                 </tbody>
                             </table>
                         <?php endif; ?>
                     </div>
-                    <div class="card-body">
-                        <h4><?= __('Related Invoices') ?></h4>
-                        <?php if (!empty($factory->invoices)) : ?>
-                            <table id="datatablesSimple">
-                                <thead>
-                                <tr>
-                                    <th><?= $this->Paginator->sort('Id') ?></th>
-                                    <th><?= $this->Paginator->sort('Number') ?></th>
-                                    <th><?= $this->Paginator->sort('Date') ?></th>
-                                    <th><?= $this->Paginator->sort('Currency Rate') ?></th>
-                                    
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <?php foreach ($factory->invoices as $invoices) : ?>
-                                <tr>
-                                    <td><?= h($invoices->id) ?></td>
-                                    <td><?= h($invoices->number) ?></td>
-                                    <td><?= h($invoices->date) ?></td>
-                                    <td><?= h($invoices->currency_rate) ?></td>
-                                    
-                                </tr>
-                                <?php endforeach; ?>
-                                </tbody>
-                            </table>
-                        <?php endif; ?>
-                    </div>
-
                 </div>
             </main>
         </div>

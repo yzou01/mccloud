@@ -13,10 +13,10 @@ use Cake\ORM\Entity;
  * @property float $price
  * @property int $type_id
  * @property int $factory_id
+ * @property bool $archive
  *
  * @property \App\Model\Entity\Type $type
  * @property \App\Model\Entity\Factory $factory
- * @property \App\Model\Entity\Invoice[] $invoices
  */
 class Skus extends Entity
 {
@@ -34,8 +34,8 @@ class Skus extends Entity
         'price' => true,
         'type_id' => true,
         'factory_id' => true,
+        'archive' => true,
         'type' => true,
         'factory' => true,
-        'invoices' => true,
     ];
 }

@@ -11,6 +11,7 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $name
  * @property string $currency
+ * @property bool $archive
  *
  * @property \App\Model\Entity\Invoice[] $invoices
  * @property \App\Model\Entity\Skus[] $skus
@@ -29,6 +30,7 @@ class Factory extends Entity
     protected $_accessible = [
         'name' => true,
         'currency' => true,
+        'archive' => true,
         'invoices' => true,
         'skus' => true,
     ];

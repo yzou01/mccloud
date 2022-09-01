@@ -83,6 +83,10 @@ class SkusTable extends Table
             ->requirePresence('factory_id', 'create')
             ->notEmptyString('factory_id');
 
+        $validator
+            ->boolean('archive')
+            ->notEmptyString('archive');
+
         return $validator;
     }
 

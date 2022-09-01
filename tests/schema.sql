@@ -14,7 +14,8 @@ CREATE TABLE `additionalcosts` (
 CREATE TABLE `factories` (
   `id` int(11) NOT NULL,
   `name` varchar(25) NOT NULL,
-  `currency` varchar(20) NOT NULL
+  `currency` varchar(20) NOT NULL,
+  `archive` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `invoices` (
@@ -22,9 +23,11 @@ CREATE TABLE `invoices` (
   `number` varchar(10) NOT NULL,
   `date` date NOT NULL,
   `currency_of_origin` varchar(20) NOT NULL,
-  `currency_rate` double(10,0) NOT NULL,
+  `currency_rate` double(6,0) NOT NULL,
   `gst` float DEFAULT NULL,
-  `factory_id` int(11) NOT NULL
+  `factory_id` int(11) NOT NULL,
+  `discount` decimal(4,3) DEFAULT NULL,
+  `archive` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `orders` (
@@ -39,12 +42,21 @@ CREATE TABLE `skus` (
   `name` varchar(30) NOT NULL,
   `price` float NOT NULL,
   `type_id` int(11) NOT NULL,
-  `factory_id` int(11) NOT NULL
+  `factory_id` int(11) NOT NULL,
+  `archive` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `types` (
   `id` int(11) NOT NULL,
-  `name` varchar(25) NOT NULL
+  `name` varchar(25) NOT NULL,
+  `archive` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `archive` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
@@ -76,6 +88,9 @@ ALTER TABLE `types`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id` (`id`);
 
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
 
 ALTER TABLE `additionalcosts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
@@ -95,6 +110,11 @@ ALTER TABLE `skus`
 ALTER TABLE `types`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
+ALTER TABLE `users`
+    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+INSERT INTO `users` (`id`, `username`, `password`, `type`) VALUES
+    (1, 'admin', '$2y$10$7nNzyVI1GoVztLsLcIDhnOL6HgQpeXGotpDH5GGI2ozbLtuHxEp7e', 0);
 
 ALTER TABLE `additionalcosts`
   ADD CONSTRAINT `additionalcosts_ibfk_1` FOREIGN KEY (`invoice_id`) REFERENCES `invoices` (`id`);

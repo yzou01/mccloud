@@ -46,12 +46,12 @@ class OrdersTable extends Table
 
         $this->belongsTo('Invoices', [
             'foreignKey' => 'invoice_id',
-            'joinType' => 'INNER',
         ]);
         $this->belongsTo('Skus', [
             'foreignKey' => 'sku_id',
             'joinType' => 'INNER',
         ]);
+        
     }
 
     /**
@@ -62,14 +62,13 @@ class OrdersTable extends Table
      */
     public function validationDefault(Validator $validator): Validator
     {
-        // $validator
-        //     ->integer('invoice_id')
-        //     ->requirePresence('invoice_id', 'create')
-        //     ->notEmptyString('invoice_id');
+        $validator
+            ->integer('invoice_id')
+            ->allowEmptyString('invoice_id');
 
         $validator
             ->integer('sku_id')
-            ->requirePresence('sku_id')
+            ->requirePresence('sku_id', 'create')
             ->notEmptyString('sku_id');
 
         $validator

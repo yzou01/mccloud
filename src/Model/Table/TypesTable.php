@@ -62,6 +62,10 @@ class TypesTable extends Table
             ->requirePresence('name', 'create')
             ->notEmptyString('name');
 
+        $validator
+            ->boolean('archive')
+            ->notEmptyString('archive');
+
         return $validator;
     }
 }

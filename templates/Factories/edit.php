@@ -11,11 +11,11 @@
         <?php echo $this->element('navbar/sidebar')?>
         <div id="layoutSidenav_content">
             <main>
-                <br><br>
-                <div class=" card mb-4">
+                <div class=" card mb-4" style="margin-top: 50px">
                     <div class="card-header">
-                        <i class="fas fa-table me-1" style="padding-top: 11px"></i>Factories
-                        <?= $this->Html->link(__('Back'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right']) ?>
+                        <i class="fa-solid fa-industry" style="padding-top: 11px; padding-right: 2px"></i>
+                        Factories
+                        <?= $this->Html->link(__('List Factories'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right']) ?>
                     </div>
                     <div class="card-body">
                         <div class="column-responsive column-80">
@@ -30,7 +30,17 @@
                                     </div>
                                     <div class="form-label">
                                         <?php
-                                            echo $this->Form->control('currency',['class'=>'form-control']);
+                                        echo $this->Form->control("currency",['class'=>'form-select', 'options'=>[
+                                            'Euro'=>'EUR - Euro',
+                                            'Pound Sterling'=>'GBP - Pound Sterling',
+                                            'Japanese Yen'=>'JPY - Japanese Yen',
+                                            'Chinese Yuan'=>'CNY - Chinese Yuan',
+                                            'South African Rand'=>'ZAR - South African Rand',
+                                            'United States Dollar'=>'USD - United States Dollar',
+                                            'New Zealand Dollar'=>'NZD -  New Zealand Dollar',
+                                            'Australian Dollar'=>'AUD - Australian Dollar',
+                                        ]
+                                        ]);
                                         ?>
                                     </div>
                                 </fieldset>

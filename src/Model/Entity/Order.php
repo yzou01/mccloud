@@ -9,7 +9,7 @@ use Cake\ORM\Entity;
  * Order Entity
  *
  * @property int $id
- * @property int $invoice_id
+ * @property int|null $invoice_id
  * @property int $sku_id
  * @property int $quantity
  *

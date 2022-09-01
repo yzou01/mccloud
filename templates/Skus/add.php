@@ -12,19 +12,18 @@
         <?php echo $this->element('navbar/sidebar')?>
         <div id="layoutSidenav_content">
             <main>
-                <br><br>
-                <div class=" card mb-4">
+                <div class=" card mb-4" style="margin-top: 50px">
                     <div class="card-header">
-                        <i class="fas fa-table me-1" style="padding-top: 11px"></i>
-                        SKU
-                        <?= $this->Html->link(__('List Skus'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
+                        <i class="fa-solid fa-bag-shopping" style="padding-top: 11px; padding-right: 2px"></i>
+                        Products
+                        <?= $this->Html->link(__('List Products'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
                     </div>
                     <div class="card-body">
                         <div class="column-responsive column-80">
                             <div class="skus form content">
                                 <?= $this->Form->create($skus) ?>
                                 <fieldset>
-                                    <legend><?= __('Add Skus') ?></legend>
+                                    <legend><?= __('Add Products') ?></legend>
                                     <div class="form-label">
                                         <?php
                                             echo $this->Form->control('name',['class'=>'form-control']);
@@ -45,10 +44,10 @@
                                             echo $this->Form->control('type_id', ['class'=>'form-control', 'options' => $types]);
                                         ?>
                                     </div>
-
                                 </fieldset>
                                 <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
                                 <?= $this->Form->end() ?>
+                                <?= $this->Flash->render()?>
                             </div>
                         </div>
                     </div>

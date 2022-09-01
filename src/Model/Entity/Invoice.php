@@ -15,6 +15,8 @@ use Cake\ORM\Entity;
  * @property float $currency_rate
  * @property float|null $gst
  * @property int $factory_id
+ * @property string|null $discount
+ * @property bool $archive
  *
  * @property \App\Model\Entity\Factory $factory
  * @property \App\Model\Entity\Additionalcost[] $additionalcosts
@@ -38,6 +40,8 @@ class Invoice extends Entity
         'currency_rate' => true,
         'gst' => true,
         'factory_id' => true,
+        'discount' => true,
+        'archive' => true,
         'factory' => true,
         'additionalcosts' => true,
         'orders' => true,

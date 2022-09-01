@@ -64,6 +64,8 @@ class FactoriesTable extends Table
             ->scalar('name')
             ->maxLength('name', 25)
             ->requirePresence('name', 'create')
+            ->regex('name', '/^[A-Za-z0-9 ]+$/', 'The provided value is invalid. Special characters are not allowed.')
+
             ->notEmptyString('name');
 
         $validator
@@ -71,6 +73,10 @@ class FactoriesTable extends Table
             ->maxLength('currency', 20)
             ->requirePresence('currency', 'create')
             ->notEmptyString('currency');
+
+        $validator
+            ->boolean('archive')
+            ->notEmptyString('archive');
 
         return $validator;
     }

@@ -96,6 +96,14 @@ class InvoicesTable extends Table
             ->requirePresence('factory_id', 'create')
             ->notEmptyString('factory_id');
 
+        $validator
+            ->decimal('discount')
+            ->allowEmptyString('discount');
+
+        $validator
+            ->boolean('archive')
+            ->notEmptyString('archive');
+
         return $validator;
     }
 
