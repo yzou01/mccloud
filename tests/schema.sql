@@ -54,8 +54,8 @@ CREATE TABLE `types` (
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `username` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `archive` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -110,6 +110,11 @@ ALTER TABLE `skus`
 ALTER TABLE `types`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
+ALTER TABLE `users`
+    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+INSERT INTO `users` (`id`, `username`, `password`, `type`) VALUES
+    (1, 'admin', '$2y$10$7nNzyVI1GoVztLsLcIDhnOL6HgQpeXGotpDH5GGI2ozbLtuHxEp7e', 0);
 
 ALTER TABLE `additionalcosts`
   ADD CONSTRAINT `additionalcosts_ibfk_1` FOREIGN KEY (`invoice_id`) REFERENCES `invoices` (`id`);
