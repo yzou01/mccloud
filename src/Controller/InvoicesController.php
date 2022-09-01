@@ -68,11 +68,11 @@ class InvoicesController extends AppController
             $this->Flash->error(__('The invoice could not be saved. Please, try again.'));
         }
         $this->loadModel('Skus');
-        $skus=$this->Skus->find('list',['limit'=>200])->all();
+        $skus=$this->Skus->find('list',['limit'=>200,'condition'=>['Skus.archive' => false]])->all();
         $factories = $this->Invoices->Factories->find('list', ['limit' => 200])->all();
-        $additionalcosttypes = $this->Invoices->Additionalcosts->find('list')->toArray();
+       // $additionalcosttypes = $this->Invoices->Additionalcosts->find('list')->toArray();
         //debug($additionalcosttypes); exit;
-        $this->set(compact('invoice', 'factories', 'additionalcosttypes','skus'));
+        $this->set(compact('invoice', 'factories','skus'));
     }
 
     /**
@@ -109,7 +109,7 @@ class InvoicesController extends AppController
             $this->Flash->error(__('The invoice could not be saved. Please, try again.'));
         }
         $this->loadModel('Skus');
-        $skus=$this->Skus->find('list',['limit'=>200])->all();
+        $skus=$this->Skus->find('list',['limit'=>200,'condition'=>['Skus.archive' => false]])->all();
         $factories = $this->Invoices->Factories->find('list', ['limit' => 200])->all();
         $this->set(compact('invoice',  'factories','skus'));
     }
@@ -140,8 +140,20 @@ class InvoicesController extends AppController
         $invoice = $this->Invoices->get($id);
         if($flag==0){
             $invoice->archive=true;
+            if ($this->Invoices->save($invoice)) {
+                $this->Flash->success(__('The invoice has been archived.'));
+            }else{
+                $this->Flash->error(__('The invoice could not be archived. Please, try again.'));
+            }
+            return $this->redirect(['action' => 'index']);
         }elseif($flag==1){
             $invoice->archive=false;
+            if ($this->Invoices->save($invoice)) {
+                $this->Flash->success(__('The invoice has been unarchived.'));
+            }else{
+                $this->Flash->error(__('The invoice could not be unarchived. Please, try again.'));
+            }
+            return $this->redirect(['action' => 'archive']);
         }
 
 
@@ -167,5 +179,19 @@ class InvoicesController extends AppController
         $this->set(compact('invoices'));
     }
 
-
+    public function pdf($id = null)
+    {
+        $this->viewBuilder()->enableAutoLayout(false);
+        $report = $this->Invoices->get($id);
+        $this->viewBuilder()->setClassName('CakePdf.Pdf');
+        $this->viewBuilder()->setOption(
+            'pdfConfig',
+            [
+                'orientation' => 'portrait',
+                'download' => true, // This can be omitted if "filename" is specified.
+                'filename' => 'Import_' . $id . '.pdf' //// This can be omitted if you want file name based on URL.
+            ]
+        );
+        $this->set('report', $report);
+    }
 }
