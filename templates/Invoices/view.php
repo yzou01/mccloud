@@ -121,10 +121,10 @@
                                                         <td> <?=h($invoice->orders[$i]->skus->price) ?></td>
                                                         <td> <?=h($invoice->orders[$i]->quantity * $invoice->orders[0]->skus->price ) ?></td>
 
-                                                        <td> <?=h(($invoice->orders[$i]->quantity * $invoice->orders[0]->skus->price) / $invoice->currency_rate ) ?> </td>
+                                                        <td> <?=h(round(($invoice->orders[$i]->quantity * $invoice->orders[0]->skus->price) / $invoice->currency_rate,2)) ?> </td>
                                                     </tr>
-                                                    <?php $sumTC += $invoice->orders[$i]->quantity * $invoice->orders[0]->skus->price ?>
-                                                    <?php $sumTCA +=  ($invoice->orders[$i]->quantity * $invoice->orders[0]->skus->price) / $invoice->currency_rate ?>
+                                                    <?php $sumTC += round($invoice->orders[$i]->quantity * $invoice->orders[0]->skus->price,2) ?>
+                                                    <?php $sumTCA +=  round($invoice->orders[$i]->quantity * $invoice->orders[0]->skus->price / $invoice->currency_rate ,2)?>
                                                     <?php $i = $i + 1; ?>
                                                     <?php endforeach;?>
                                                     <tr>
@@ -132,16 +132,16 @@
                                                         <td class="no-border"></td>
                                                         <td class="no-border"></td>
                                                         <th>Discount</th>
-                                                        <td> <?=h($sumTC * $invoice->discount) ?></td>
-                                                        <td> <?=h($sumTCA *  $invoice->discount) ?> </td>
+                                                        <td> <?=h(round($sumTC * $invoice->discount,2)) ?></td>
+                                                        <td> <?=h(round($sumTCA *  $invoice->discount,2)) ?> </td>
                                                     </tr>
                                                     <tr>
                                                         <td class="no-border"></td>
                                                         <td class="no-border"></td>
                                                         <td class="no-border"></td>
                                                         <th>Total</th>
-                                                        <td><?=h($sumTC - ($sumTC * $invoice->discount)) ?></td>
-                                                        <td><?=h($sumTCA - ($sumTCA * $invoice->discount)) ?></td>
+                                                        <td><?=h(round($sumTC - ($sumTC * $invoice->discount),2)) ?></td>
+                                                        <td><?=h(round($sumTCA - ($sumTCA * $invoice->discount),2)) ?></td>
                                                     </tr>
                                                 </table>
                                             </div>
@@ -185,7 +185,7 @@
                                                 <table>
                                                     <tr>
                                                         <th>Total costs of items</th>
-                                                        <td> <?=h($sumTCA - ($sumTCA * $invoice->discount)) ?> </td>
+                                                        <td> <?=h(round($sumTCA - ($sumTCA * $invoice->discount),2)) ?> </td>
                                                     </tr>
                                                     <tr>
                                                         <th>Total of additional costs</th>
@@ -193,7 +193,7 @@
                                                     </tr>
                                                     <tr>
                                                         <th>Grand Total</th>
-                                                        <td> <?=h(($sumTCA - ($sumTCA * $invoice->discount)) + $sumAC)?> </td>
+                                                        <td> <?=h(round($sumTCA - ($sumTCA * $invoice->discount) + $sumAC,2))?> </td>
                                                     </tr>
                                                 </table>
                                             </div>
