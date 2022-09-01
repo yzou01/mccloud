@@ -99,26 +99,30 @@
                                                         <th class="th-custom">Total Cost</th>
                                                         <th class="th-custom">Cost in AUD</th>
                                                     </tr>
+                                                    <?php $i = 0; ?>
+                                                    <?php foreach ($invoice['orders'] as $orders): ?>
                                                     <tr>
                                                         <td>
-                                                            <?=h($invoice->orders[0]->id) ?>
+                                                            <?=h($invoice->orders[$i]->id) ?>
                                                         </td>
 
                                                         <!--   Invoice -> Order -> Sku_id find the sku_name using sku_id in the sku table -->
                                                         <td>
-                                                            <?=h($invoice->orders[0]->skus->name) ?>
+                                                            <?=h($invoice->orders[$i]->skus->name) ?>
                                                         </td>
 
                                                         <td>
-                                                            <?=h($invoice->orders[0]->quantity) ?>
+                                                            <?=h($invoice->orders[$i]->quantity) ?>
                                                         </td>
 
 <!--                                      Invoice -> Order -> Sku_id find the sku price using sku_id in the sku table -->
-                                                        <td> <?=h($invoice->orders[0]->skus->price) ?></td>
-                                                        <td> <?=h($invoice->orders[0]->quantity * $invoice->orders[0]->skus->price ) ?></td>
+                                                        <td> <?=h($invoice->orders[$i]->skus->price) ?></td>
+                                                        <td> <?=h($invoice->orders[$i]->quantity * $invoice->orders[0]->skus->price ) ?></td>
 
-                                                        <td> <?=h(($invoice->orders[0]->quantity * $invoice->orders[0]->skus->price) / $invoice->currency_rate ) ?> </td>
+                                                        <td> <?=h(($invoice->orders[$i]->quantity * $invoice->orders[0]->skus->price) / $invoice->currency_rate ) ?> </td>
                                                     </tr>
+                                                    <?php $i = $i + 1; ?>
+                                                    <?php endforeach;?>
                                                     <tr>
                                                         <td class="no-border"></td>
                                                         <td class="no-border"></td>
@@ -150,10 +154,14 @@
                                                         <th class="th-custom">Cost</th>
                                                         <th class="th-custom">Amount</th>
                                                     </tr>
+                                                    <?php $i = 0; ?>
+                                                    <?php foreach ($invoice['additionalcosts'] as $additionalcost): ?>
                                                     <tr>
-                                                        <td><?=h($invoice->additionalcosts[0]->name) ?></td>
-                                                        <td><?=h($invoice->additionalcosts[0]->amount) ?></td>
+                                                        <td><?=h($invoice->additionalcosts[$i]->name) ?></td>
+                                                        <td><?=h($invoice->additionalcosts[$i]->amount) ?></td>
                                                     </tr>
+                                                        <?php $i = $i + 1; ?>
+                                                    <?php endforeach;?>
                                                     <tr>
                                                         <th>Total</th>
                                                         <td></td>
@@ -171,15 +179,15 @@
                                                 <table>
                                                     <tr>
                                                         <th>Total costs of items</th>
-                                                        <td> <?=h($invoice->orders[0]->quantity * $invoice->orders[0]->skus->price ) ?></td>
+                                                        <td> <?=h($invoice->orders[0]->quantity * $invoice->orders[0]->skus->price )?> </td>
                                                     </tr>
                                                     <tr>
                                                         <th>Total of additional costs</th>
-                                                        <td></td>
+                                                        <td> <?=h($invoice->additionalcosts[0]->amount)?> </td>
                                                     </tr>
                                                     <tr>
                                                         <th>Grand Total</th>
-                                                        <td></td>
+                                                        <td> <?=h(($invoice->orders[0]->quantity * $invoice->orders[0]->skus->price) + ($invoice->additionalcosts[0]->amount))?> </td>
                                                     </tr>
                                                 </table>
                                             </div>
