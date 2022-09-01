@@ -36,7 +36,11 @@ class InvoicesController extends AppController
     public function view($id = null)
     {
         $invoice = $this->Invoices->get($id, [
-            'contain' => [ 'Factories'],
+            'contain' => [
+                'Factories',
+                'Orders' => ['Skus'],
+                'Additionalcosts' =>[]
+            ],
         ]);
 
         $this->set(compact('invoice'));
@@ -153,7 +157,11 @@ class InvoicesController extends AppController
         }
 
 
-
+        if ($this->Invoices->save($invoice)) {
+            $this->Flash->success(__('The invoice has been archived.'));
+        }else{
+            $this->Flash->error(__('The invoice could not be archived. Please, try again.'));
+        }
 
 
 

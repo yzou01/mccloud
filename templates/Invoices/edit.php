@@ -66,6 +66,11 @@ $key = isset($key) ? $key : '<%= key %>';
                                         echo $this->Form->control('gst', ['class' => 'form-control', 'min' => 0, 'label' => 'Gst Cost']);
                                         ?>
                                     </div>
+                                    <div class="form-label">
+                                        <?php
+                                        echo $this->Form->control('discount', ['class' => 'form-control', 'min' => 0, 'label' => 'Discount']);
+                                        ?>
+                                    </div>
                             </div>
 
                             <div style="margin-top: 20px">

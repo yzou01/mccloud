@@ -2,6 +2,7 @@
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Invoice $invoice
+
  */
 ?>
 <style>
@@ -40,6 +41,7 @@
                         <?= $this->Html->link(__('List Imports'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px;']) ?>
                         <?= $this->Html->link(__('Add Imports'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px;']) ?>
                     </div>
+                    <?= $this->Form->create($invoice) ?>
                     <div class="card-body">
                         <div class="row">
                             <div class="column-responsive column-80">
@@ -76,6 +78,11 @@
                                             echo $this->Form->control('Date',['label'=> 'Date', 'value'=> h($invoice->date),'class'=>'form-control', 'disabled' => 'true']);
                                             ?>
                                         </div>
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->control('Discount',['label'=> 'Discount', 'value'=> h($invoice->discount),'class'=>'form-control', 'disabled' => 'true']);
+                                            ?>
+                                        </div>
                                     </fieldset>
 
 <!--                                    ITEMS BREAKDOWN-->
@@ -92,29 +99,49 @@
                                                         <th class="th-custom">Total Cost</th>
                                                         <th class="th-custom">Cost in AUD</th>
                                                     </tr>
+                                                    <?php $sumTC = 0; ?>
+                                                    <?php $sumTCA = 0; ?>
+                                                    <?php $i = 0; ?>
+                                                    <?php foreach ($invoice['orders'] as $orders): ?>
                                                     <tr>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
+                                                        <td>
+                                                            <?=h($invoice->orders[$i]->id) ?>
+                                                        </td>
+
+                                                        <!--   Invoice -> Order -> Sku_id find the sku_name using sku_id in the sku table -->
+                                                        <td>
+                                                            <?=h($invoice->orders[$i]->skus->name) ?>
+                                                        </td>
+
+                                                        <td>
+                                                            <?=h($invoice->orders[$i]->quantity) ?>
+                                                        </td>
+
+<!--                                      Invoice -> Order -> Sku_id find the sku price using sku_id in the sku table -->
+                                                        <td> <?=h($invoice->orders[$i]->skus->price) ?></td>
+                                                        <td> <?=h($invoice->orders[$i]->quantity * $invoice->orders[0]->skus->price ) ?></td>
+
+                                                        <td> <?=h(round(($invoice->orders[$i]->quantity * $invoice->orders[0]->skus->price) / $invoice->currency_rate,2)) ?> </td>
                                                     </tr>
+                                                    <?php $sumTC += round($invoice->orders[$i]->quantity * $invoice->orders[0]->skus->price,2) ?>
+                                                    <?php $sumTCA +=  round($invoice->orders[$i]->quantity * $invoice->orders[0]->skus->price / $invoice->currency_rate ,2)?>
+                                                    <?php $i = $i + 1; ?>
+                                                    <?php endforeach;?>
                                                     <tr>
                                                         <td class="no-border"></td>
                                                         <td class="no-border"></td>
                                                         <td class="no-border"></td>
                                                         <th>Discount</th>
-                                                        <td></td>
-                                                        <td></td>
+                                                        <td> <?=h(round($sumTC * $invoice->discount,2)) ?></td>
+                                                        <td> <?=h(round($sumTCA *  $invoice->discount,2)) ?> </td>
                                                     </tr>
                                                     <tr>
                                                         <td class="no-border"></td>
                                                         <td class="no-border"></td>
                                                         <td class="no-border"></td>
                                                         <th>Total</th>
-                                                        <td></td>
-                                                        <td></td>
+                                                        <td><?=h(round($sumTC - ($sumTC * $invoice->discount),2)) ?></td>
+                                                        <td><?=h(round($sumTCA - ($sumTCA * $invoice->discount),2)) ?></td>
                                                     </tr>
                                                 </table>
                                             </div>
@@ -131,13 +158,19 @@
                                                         <th class="th-custom">Cost</th>
                                                         <th class="th-custom">Amount</th>
                                                     </tr>
+                                                    <?php $sumAC = 0?>
+                                                    <?php $i = 0; ?>
+                                                    <?php foreach ($invoice['additionalcosts'] as $additionalcost): ?>
                                                     <tr>
-                                                        <td></td>
-                                                        <td></td>
+                                                        <td><?=h($invoice->additionalcosts[$i]->name) ?></td>
+                                                        <td><?=h($invoice->additionalcosts[$i]->amount) ?></td>
                                                     </tr>
+                                                    <?php $sumAC += $invoice->additionalcosts[$i]->amount ?>
+                                                    <?php $i = $i + 1; ?>
+                                                    <?php endforeach;?>
                                                     <tr>
                                                         <th>Total</th>
-                                                        <td></td>
+                                                        <td><?=h($sumAC) ?></td>
                                                     </tr>
                                                 </table>
                                             </div>
@@ -152,15 +185,15 @@
                                                 <table>
                                                     <tr>
                                                         <th>Total costs of items</th>
-                                                        <td></td>
+                                                        <td> <?=h(round($sumTCA - ($sumTCA * $invoice->discount),2)) ?> </td>
                                                     </tr>
                                                     <tr>
                                                         <th>Total of additional costs</th>
-                                                        <td></td>
+                                                        <td> <?=h($sumAC) ?> </td>
                                                     </tr>
                                                     <tr>
                                                         <th>Grand Total</th>
-                                                        <td></td>
+                                                        <td> <?=h(round($sumTCA - ($sumTCA * $invoice->discount) + $sumAC,2))?> </td>
                                                     </tr>
                                                 </table>
                                             </div>
