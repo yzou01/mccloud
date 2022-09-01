@@ -16,7 +16,7 @@
                 <div class=" card mb-4" style="margin-top: 50px">
                     <div class="card-header  ">
                         <i class="fa-solid fa-receipt" style="padding-top: 11px; padding-right: 2px" ></i>
-                        Bill Of Records
+                        Archive Records
                         <?= $this->Html->link(__('View Bill Of Records'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
                     </div>
                     <div class="card-body">

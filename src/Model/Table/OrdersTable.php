@@ -51,6 +51,7 @@ class OrdersTable extends Table
             'foreignKey' => 'sku_id',
             'joinType' => 'INNER',
         ]);
+        
     }
 
     /**

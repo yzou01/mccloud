@@ -116,18 +116,26 @@ class SkusController extends AppController
            $sku = $this->Skus->get($id);
            if($flag==0){
                 $sku->archive=true;
+                if ($this->Skus->save($sku)) {
+                    $this->Flash->success(__('This sku has been archived.'));
+                }else{
+                    $this->Flash->error(__('This sku could not be archived. Please, try again.'));
+                }
+                return $this->redirect(['action' => 'index']);
            }elseif ($flag==1) {
             $sku->archive=false;
+            if ($this->Skus->save($sku)) {
+                $this->Flash->success(__('This sku has been unarchived.'));
+            }else{
+                $this->Flash->error(__('This sku could not be unarchived. Please, try again.'));
+            }
+            return $this->redirect(['action' => 'archive']);
            }
         
-            if ($this->Skus->save($sku)) {
-                $this->Flash->success(__('This sku has been archived.'));
-            }else{
-                $this->Flash->error(__('This sku could not be archived. Please, try again.'));
-            }
+            
             
         }
-        return $this->redirect(['action' => 'index']);
+       
     }
     public function archive()
     {
