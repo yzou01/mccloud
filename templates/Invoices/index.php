@@ -18,7 +18,7 @@
                         <i class="fa-solid fa-receipt" style="padding-top: 11px; padding-right: 2px" ></i>
                         Import Records
                         <?= $this->Html->link(__('View Archived Imports'), ['action' => 'archive'], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
-                        <?= $this->Html->link(__('Add Imports'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
+                        <?= $this->Html->link(__('Add Imports'), ['action' => 'select'], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
                     </div>
                     <div class="card-body">
                         <table id="datatablesSimple">
