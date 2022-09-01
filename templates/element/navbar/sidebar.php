@@ -31,7 +31,7 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="<?php echo $this->Url->build(['controller'=>'Invoices','action'=>'add']) ?>">Add Imports</a>
+                                    <a class="nav-link" href="<?php echo $this->Url->build(['controller'=>'Invoices','action'=>'select']) ?>">Add Imports</a>
                                     <a class="nav-link" href="<?php echo $this->Url->build(['controller'=>'Invoices','action'=>'index']) ?>">Manage Imports</a>
                                 </nav>
                             </div>
