@@ -51,8 +51,8 @@ class InvoicesController extends AppController
      *
      * @return \Cake\Http\Response|null|void Redirects on successful add, renders view otherwise.
      */
-    public function add()
-    {
+    public function add($id=null)
+    {   $factory_id=$id;
         $invoice = $this->Invoices->newEmptyEntity(['associated'=>['Additionalcosts','Orders']]);
         if ($this->request->is('post')) {
             $invoice = $this->Invoices->patchEntity($invoice, $this->request->getData());
@@ -68,11 +68,15 @@ class InvoicesController extends AppController
             $this->Flash->error(__('The invoice could not be saved. Please, try again.'));
         }
         $this->loadModel('Skus');
-        $skus=$this->Skus->find('list',['limit'=>200,'condition'=>['Skus.archive' => false]])->all();
-        $factories = $this->Invoices->Factories->find('list', ['limit' => 200])->all();
-       // $additionalcosttypes = $this->Invoices->Additionalcosts->find('list')->toArray();
-        //debug($additionalcosttypes); exit;
-        $this->set(compact('invoice', 'factories','skus'));
+        
+        $skus=$this->Skus->find('list',['limit'=>200,'conditions'=>['Skus.archive' => false,'Skus.factory_id'=>$factory_id]])->all();
+        $this->loadModel('Factories');
+        $factory= $this->Factories->get($id, [
+            'contain' => ['Skus']
+        ]);
+         
+        
+        $this->set(compact('invoice','factory', 'skus'));
     }
 
     /**
@@ -109,7 +113,7 @@ class InvoicesController extends AppController
             $this->Flash->error(__('The invoice could not be saved. Please, try again.'));
         }
         $this->loadModel('Skus');
-        $skus=$this->Skus->find('list',['limit'=>200,'condition'=>['Skus.archive' => false]])->all();
+        $skus=$this->Skus->find('list',['limit'=>200,'conditions'=>['Skus.archive' => false]])->all();
         $factories = $this->Invoices->Factories->find('list', ['limit' => 200])->all();
         $this->set(compact('invoice',  'factories','skus'));
     }
@@ -193,5 +197,12 @@ class InvoicesController extends AppController
             ]
         );
         $this->set('report', $report);
+    }
+
+    public function select()
+    {$this->loadModel('Factories');
+        $factories = $this->paginate($this->Factories);
+
+        $this->set(compact('factories'));
     }
 }

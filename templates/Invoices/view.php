@@ -80,7 +80,7 @@
                                         </div>
                                         <div class="form-label">
                                             <?php
-                                            echo $this->Form->control('Discount',['label'=> 'Discount', 'value'=> h($invoice->discount),'class'=>'form-control', 'disabled' => 'true']);
+                                            echo $this->Form->control('Discount',['label'=> 'Discount', 'value'=> $this->Number->format($invoice->discount),'class'=>'form-control', 'disabled' => 'true']);
                                             ?>
                                         </div>
                                     </fieldset>
