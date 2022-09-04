@@ -200,9 +200,22 @@ class InvoicesController extends AppController
     }
 
     public function select()
-    {$this->loadModel('Factories');
-        $factories = $this->paginate($this->Factories);
+    {
+         $this->loadModel('Factories');
+         $factories = $this->Invoices->Factories->find('list', ['limit' => 200])->all();
+         
+        
+        $factory=null ;
+        if ($this->request->is('post')) {
+            
+            $factory =  $this->request->getData('id');
+           
+            // debug($factory);exit;
+                return $this->redirect(['action' => 'add',$factory]);
+            
+            
+        }
+        $this->set(compact(  'factories','factory'));;
 
-        $this->set(compact('factories'));
     }
 }
