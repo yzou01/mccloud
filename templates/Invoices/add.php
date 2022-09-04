@@ -16,9 +16,9 @@ $key = isset($key) ? $key : '<%= key %>';
                     <div class="card-header">
                         
                         <i class="fa-solid fa-receipt" style="padding-top: 11px; padding-right: 2px"></i>
-                        Import Records
+                        Add Import Record
                         <?= $this->Html->link(__('Back'), ['action' => 'select'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
-                        <?= $this->Html->link(__('List Import Records'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
+                        <?= $this->Html->Link(__('List Import Records'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
                     </div>
                     <div class="card-body">
                         <?= $this->Form->create($invoice) ?>
