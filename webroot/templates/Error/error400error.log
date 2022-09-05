@@ -1,0 +1,28 @@
+2022-08-22 03:47:09 error: [Cake\Http\Exception\MissingControllerException] Controller class Sjs could not be found. in /usr/local/var/www/team39-app_fit3048/vendor/cakephp/cakephp/src/Controller/ControllerFactory.php on line 348
+Exception Attributes: array (
+  'class' => 'Sjs',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Stack Trace:
+- /usr/local/var/www/team39-app_fit3048/vendor/cakephp/cakephp/src/Controller/ControllerFactory.php:74
+- /usr/local/var/www/team39-app_fit3048/vendor/cakephp/cakephp/src/Http/BaseApplication.php:318
+- /usr/local/var/www/team39-app_fit3048/vendor/cakephp/cakephp/src/Http/Runner.php:77
+- /usr/local/var/www/team39-app_fit3048/vendor/cakephp/cakephp/src/Http/Middleware/CsrfProtectionMiddleware.php:174
+- /usr/local/var/www/team39-app_fit3048/vendor/cakephp/cakephp/src/Http/Runner.php:73
+- /usr/local/var/www/team39-app_fit3048/vendor/cakephp/cakephp/src/Http/Middleware/BodyParserMiddleware.php:157
+- /usr/local/var/www/team39-app_fit3048/vendor/cakephp/cakephp/src/Http/Runner.php:73
+- /usr/local/var/www/team39-app_fit3048/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php:186
+- /usr/local/var/www/team39-app_fit3048/vendor/cakephp/cakephp/src/Http/Runner.php:73
+- /usr/local/var/www/team39-app_fit3048/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php:68
+- /usr/local/var/www/team39-app_fit3048/vendor/cakephp/cakephp/src/Http/Runner.php:73
+- /usr/local/var/www/team39-app_fit3048/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php:131
+- /usr/local/var/www/team39-app_fit3048/vendor/cakephp/cakephp/src/Http/Runner.php:73
+- /usr/local/var/www/team39-app_fit3048/vendor/cakephp/debug_kit/src/Middleware/DebugKitMiddleware.php:60
+- /usr/local/var/www/team39-app_fit3048/vendor/cakephp/cakephp/src/Http/Runner.php:73
+- /usr/local/var/www/team39-app_fit3048/vendor/cakephp/cakephp/src/Http/Runner.php:58
+- /usr/local/var/www/team39-app_fit3048/vendor/cakephp/cakephp/src/Http/Server.php:90
+- /usr/local/var/www/team39-app_fit3048/webroot/index.php:40
+
+Request URL: /sjs
