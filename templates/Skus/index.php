@@ -16,7 +16,7 @@
                         Products
                         <?= $this->Html->link(__('View archive products'), ['action' => 'archive'], ['class' => 'btn btn-primary', 'style' => 'float: right']) ?>
 
-                        <?= $this->Html->link(__('Add Product'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'float: right']) ?>
+                        <?= $this->Html->link(__('Add Product'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
                     </div>
                     <div class="card-body">
                         <table id="datatablesSimple">
@@ -37,8 +37,8 @@
 
                                         if($status==false){ ?>
 
-                                       
-                                
+
+
                                 <tr>
                                     <td><?= $this->Number->format($sku->id) ?></td>
                                     <td><?= h($sku->name) ?></td>
@@ -54,9 +54,9 @@
                                     </td>
                                 </tr>
 
-                                                         
-                                
-                                <?php } ?> 
+
+
+                                <?php } ?>
                             <?php endforeach; ?>
                             </tbody>
                         </table>

@@ -85,29 +85,49 @@
                                                 <th class="th-custom">Total Cost</th>
                                                 <th class="th-custom">Cost in AUD</th>
                                             </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
+                                            <?php $sumTC = 0; ?>
+                                            <?php $sumTCA = 0; ?>
+                                            <?php $i = 0; ?>
+                                            <?php foreach ($report['orders'] as $orders): ?>
+                                                <tr>
+                                                    <td>
+                                                        <?=h($report->orders[$i]->id) ?>
+                                                    </td>
+
+                                                    <!--   Invoice -> Order -> Sku_id find the sku_name using sku_id in the sku table -->
+                                                    <td>
+                                                        <?=h($report->orders[$i]->skus->name) ?>
+                                                    </td>
+
+                                                    <td>
+                                                        <?=h($report->orders[$i]->quantity) ?>
+                                                    </td>
+
+                                                    <!--                                      Invoice -> Order -> Sku_id find the sku price using sku_id in the sku table -->
+                                                    <td> <?=h($report->orders[$i]->skus->price) ?></td>
+                                                    <td> <?=h($report->orders[$i]->quantity * $report->orders[0]->skus->price ) ?></td>
+
+                                                    <td> <?=h(round(($report->orders[$i]->quantity * $report->orders[0]->skus->price) / $report->currency_rate,2)) ?> </td>
+                                                </tr>
+                                                <?php $sumTC += round($report->orders[$i]->quantity * $report->orders[0]->skus->price,2) ?>
+                                                <?php $sumTCA +=  round($report->orders[$i]->quantity * $report->orders[0]->skus->price / $report->currency_rate ,2)?>
+                                                <?php $i = $i + 1; ?>
+                                            <?php endforeach;?>
                                             <tr>
                                                 <td class="no-border"></td>
                                                 <td class="no-border"></td>
                                                 <td class="no-border"></td>
                                                 <th>Discount</th>
-                                                <td></td>
-                                                <td></td>
+                                                <td> <?=h(round($sumTC * $report->discount,2)) ?></td>
+                                                <td> <?=h(round($sumTCA *  $report->discount,2)) ?> </td>
                                             </tr>
                                             <tr>
                                                 <td class="no-border"></td>
                                                 <td class="no-border"></td>
                                                 <td class="no-border"></td>
                                                 <th>Total</th>
-                                                <td></td>
-                                                <td></td>
+                                                <td><?=h(round($sumTC - ($sumTC * $report->discount),2)) ?></td>
+                                                <td><?=h(round($sumTCA - ($sumTCA * $report->discount),2)) ?></td>
                                             </tr>
                                         </table>
                                     </div>
@@ -124,13 +144,19 @@
                                                 <th class="th-custom">Cost</th>
                                                 <th class="th-custom">Amount</th>
                                             </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
+                                            <?php $sumAC = 0?>
+                                            <?php $i = 0; ?>
+                                            <?php foreach ($report['additionalcosts'] as $additionalcost): ?>
+                                                <tr>
+                                                    <td><?=h($report->additionalcosts[$i]->name) ?></td>
+                                                    <td><?=h($report->additionalcosts[$i]->amount) ?></td>
+                                                </tr>
+                                                <?php $sumAC += $report->additionalcosts[$i]->amount ?>
+                                                <?php $i = $i + 1; ?>
+                                            <?php endforeach;?>
                                             <tr>
                                                 <th>Total</th>
-                                                <td></td>
+                                                <td><?=h($sumAC) ?></td>
                                             </tr>
                                         </table>
                                     </div>
@@ -145,15 +171,15 @@
                                         <table>
                                             <tr>
                                                 <th>Total costs of items</th>
-                                                <td></td>
+                                                <td> <?=h(round($sumTCA - ($sumTCA * $report->discount),2)) ?> </td>
                                             </tr>
                                             <tr>
                                                 <th>Total of additional costs</th>
-                                                <td></td>
+                                                <td> <?=h($sumAC) ?> </td>
                                             </tr>
                                             <tr>
                                                 <th>Grand Total</th>
-                                                <td></td>
+                                                <td> <?=h(round($sumTCA - ($sumTCA * $report->discount) + $sumAC,2))?> </td>
                                             </tr>
                                         </table>
                                     </div>

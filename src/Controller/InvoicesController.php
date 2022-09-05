@@ -183,10 +183,37 @@ class InvoicesController extends AppController
         $this->set(compact('invoices'));
     }
 
+    public function select()
+    {
+         $this->loadModel('Factories');
+         $factories = $this->Invoices->Factories->find('list', ['limit' => 200])->all();
+
+
+        $factory=null ;
+        if ($this->request->is('post')) {
+
+            $factory =  $this->request->getData('id');
+
+            // debug($factory);exit;
+                return $this->redirect(['action' => 'add',$factory]);
+
+
+        }
+        $this->set(compact(  'factories','factory'));;
+
+    }
+
     public function pdf($id = null)
     {
         $this->viewBuilder()->enableAutoLayout(false);
-        $report = $this->Invoices->get($id);
+//        $report = $this->Invoices->get($id);
+        $report = $this->Invoices->get($id, [
+            'contain' => [
+                'Factories',
+                'Orders' => ['Skus'],
+                'Additionalcosts' =>[]
+            ],
+        ]);
         $this->viewBuilder()->setClassName('CakePdf.Pdf');
         $this->viewBuilder()->setOption(
             'pdfConfig',
@@ -197,25 +224,5 @@ class InvoicesController extends AppController
             ]
         );
         $this->set('report', $report);
-    }
-
-    public function select()
-    {
-         $this->loadModel('Factories');
-         $factories = $this->Invoices->Factories->find('list', ['limit' => 200])->all();
-         
-        
-        $factory=null ;
-        if ($this->request->is('post')) {
-            
-            $factory =  $this->request->getData('id');
-           
-            // debug($factory);exit;
-                return $this->redirect(['action' => 'add',$factory]);
-            
-            
-        }
-        $this->set(compact(  'factories','factory'));;
-
     }
 }

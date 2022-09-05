@@ -4,26 +4,45 @@
  * @var \App\Model\Entity\User $user
  */
 ?>
-<div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('List Users'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
-    <div class="column-responsive column-80">
-        <div class="users form content">
-            <?= $this->Form->create($user) ?>
-            <fieldset>
-                <legend><?= __('Add User') ?></legend>
-                <?php
-                    echo $this->Form->control('username');
-                    echo $this->Form->control('password');
-                    echo $this->Form->control('archive');
-                ?>
-            </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
-            <?= $this->Form->end() ?>
+<body class="sb-nav-fixed">
+    <?php echo $this->element('navbar/navbar')?>
+    <div id="layoutSidenav">
+        <?php echo $this->element('navbar/sidebar')?>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class=" card mb-4" style="margin-top: 50px">
+                    <div class="card-header">
+                        <i class="fa-solid fa-users" style="padding-top: 11px; padding-right: 2px"></i>
+                        Users
+                        <?= $this->Html->link(__('List Users'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="column-responsive column-80">
+                                <div class="users form content">
+                                    <?= $this->Form->create($user) ?>
+                                    <fieldset>
+                                        <legend><?= __('Add User') ?></legend>
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->control('username',['class'=>'form-control']);
+                                            ?>
+                                        </div>
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->control('password',['class'=>'form-control']);
+                                            ?>
+                                        </div>
+                                    </fieldset>
+                                    <?= $this->Form->button(__('Submit'), ['class'=>'btn btn-primary']) ?>
+                                    <?= $this->Form->end() ?>
+                                    <?= $this->Flash->render()?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
         </div>
     </div>
-</div>
+</body>
