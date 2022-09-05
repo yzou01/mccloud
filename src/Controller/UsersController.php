@@ -102,4 +102,44 @@ class UsersController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    public function update($id = null,$flag=null)
+    {
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $user = $this->Users->get($id);
+            if($flag==0){
+                $user->archive=true;
+                if ($this->Users->save($user)) {
+                    $this->Flash->success(__('The user has been archived.'));
+                }else{
+                    $this->Flash->error(__('The user could not be archived. Please, try again.'));
+                }
+                return $this->redirect(['action' => 'index']);
+            }elseif($flag==1){
+                $user->archive=false;
+                if ($this->Users->save($user)) {
+                    $this->Flash->success(__('The user has been unarchived.'));
+                }else{
+                    $this->Flash->error(__('The user could not be unarchived. Please, try again.'));
+                }
+                return $this->redirect(['action' => 'archive']);
+            }
+
+
+            if ($this->Users->save($user)) {
+                $this->Flash->success(__('The user has been archived.'));
+            }else{
+                $this->Flash->error(__('The user could not be archived. Please, try again.'));
+            }
+
+            return $this->redirect(['action' => 'index']);
+        }
+    }
+
+    public function archive()
+    {
+        $users = $this->paginate($this->Users);
+
+        $this->set(compact('users'));
+    }
 }

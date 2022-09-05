@@ -15,8 +15,7 @@
                         <i class="fa-solid fa-bag-shopping" style="padding-top: 11px; padding-right: 2px"></i>
                         Archive Products
                         <?= $this->Html->link(__('View all products'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right']) ?>
-
-                                            </div>
+                    </div>
                     <div class="card-body">
                         <table id="datatablesSimple">
                             <thead>
@@ -36,8 +35,8 @@
 
                                         if($status==true){ ?>
 
-                                       
-                                
+
+
                                 <tr>
                                     <td><?= $this->Number->format($sku->id) ?></td>
                                     <td><?= h($sku->name) ?></td>
@@ -49,13 +48,13 @@
                                     <td class="actions">
                                         <?= $this->Html->link(__('View'), ['controller' => 'Skus','action' => 'view', $sku->id]) ?>
                                         <?= $this->Form->postLink(__('Unarchive'), ['action' => 'update', $sku->id,1], ['confirm' => __('Are you sure you want to unarchive # {0}?', $sku->id)]) ?>
-                                   
+
                                     </td>
                                 </tr>
 
-                                                         
-                                
-                                <?php } ?> 
+
+
+                                <?php } ?>
                             <?php endforeach; ?>
                             </tbody>
                         </table>

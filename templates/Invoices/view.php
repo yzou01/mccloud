@@ -37,9 +37,8 @@
                         <i class="fa-solid fa-receipt" style="padding-top: 11px; padding-right: 2px"></i>
                         Import Records
                         <?= $this->Html->link(__('Edit Imports'), ['action' => 'edit', $invoice->id], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px;']) ?>
-<!--                        <= $this->Form->postLink(__('Delete Invoice'), ['action' => 'delete', $invoice->id], ['confirm' => __('Are you sure you want to delete # {0}?', $invoice->id), 'class' => 'side-nav-item']) ?>-->
                         <?= $this->Html->link(__('List Imports'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px;']) ?>
-                        <?= $this->Html->link(__('Add Imports'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px;']) ?>
+                        <?= $this->Html->link(__('Add Imports'), ['action' => 'select'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px;']) ?>
                     </div>
                     <?= $this->Form->create($invoice) ?>
                     <div class="card-body">
@@ -80,7 +79,7 @@
                                         </div>
                                         <div class="form-label">
                                             <?php
-                                            echo $this->Form->control('Discount',['label'=> 'Discount', 'value'=> $this->Number->format($invoice->discount),'class'=>'form-control', 'disabled' => 'true']);
+                                            echo $this->Form->control('Discount',['label'=> 'Discount %', 'value'=> $this->Number->format($invoice->discount),'class'=>'form-control', 'disabled' => 'true']);
                                             ?>
                                         </div>
                                     </fieldset>
@@ -132,16 +131,16 @@
                                                         <td class="no-border"></td>
                                                         <td class="no-border"></td>
                                                         <th>Discount</th>
-                                                        <td> <?=h(round($sumTC * $invoice->discount,2)) ?></td>
-                                                        <td> <?=h(round($sumTCA *  $invoice->discount,2)) ?> </td>
+                                                        <td> <?=h(round($sumTC * ($invoice->discount/100),2)) ?></td>
+                                                        <td> <?=h(round($sumTCA *  ($invoice->discount/100),2)) ?> </td>
                                                     </tr>
                                                     <tr>
                                                         <td class="no-border"></td>
                                                         <td class="no-border"></td>
                                                         <td class="no-border"></td>
                                                         <th>Total</th>
-                                                        <td><?=h(round($sumTC - ($sumTC * $invoice->discount),2)) ?></td>
-                                                        <td><?=h(round($sumTCA - ($sumTCA * $invoice->discount),2)) ?></td>
+                                                        <td><?=h(round($sumTC - ($sumTC * ($invoice->discount/100)),2)) ?></td>
+                                                        <td><?=h(round($sumTCA - ($sumTCA * ($invoice->discount/100)),2)) ?></td>
                                                     </tr>
                                                 </table>
                                             </div>
@@ -185,7 +184,7 @@
                                                 <table>
                                                     <tr>
                                                         <th>Total costs of items</th>
-                                                        <td> <?=h(round($sumTCA - ($sumTCA * $invoice->discount),2)) ?> </td>
+                                                        <td> <?=h(round($sumTCA - ($sumTCA * ($invoice->discount/100)),2)) ?> </td>
                                                     </tr>
                                                     <tr>
                                                         <th>Total of additional costs</th>
@@ -193,7 +192,7 @@
                                                     </tr>
                                                     <tr>
                                                         <th>Grand Total</th>
-                                                        <td> <?=h(round($sumTCA - ($sumTCA * $invoice->discount) + $sumAC,2))?> </td>
+                                                        <td> <?=h(round($sumTCA - ($sumTCA * ($invoice->discount/100)) + $sumAC,2))?> </td>
                                                     </tr>
                                                 </table>
                                             </div>
