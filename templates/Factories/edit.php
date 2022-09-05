@@ -31,14 +31,14 @@
                                     <div class="form-label">
                                         <?php
                                         echo $this->Form->control("currency",['class'=>'form-select', 'options'=>[
-                                            'Euro'=>'EUR - Euro',
-                                            'Pound Sterling'=>'GBP - Pound Sterling',
-                                            'Japanese Yen'=>'JPY - Japanese Yen',
-                                            'Chinese Yuan'=>'CNY - Chinese Yuan',
-                                            'South African Rand'=>'ZAR - South African Rand',
-                                            'United States Dollar'=>'USD - United States Dollar',
-                                            'New Zealand Dollar'=>'NZD -  New Zealand Dollar',
-                                            'Australian Dollar'=>'AUD - Australian Dollar',
+                                            'EUR'=>'EUR - Euro',
+                                            'GBP'=>'GBP - Pound Sterling',
+                                            'JPY'=>'JPY - Japanese Yen',
+                                            'CNY'=>'CNY - Chinese Yuan',
+                                            'ZAR'=>'ZAR - South African Rand',
+                                            'USD'=>'USD - United States Dollar',
+                                            'NZD'=>'NZD -  New Zealand Dollar',
+                                            'AUD'=>'AUD - Australian Dollar',
                                         ]
                                         ]);
                                         ?>

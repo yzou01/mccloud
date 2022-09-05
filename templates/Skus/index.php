@@ -14,9 +14,9 @@
                     <div class="card-header">
                         <i class="fa-solid fa-bag-shopping" style="padding-top: 11px; padding-right: 2px"></i>
                         Products
-                        <?= $this->Html->link(__('View archive products'), ['action' => 'archive'], ['class' => 'btn btn-primary', 'style' => 'float: right']) ?>
+                        <?= $this->Html->link(__('View Archived Products'), ['action' => 'archive'], ['class' => 'btn btn-primary', 'style' => 'float: right']) ?>
 
-                        <?= $this->Html->link(__('Add Product'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'float: right']) ?>
+                        <?= $this->Html->link(__('Add Product'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
                     </div>
                     <div class="card-body">
                         <table id="datatablesSimple">
@@ -37,8 +37,8 @@
 
                                         if($status==false){ ?>
 
-                                       
-                                
+
+
                                 <tr>
                                     <td><?= $this->Number->format($sku->id) ?></td>
                                     <td><?= h($sku->name) ?></td>
@@ -50,13 +50,13 @@
                                     <td class="actions">
                                         <?= $this->Html->link(__('View'), ['controller' => 'Skus','action' => 'view', $sku->id]) ?>
                                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $sku->id]) ?>
-                                       <?= $this->Form->postLink(__('Archive'), ['action' => 'update', $sku->id,0], ['confirm' => __('Are you sure you want to archive # {0}?', $sku->id)]) ?>
+                                        <?= $this->Form->postLink(__('Archive'), ['action' => 'update', $sku->id,0], ['confirm' => __('Are you sure you want to archive # {0}?', $sku->id)]) ?>
                                     </td>
                                 </tr>
 
-                                                         
-                                
-                                <?php } ?> 
+
+
+                                <?php } ?>
                             <?php endforeach; ?>
                             </tbody>
                         </table>

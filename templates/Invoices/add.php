@@ -14,7 +14,7 @@ $key = isset($key) ? $key : '<%= key %>';
             <main>
                 <div class=" card mb-4" style="margin-top: 50px">
                     <div class="card-header">
-                        
+
                         <i class="fa-solid fa-receipt" style="padding-top: 11px; padding-right: 2px"></i>
                         Add Import Record
                         <?= $this->Html->link(__('Back'), ['action' => 'select'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
@@ -42,8 +42,8 @@ $key = isset($key) ? $key : '<%= key %>';
                                     </div>
                                     <div class="form-label">
                                         <?php
-                                        echo $this->Form->hidden("currency_of_origin",['label'=>'Currency','class'=>'form-select', 'value'=>$factory->currency                                      
-                                        
+                                        echo $this->Form->hidden("currency_of_origin",['label'=>'Currency','class'=>'form-select', 'value'=>$factory->currency
+
                                         ]);
                                         ?>
                                     </div>
@@ -68,7 +68,7 @@ $key = isset($key) ? $key : '<%= key %>';
                                     </div>
                                     <div class="form-label">
                                         <?php
-                                        echo $this->Form->control('discount',['class'=>'form-control','min' => 0, 'label' => 'Discount']);
+                                        echo $this->Form->control('discount',['class'=>'form-control','min' => 1, 'max' => 100, 'label' => 'Discount %']);
                                         ?>
                                     </div>
                                 </fieldset>
