@@ -4,33 +4,48 @@
  * @var \App\Model\Entity\User $user
  */
 ?>
-<div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('Edit User'), ['action' => 'edit', $user->id], ['class' => 'side-nav-item']) ?>
-            <?= $this->Form->postLink(__('Delete User'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id), 'class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('List Users'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('New User'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
-    <div class="column-responsive column-80">
-        <div class="users view content">
-            <h3><?= h($user->id) ?></h3>
-            <table>
-                <tr>
-                    <th><?= __('Username') ?></th>
-                    <td><?= h($user->username) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Id') ?></th>
-                    <td><?= $this->Number->format($user->id) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Archive') ?></th>
-                    <td><?= $user->archive ? __('Yes') : __('No'); ?></td>
-                </tr>
-            </table>
+<body class="sb-nav-fixed">
+    <?php echo $this->element('navbar/navbar')?>
+    <div id="layoutSidenav">
+        <?php echo $this->element('navbar/sidebar')?>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class=" card mb-4" style="margin-top: 50px">
+                    <div class="card-header">
+                        <i class="fa-solid fa-users" style="padding-top: 11px; padding-right: 2px"></i>
+                        Users
+                        <?= $this->Html->link(__('Edit User'), ['action' => 'edit', $user->id], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
+                        <?= $this->Html->link(__('List Users'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
+                        <?= $this->Html->link(__('Add User'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="column-responsive column-80">
+                                <div class="users view content">
+                                    <legend><?= h($user->id) ?></legend>
+                                    <fieldset>
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->control('Username',['label'=> 'Username', 'value'=> $user->username,'class'=>'form-control', 'disabled' => 'true']);
+                                            ?>
+                                        </div>
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->control('ID',['label'=> 'ID', 'value'=> $user->id,'class'=>'form-control', 'disabled' => 'true']);
+                                            ?>
+                                        </div>
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->control('Archived',['label'=> 'Archived', 'value'=> $user->archive,'class'=>'form-control', 'disabled' => 'true']);
+                                            ?>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
         </div>
     </div>
-</div>
+</body>
