@@ -113,7 +113,7 @@ ALTER TABLE `types`
 ALTER TABLE `users`
     MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
-INSERT INTO `users` (`id`, `username`, `password`, `type`) VALUES
+INSERT INTO `users` (`id`, `username`, `password`, `archive`) VALUES
     (1, 'admin', '$2y$10$7nNzyVI1GoVztLsLcIDhnOL6HgQpeXGotpDH5GGI2ozbLtuHxEp7e', 0);
 
 ALTER TABLE `additionalcosts`
