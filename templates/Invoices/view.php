@@ -199,7 +199,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <?= $this->Html->link("<button class='btn btn-primary' style='width: 100%'><i class='fa-solid fa-download'></i> Download PDF</button>", ['action' => 'pdf', $invoice->id],['escape' => false,]) ?>
+                                    <?= $this->Html->link(__("Download PDF"), ['action' => 'pdf', $invoice->id ], ['class' => 'btn btn-primary', 'style' => 'width: 100%']) ?>
                                 </div>
                             </div>
                         </div>
