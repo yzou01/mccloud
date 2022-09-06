@@ -49,17 +49,22 @@
                                     <fieldset>
                                         <div class="form-label">
                                             <?php
-                                            echo $this->Form->control('Number',['label'=> 'Number', 'value'=> h($invoice->number),'class'=>'form-control', 'disabled' => 'true']);
-                                            ?>
-                                        </div>
-                                        <div class="form-label">
-                                            <?php
-                                            echo $this->Form->control('Currency',['label'=> 'Currency', 'value'=> h($invoice->currency_of_origin),'class'=>'form-control', 'disabled' => 'true']);
-                                            ?>
-                                        </div>
-                                        <div class="form-label">
-                                            <?php
                                             echo $this->Form->control('ID',['label'=> 'ID', 'value'=> $this->Number->format($invoice->id),'class'=>'form-control', 'disabled' => 'true']);
+                                            ?>
+                                        </div>
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->control('Number',['label'=> 'Invoice Number', 'value'=> h($invoice->number),'class'=>'form-control', 'disabled' => 'true']);
+                                            ?>
+                                        </div>
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->control('Date',['label'=> 'Date', 'value'=> h($invoice->date),'class'=>'form-control', 'disabled' => 'true']);
+                                            ?>
+                                        </div>
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->control('Factory',['label'=> 'Factory', 'value'=> h($invoice->factory->name),'class'=>'form-control', 'disabled' => 'true']);
                                             ?>
                                         </div>
                                         <div class="form-label">
@@ -70,16 +75,6 @@
                                         <div class="form-label">
                                             <?php
                                             echo $this->Form->control('GST',['label'=> 'GST', 'value'=> $this->Number->format($invoice->gst),'class'=>'form-control', 'disabled' => 'true']);
-                                            ?>
-                                        </div>
-                                        <div class="form-label">
-                                            <?php
-                                            echo $this->Form->control('Date',['label'=> 'Date', 'value'=> h($invoice->date),'class'=>'form-control', 'disabled' => 'true']);
-                                            ?>
-                                        </div>
-                                        <div class="form-label">
-                                            <?php
-                                            echo $this->Form->control('Discount',['label'=> 'Discount %', 'value'=> $this->Number->format($invoice->discount),'class'=>'form-control', 'disabled' => 'true']);
                                             ?>
                                         </div>
                                     </fieldset>
@@ -95,7 +90,7 @@
                                                         <th class="th-custom">Product</th>
                                                         <th class="th-custom">Quantity</th>
                                                         <th class="th-custom">Unit Cost</th>
-                                                        <th class="th-custom">Total Cost</th>
+                                                        <th class="th-custom">Cost in <?= h($invoice->currency_of_origin) ?></th>
                                                         <th class="th-custom">Cost in AUD</th>
                                                     </tr>
                                                     <?php $sumTC = 0; ?>
@@ -130,7 +125,7 @@
                                                         <td class="no-border"></td>
                                                         <td class="no-border"></td>
                                                         <td class="no-border"></td>
-                                                        <th>Discount</th>
+                                                        <th>Discount (<?=$this->Number->format($invoice->discount)?>%)</th>
                                                         <td> <?=h(round($sumTC * ($invoice->discount/100),2)) ?></td>
                                                         <td> <?=h(round($sumTCA *  ($invoice->discount/100),2)) ?> </td>
                                                     </tr>

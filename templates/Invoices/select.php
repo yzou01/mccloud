@@ -17,18 +17,16 @@
                         <?= $this->Html->link(__('Back'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right']) ?>
                     </div>
                     <div class="card-body">
-                    <?= $this->Form->create($factory) ?>
-                    <div class="form-label">
-                                        <?php
-                                            echo $this->Form->control('id', ['class'=>'form-control', 'options' => $factories,'label'=>'Factory Name']);
-                                        ?>
-                                    </div>
-                                    <?= $this->Form->button(__('Next'), ['class' => 'btn btn-primary']) ?>
-                                <?= $this->Form->end() ?>
-                                <?= $this->Flash->render()?>
-                        
+                        <?= $this->Form->create($factory) ?>
+                        <div class="form-label">
+                            <?php
+                                echo $this->Form->control('id', ['class'=>'form-select', 'options' => $factories,'label'=>'Factory Name']);
+                            ?>
+                        </div>
+                        <?= $this->Form->button(__('Next'), ['class' => 'btn btn-primary']) ?>
+                        <?= $this->Form->end() ?>
+                        <?= $this->Flash->render()?>
                     </div>
-
                 </div>
             </main>
         </div>
