@@ -56,8 +56,7 @@ CREATE TABLE `types` (
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `archive` tinyint(1) NOT NULL DEFAULT 0
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
@@ -131,5 +130,5 @@ ALTER TABLE `skus`
 
 
 
-  INSERT INTO `users` (`id`, `username`, `password`, `type`) VALUES
-    (1, 'admin', '$2y$10$7nNzyVI1GoVztLsLcIDhnOL6HgQpeXGotpDH5GGI2ozbLtuHxEp7e', 0);
+  INSERT INTO `users` (`id`, `username`, `password`) VALUES
+    (1, 'admin', '$2y$10$7nNzyVI1GoVztLsLcIDhnOL6HgQpeXGotpDH5GGI2ozbLtuHxEp7e');
