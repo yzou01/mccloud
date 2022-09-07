@@ -19,7 +19,7 @@
 <!--                            ['action' => 'delete', $type->id],-->
 <!--                            ['confirm' => __('Are you sure you want to delete # {0}?', $type->id), 'class' => 'btn btn-danger', 'style' => 'float: right; background:']-->
 <!--                        ) ?>-->
-                        <?= $this->Html->link(__('List Types'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
+                        <?= $this->Html->link(__('List Product Types'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
                     </div>
                     <div class="card-body">
                         <div class="column-responsive column-80">

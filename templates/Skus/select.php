@@ -12,17 +12,20 @@
             <main>
                 <div class=" card mb-4" style="margin-top: 50px">
                     <div class="card-header">
-                        <i class="fa-solid fa-industry" style="padding-top: 11px; padding-right: 2px"></i>
-                        Select a Factory
-                        <?= $this->Html->link(__('Back'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right']) ?>
+                        <i class="fa-solid fa-bag-shopping" style="padding-top: 11px; padding-right: 2px"></i>
+                        Products
+                        <?= $this->Html->link(__('List Products'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right']) ?>
                     </div>
                     <div class="card-body">
                         <?= $this->Form->create($factory) ?>
-                        <div class="form-label">
-                            <?php
-                            echo $this->Form->control('id', ['class'=>'form-select', 'options' => $factories,'label'=>'Factory Name']);
-                            ?>
-                        </div>
+                        <fieldset>
+                            <legend><?= __('Select Factory') ?></legend>
+                            <div class="form-label">
+                                <?php
+                                echo $this->Form->control('id', ['class'=>'form-select', 'options' => $factories,'label'=>'Factory Name']);
+                                ?>
+                            </div>
+                        </fieldset>
                         <?= $this->Form->button(__('Next'), ['class' => 'btn btn-primary']) ?>
                         <?= $this->Form->end() ?>
                         <?= $this->Flash->render()?>

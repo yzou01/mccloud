@@ -129,11 +129,8 @@ class TypesController extends AppController
 
     public function archive()
     {
-        $this->paginate = [
-            'contain' => [ 'type'],
-        ];
-        $type = $this->paginate($this->Types);
+        $types = $this->paginate($this->Types);
 
-        $this->set(compact('type'));
+        $this->set(compact('types'));
     }
 }

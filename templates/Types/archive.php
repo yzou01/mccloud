@@ -15,8 +15,7 @@
                 <div class="card-header">
                     <i class="fa-solid fa-rectangle-list" style="padding-top: 11px; padding-right: 2px"></i>
                     Product Types
-                    <?= $this->Html->link(__('New Product Type'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'float: right']) ?>
-                    <!--                        position: relative; left: 72%-->
+                    <?= $this->Html->link(__('View Product Types'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
                 </div>
                 <div class="card-body">
                     <table id="datatablesSimple">
@@ -29,6 +28,9 @@
                         </thead>
                         <tbody>
                         <?php foreach ($types as $type): ?>
+                        <?php
+                        $status=h($type->archive);
+                        if($status==true){ ?>
                             <tr>
                                 <td><?= $this->Number->format($type->id) ?></td>
                                 <td><?= h($type->name) ?></td>
@@ -37,9 +39,11 @@
                                         <?= $this->Form->postLink(__('Unarchive'), ['action' => 'update', $type->id,1], ['confirm' => __('Are you sure you want to unarchive # {0}?', $type->id)]) ?>
                                 </td>
                             </tr>
+                        <?php } ?>
                         <?php endforeach; ?>
                         </tbody>
                     </table>
+                    <?= $this->Flash->render()?>
                 </div>
             </div>
         </main>

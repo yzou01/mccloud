@@ -16,15 +16,20 @@ $key = isset($key) ? $key : '<%= key %>';
                     <div class="card-header">
 
                         <i class="fa-solid fa-receipt" style="padding-top: 11px; padding-right: 2px"></i>
-                        Add Import Record
+                        Import Records
                         <?= $this->Html->link(__('Back'), ['action' => 'select'], ['class' => 'btn btn-primary', 'style' => 'float: right']) ?>
-                        <?= $this->Html->Link(__('List Import Records'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
+                        <?= $this->Html->Link(__('List Imports'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
                     </div>
                     <div class="card-body">
                         <?= $this->Form->create($invoice) ?>
                         <div class="column-responsive column-80">
                             <div class="skus form content">
                                 <fieldset>
+                                    <div class="form-label">
+                                        <?php
+                                        echo $this->Form->control('factory',['label'=> 'Factory', 'value'=> h($factory->name),'class'=>'form-control', 'disabled' => 'true']);
+                                        ?>
+                                    </div>
                                     <div class="form-label">
                                         <?php
                                         echo $this->Form->control('number',['class'=>'form-control']);
@@ -72,18 +77,6 @@ $key = isset($key) ? $key : '<%= key %>';
                                                 <div class="col-12">
                                                     <button class="btn btn-primary" id="add-skus-button" style="float: right"><i class="fa-solid fa-plus"></i></button>
                                                     <h5 style="padding-top: 6px">Add Items</h5>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="form-label" style="width: 50%; float: left">
-                                                    <?php
-                                                    echo $this->Form->control('factory',['label'=> 'Factory', 'value'=> h($factory->name),'class'=>'form-control', 'disabled' => 'true']);
-                                                    ?>
-                                                </div>
-                                                <div class="form-label" style="width: 50%; float: right">
-                                                    <?php
-                                                    echo $this->Form->control('currency',['label'=> 'Currency', 'value'=> h($factory->currency),'class'=>'form-control', 'disabled' => 'true']);
-                                                    ?>
                                                 </div>
                                             </div>
                                             <div id="skus-container">

@@ -124,19 +124,12 @@ class FactoriesController extends AppController
                 }
                 return $this->redirect(['action' => 'archive']);
             }
-
-
-
         }
-
     }
 
     public function archive()
     {
-        $this->paginate = [
-            'contain' => [ 'Factories'],
-        ];
-        $factory = $this->paginate($this->Factories);
+        $factories = $this->paginate($this->Factories);
 
         $this->set(compact('factories'));
     }
