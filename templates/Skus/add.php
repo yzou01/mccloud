@@ -16,6 +16,7 @@
                     <div class="card-header">
                         <i class="fa-solid fa-bag-shopping" style="padding-top: 11px; padding-right: 2px"></i>
                         Products
+                        <?= $this->Html->link(__('Back'), ['action' => 'select'], ['class' => 'btn btn-primary', 'style' => 'float: right']) ?>
                         <?= $this->Html->link(__('List Products'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
                     </div>
                     <div class="card-body">
@@ -31,12 +32,12 @@
                                     </div>
                                     <div class="form-label">
                                         <?php
-                                            echo $this->Form->control('price',['class'=>'form-control', 'min'=>0]);
+                                            echo $this->Form->control('price',['label'=> "Price (" . h($factory->currency) . ")", 'class'=>'form-control', 'min'=>0]);
                                         ?>
                                     </div>
                                     <div class="form-label">
                                         <?php
-                                            echo $this->Form->control('factory_id', ['class'=>'form-control', 'options' => $factories]);
+                                            echo $this->Form->hidden('factory_id',['class'=>'form-control','value'=>$factory->id]);
                                         ?>
                                     </div>
                                     <div class="form-label">

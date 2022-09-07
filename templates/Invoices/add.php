@@ -17,7 +17,7 @@ $key = isset($key) ? $key : '<%= key %>';
 
                         <i class="fa-solid fa-receipt" style="padding-top: 11px; padding-right: 2px"></i>
                         Add Import Record
-                        <?= $this->Html->link(__('Back'), ['action' => 'select'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
+                        <?= $this->Html->link(__('Back'), ['action' => 'select'], ['class' => 'btn btn-primary', 'style' => 'float: right']) ?>
                         <?= $this->Html->Link(__('List Import Records'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
                     </div>
                     <div class="card-body">
@@ -42,9 +42,7 @@ $key = isset($key) ? $key : '<%= key %>';
                                     </div>
                                     <div class="form-label">
                                         <?php
-                                        echo $this->Form->hidden("currency_of_origin",['label'=>'Currency','class'=>'form-select', 'value'=>$factory->currency
-
-                                        ]);
+                                        echo $this->Form->hidden("currency_of_origin",['label'=>'Currency','class'=>'form-select', 'value'=>$factory->currency]);
                                         ?>
                                     </div>
                                     <div class="form-label">

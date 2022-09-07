@@ -16,7 +16,7 @@
                         Products
                         <?= $this->Html->link(__('View Archived Products'), ['action' => 'archive'], ['class' => 'btn btn-primary', 'style' => 'float: right']) ?>
 
-                        <?= $this->Html->link(__('Add Product'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
+                        <?= $this->Html->link(__('Add Product'), ['action' => 'select'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
                     </div>
                     <div class="card-body">
                         <table id="datatablesSimple">
