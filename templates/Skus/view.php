@@ -32,7 +32,7 @@
                                         </div>
                                         <div class="form-label">
                                             <?php
-                                            echo $this->Form->control('Factory',['label'=> 'Factory', 'value'=> $skus->factory->name,'class'=>'form-control', 'disabled' => 'true']);
+                                            echo $this->Form->control('Price',['label'=> 'Price ('. $skus->factory->currency . ")" , 'value'=> $this->Number->format($skus->price),'class'=>'form-control', 'disabled' => 'true']);
                                             ?>
                                         </div>
                                         <div class="form-label">
@@ -42,7 +42,7 @@
                                         </div>
                                         <div class="form-label">
                                             <?php
-                                            echo $this->Form->control('Price',['label'=> 'Price', 'value'=> $this->Number->format($skus->price),'class'=>'form-control', 'disabled' => 'true']);
+                                            echo $this->Form->control('Factory',['label'=> 'Factory', 'value'=> $skus->factory->name,'class'=>'form-control', 'disabled' => 'true']);
                                             ?>
                                         </div>
                                     </fieldset>

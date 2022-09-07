@@ -18,11 +18,14 @@
                     </div>
                     <div class="card-body">
                         <?= $this->Form->create($factory) ?>
-                        <div class="form-label">
-                            <?php
-                                echo $this->Form->control('id', ['class'=>'form-select', 'options' => $factories,'label'=>'Factory Name']);
-                            ?>
-                        </div>
+                        <fieldset>
+                            <legend><?= __('Select Factory') ?></legend>
+                            <div class="form-label">
+                                <?php
+                                echo $this->Form->control('id', ['class'=>'form-select', 'options' => $factories,'label'=>'Factory']);
+                                ?>
+                            </div>
+                        </fieldset>
                         <?= $this->Form->button(__('Next'), ['class' => 'btn btn-primary']) ?>
                         <?= $this->Form->end() ?>
                         <?= $this->Flash->render()?>

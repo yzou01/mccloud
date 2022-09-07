@@ -42,7 +42,7 @@
                                     </div>
                                     <div class="form-label">
                                         <?php
-                                            echo $this->Form->control('type_id', ['class'=>'form-control', 'options' => $types]);
+                                            echo $this->Form->control('type_id', ['class'=>'form-select', 'options' => $types]);
                                         ?>
                                     </div>
                                 </fieldset>

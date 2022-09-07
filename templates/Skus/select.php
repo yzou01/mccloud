@@ -22,7 +22,7 @@
                             <legend><?= __('Select Factory') ?></legend>
                             <div class="form-label">
                                 <?php
-                                echo $this->Form->control('id', ['class'=>'form-select', 'options' => $factories,'label'=>'Factory Name']);
+                                echo $this->Form->control('id', ['class'=>'form-select', 'options' => $factories,'label'=>'Factory']);
                                 ?>
                             </div>
                         </fieldset>

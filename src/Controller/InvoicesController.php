@@ -187,7 +187,7 @@ class InvoicesController extends AppController
     public function select()
     {
          $this->loadModel('Factories');
-         $factories = $this->Invoices->Factories->find('list', ['limit' => 200])->all();
+         $factories = $this->Invoices->Factories->find('list', ['limit' => 200, 'conditions'=>['Factories.archive' => false]])->all();
 
 
         $factory=null ;
@@ -200,8 +200,8 @@ class InvoicesController extends AppController
 
 
         }
-        $this->set(compact(  'factories','factory'));;
 
+        $this->set(compact(  'factories','factory'));;
     }
 
     public function pdf($id = null)

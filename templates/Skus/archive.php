@@ -31,29 +31,20 @@
                             <tbody>
                             <?php foreach ($skus as $sku): ?>
                                 <?php
-                                        $status=h($sku->archive);
-
-                                        if($status==true){ ?>
-
-
-
+                                    $status=h($sku->archive);
+                                    if($status==true){
+                                ?>
                                 <tr>
                                     <td><?= $this->Number->format($sku->id) ?></td>
                                     <td><?= h($sku->name) ?></td>
-                                    <td><?= $this->Number->format($sku->price) ?></td>
-                                    <td><?=   $sku->factory->name      ?></td>
-
-                                    <td><?=        $sku->type->name    ?></td>
-
+                                    <td><?= $sku->factory->currency." ".$this->Number->format($sku->price) ?></td>
+                                    <td><?= $sku->factory->name ?></td>
+                                    <td><?= $sku->type->name ?></td>
                                     <td class="actions">
                                         <?= $this->Html->link(__('View'), ['controller' => 'Skus','action' => 'view', $sku->id]) ?>
                                         <?= $this->Form->postLink(__('Unarchive'), ['action' => 'update', $sku->id,1], ['confirm' => __('Are you sure you want to unarchive # {0}?', $sku->id)]) ?>
-
                                     </td>
                                 </tr>
-
-
-
                                 <?php } ?>
                             <?php endforeach; ?>
                             </tbody>

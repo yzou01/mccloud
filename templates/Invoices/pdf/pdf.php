@@ -81,8 +81,8 @@
                                     <th class="th-custom">Product</th>
                                     <th class="th-custom">Quantity</th>
                                     <th class="th-custom">Unit Cost</th>
-                                    <th class="th-custom">Cost in <?= h($report->currency_of_origin) ?></th>
-                                    <th class="th-custom">Cost in AUD</th>
+                                    <th class="th-custom">Cost (<?= h($report->currency_of_origin) ?>)</th>
+                                    <th class="th-custom">Cost (AUD)</th>
                                 </tr>
                                 <?php $sumTC = 0; ?>
                                 <?php $sumTCA = 0; ?>
@@ -169,6 +169,10 @@
                             <div class="card-body">
                                 <h4>Totals</h4>
                                 <table>
+                                    <tr>
+                                        <th class="th-custom"></th>
+                                        <th class="th-custom">Cost (AUD)</th>
+                                    </tr>
                                     <tr>
                                         <th>Total costs of items</th>
                                         <td> <?=h(round($sumTCA - ($sumTCA * ($report->discount/100)),2)) ?> </td>

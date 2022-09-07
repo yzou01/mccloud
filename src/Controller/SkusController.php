@@ -59,7 +59,7 @@ class SkusController extends AppController
             }
             $this->Flash->error(__('The skus could not be saved. Please, try again.'));
         }
-        $types = $this->Skus->Types->find('list', ['limit' => 200])->all();
+        $types = $this->Skus->Types->find('list', ['limit' => 200, 'conditions'=>['Types.archive' => false]])->all();
         $factories = $this->Skus->Factories->find('list', ['limit' => 200])->all();
 
         $this->loadModel('Factories');
@@ -153,7 +153,7 @@ class SkusController extends AppController
     public function select()
     {
         $this->loadModel('Factories');
-        $factories = $this->Skus->Factories->find('list', ['limit' => 200])->all();
+        $factories = $this->Skus->Factories->find('list', ['limit' => 200, 'conditions'=>['Factories.archive' => false]])->all();
 
         $factory=null ;
         if ($this->request->is('post')) {
