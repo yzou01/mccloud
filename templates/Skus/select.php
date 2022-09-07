@@ -20,7 +20,7 @@
                         <?= $this->Form->create($factory) ?>
                         <div class="form-label">
                             <?php
-                                echo $this->Form->control('id', ['class'=>'form-select', 'options' => $factories,'label'=>'Factory Name']);
+                            echo $this->Form->control('id', ['class'=>'form-select', 'options' => $factories,'label'=>'Factory Name']);
                             ?>
                         </div>
                         <?= $this->Form->button(__('Next'), ['class' => 'btn btn-primary']) ?>
@@ -32,8 +32,3 @@
         </div>
     </div>
 </body>
-
-
-
-
-

@@ -14,10 +14,10 @@ $key = isset($key) ? $key : '<%= key %>';
             <main>
                 <div class=" card mb-4" style="margin-top: 50px">
                     <div class="card-header">
-                        
+
                         <i class="fa-solid fa-receipt" style="padding-top: 11px; padding-right: 2px"></i>
                         Add Import Record
-                        <?= $this->Html->link(__('Back'), ['action' => 'select'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
+                        <?= $this->Html->link(__('Back'), ['action' => 'select'], ['class' => 'btn btn-primary', 'style' => 'float: right']) ?>
                         <?= $this->Html->Link(__('List Import Records'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
                     </div>
                     <div class="card-body">
@@ -42,20 +42,9 @@ $key = isset($key) ? $key : '<%= key %>';
                                     </div>
                                     <div class="form-label">
                                         <?php
-                                        echo $this->Form->hidden("currency_of_origin",['label'=>'Currency','class'=>'form-select', 'value'=>$factory->currency                                      
-                                        
-                                        ]);
+                                        echo $this->Form->hidden("currency_of_origin",['label'=>'Currency','class'=>'form-select', 'value'=>$factory->currency]);
                                         ?>
                                     </div>
-                                    <tr>
-                                            <strong><?= __('Factory name: ') ?></strong>
-                                            <td><?= h($factory->name) ?></td>
-                                        </tr>
-                                        <br>
-                                        <tr>
-                                            <strong><?= __('Currency: ') ?></strong>
-                                            <td><?= h($factory->currency) ?></td>
-                                        </tr>
                                     <div class="form-label">
                                         <?php
                                         echo $this->Form->control('currency_rate',['class'=>'form-control', 'min'=>0]);
@@ -63,12 +52,12 @@ $key = isset($key) ? $key : '<%= key %>';
                                     </div>
                                     <div class="form-label">
                                         <?php
-                                        echo $this->Form->control('gst',['class'=>'form-control', 'min'=>0,'label'=>'Gst Cost']);
+                                        echo $this->Form->control('gst',['class'=>'form-control', 'min'=>0,'label'=>'GST']);
                                         ?>
                                     </div>
                                     <div class="form-label">
                                         <?php
-                                        echo $this->Form->control('discount',['class'=>'form-control','min' => 0, 'label' => 'Discount']);
+                                        echo $this->Form->control('discount',['class'=>'form-control','min' => 1, 'max' => 100, 'label' => 'Discount %']);
                                         ?>
                                     </div>
                                 </fieldset>
@@ -83,6 +72,18 @@ $key = isset($key) ? $key : '<%= key %>';
                                                 <div class="col-12">
                                                     <button class="btn btn-primary" id="add-skus-button" style="float: right"><i class="fa-solid fa-plus"></i></button>
                                                     <h5 style="padding-top: 6px">Add Items</h5>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-label" style="width: 50%; float: left">
+                                                    <?php
+                                                    echo $this->Form->control('factory',['label'=> 'Factory', 'value'=> h($factory->name),'class'=>'form-control', 'disabled' => 'true']);
+                                                    ?>
+                                                </div>
+                                                <div class="form-label" style="width: 50%; float: right">
+                                                    <?php
+                                                    echo $this->Form->control('currency',['label'=> 'Currency', 'value'=> h($factory->currency),'class'=>'form-control', 'disabled' => 'true']);
+                                                    ?>
                                                 </div>
                                             </div>
                                             <div id="skus-container">

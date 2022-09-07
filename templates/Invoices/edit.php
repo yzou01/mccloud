@@ -68,7 +68,7 @@ $key = isset($key) ? $key : '<%= key %>';
                                     </div>
                                     <div class="form-label">
                                         <?php
-                                        echo $this->Form->control('discount', ['class' => 'form-control', 'min' => 0, 'label' => 'Discount']);
+                                        echo $this->Form->control('discount', ['class' => 'form-control', 'min' => 0, 'label' => 'Discount %']);
                                         ?>
                                     </div>
                             </div>

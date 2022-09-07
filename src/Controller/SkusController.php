@@ -47,7 +47,7 @@ class SkusController extends AppController
      *
      * @return \Cake\Http\Response|null|void Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($id=null)
     {
         $skus = $this->Skus->newEmptyEntity();
         if ($this->request->is('post')) {
@@ -61,8 +61,13 @@ class SkusController extends AppController
         }
         $types = $this->Skus->Types->find('list', ['limit' => 200])->all();
         $factories = $this->Skus->Factories->find('list', ['limit' => 200])->all();
-        $invoices = $this->Skus->Invoices->find('list', ['limit' => 200])->all();
-        $this->set(compact('skus', 'types', 'factories', 'invoices'));
+
+        $this->loadModel('Factories');
+        $factory= $this->Factories->get($id, [
+            'contain' => ['Skus']
+        ]);
+
+        $this->set(compact('skus', 'types', 'factory', 'factories'));
     }
 
     /**
@@ -132,12 +137,9 @@ class SkusController extends AppController
             }
             return $this->redirect(['action' => 'archive']);
            }
-        
-            
-            
         }
-       
     }
+
     public function archive()
     {
         $this->paginate = [
@@ -146,5 +148,21 @@ class SkusController extends AppController
         $skus = $this->paginate($this->Skus);
 
         $this->set(compact('skus'));
+    }
+
+    public function select()
+    {
+        $this->loadModel('Factories');
+        $factories = $this->Skus->Factories->find('list', ['limit' => 200])->all();
+
+        $factory=null ;
+        if ($this->request->is('post')) {
+
+            $factory =  $this->request->getData('id');
+
+            // debug($factory);exit;
+            return $this->redirect(['action' => 'add',$factory]);
+        }
+        $this->set(compact(  'factories','factory'));;
     }
 }

@@ -52,7 +52,8 @@ class InvoicesController extends AppController
      * @return \Cake\Http\Response|null|void Redirects on successful add, renders view otherwise.
      */
     public function add($id=null)
-    {   $factory_id=$id;
+    {
+        $factory_id=$id;
         $invoice = $this->Invoices->newEmptyEntity(['associated'=>['Additionalcosts','Orders']]);
         if ($this->request->is('post')) {
             $invoice = $this->Invoices->patchEntity($invoice, $this->request->getData());

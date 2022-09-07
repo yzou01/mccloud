@@ -18,7 +18,7 @@
                         <li><a class="dropdown-item" href="<?php echo $this->Url->build(['controller'=>'Users','action'=>'index']) ?>">Manage Users</a></li>
                         <!-- <li><a class="dropdown-item" href="#!"></a></li> -->
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                        <li><a class="dropdown-item" href="<?php echo $this->Url->build(['controller'=>'Users','action'=>'logout']) ?>">Logout</a></li>
                     </ul>
                 </li>
             </ul>
