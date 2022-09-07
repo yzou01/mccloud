@@ -102,4 +102,38 @@ class TypesController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    public function update($id = null,$flag=null)
+    {
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $type = $this->Types->get($id);
+            if ($flag == 0) {
+                $type->archive = true;
+                if ($this->Types->save($type)) {
+                    $this->Flash->success(__('This type has been archived.'));
+                } else {
+                    $this->Flash->error(__('This type could not be archived. Please, try again.'));
+                }
+                return $this->redirect(['action' => 'index']);
+            } elseif ($flag == 1) {
+                $type->archive = false;
+                if ($this->Types->save($type)) {
+                    $this->Flash->success(__('This type has been unarchived.'));
+                } else {
+                    $this->Flash->error(__('This Type could not be unarchived. Please, try again.'));
+                }
+                return $this->redirect(['action' => 'archive']);
+            }
+        }
+    }
+
+    public function archive()
+    {
+        $this->paginate = [
+            'contain' => [ 'type'],
+        ];
+        $type = $this->paginate($this->Types);
+
+        $this->set(compact('type'));
+    }
 }

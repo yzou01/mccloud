@@ -102,4 +102,43 @@ class FactoriesController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    public function update($id = null,$flag=null)
+    {
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $factory = $this->Factories->get($id);
+            if($flag==0){
+                $factory->archive=true;
+                if ($this->Factories->save($factory)) {
+                    $this->Flash->success(__('This factory has been archived.'));
+                }else{
+                    $this->Flash->error(__('This factory could not be archived. Please, try again.'));
+                }
+                return $this->redirect(['action' => 'index']);
+            }elseif ($flag==1) {
+                $factory->archive=false;
+                if ($this->Factories->save($factory)) {
+                    $this->Flash->success(__('This factory has been unarchived.'));
+                }else{
+                    $this->Flash->error(__('This factory could not be unarchived. Please, try again.'));
+                }
+                return $this->redirect(['action' => 'archive']);
+            }
+
+
+
+        }
+
+    }
+
+    public function archive()
+    {
+        $this->paginate = [
+            'contain' => [ 'Factories'],
+        ];
+        $factory = $this->paginate($this->Factories);
+
+        $this->set(compact('factories'));
+    }
+
 }
