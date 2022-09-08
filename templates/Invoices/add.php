@@ -62,7 +62,7 @@ $key = isset($key) ? $key : '<%= key %>';
                                     </div>
                                     <div class="form-label">
                                         <?php
-                                        echo $this->Form->control('discount',['class'=>'form-control','min' => 1, 'max' => 100, 'label' => 'Discount %']);
+                                        echo $this->Form->control('discount',['class'=>'form-control','min' => 0, 'max' => 100, 'label' => 'Discount %']);
                                         ?>
                                     </div>
                                 </fieldset>

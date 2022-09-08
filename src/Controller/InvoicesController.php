@@ -76,7 +76,6 @@ class InvoicesController extends AppController
             'contain' => ['Skus']
         ]);
 
-
         $this->set(compact('invoice','factory', 'skus'));
     }
 
@@ -89,10 +88,10 @@ class InvoicesController extends AppController
      */
     public function edit($id = null)
     {
-
         $invoice = $this->Invoices->get($id, [
             'contain' => ['Additionalcosts','Orders'],
         ]);
+
         if ($this->request->is(['patch', 'post', 'put'])) {
 //            debug($this->request->getData());
             $invoice = $this->Invoices->patchEntity($invoice, $this->request->getData());
@@ -115,7 +114,8 @@ class InvoicesController extends AppController
         }
         $this->loadModel('Skus');
         $skus=$this->Skus->find('list',['limit'=>200,'conditions'=>['Skus.archive' => false]])->all();
-        $factories = $this->Invoices->Factories->find('list', ['limit' => 200])->all();
+        $factories = $this->Invoices->Factories->find('list', ['limit' => 200, 'conditions'=>['Factories.archive' => false]])->all();
+
         $this->set(compact('invoice',  'factories','skus'));
     }
 
