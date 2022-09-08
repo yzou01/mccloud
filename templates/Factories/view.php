@@ -15,8 +15,11 @@
                     <div class="card-header">
                         <i class="fa-solid fa-industry" style="padding-top: 11px; padding-right: 2px"></i>
                         <?= h($factory->name) ?>
+
+
                         <?= $this->Html->link(__('Back'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
                         <?= $this->Html->link(__('Edit Factory'), ['action' => 'edit',$factory->id], ['class' => 'btn btn-primary', 'style' => 'float: right;margin-right: 5px;']) ?>
+                        <?= $this->Html->link(__('Add Product'), ['controller'=>'Skus','action' => 'add',$factory->id], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
                     </div>
                     <div class="card-body">
                         <legend><?= __('Related Product') ?></legend>
