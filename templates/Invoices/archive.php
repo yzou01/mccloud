@@ -17,7 +17,7 @@
                     <div class="card-header  ">
                         <i class="fa-solid fa-receipt" style="padding-top: 11px; padding-right: 2px" ></i>
                         Archived Import Records
-                        <?= $this->Form->button ('Back', ['onclick' =>'history.back ()', 'type' =>'button', 'class' => 'btn btn-primary', 'style' => 'float: right'])?>
+                        <?= $this->Html->link(__('Back'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
                     </div>
                     <div class="card-body">
                         <table id="datatablesSimple">
