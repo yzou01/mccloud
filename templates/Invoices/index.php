@@ -47,7 +47,7 @@
                                     <td><?= $this->Number->format($invoice->id) ?></td>
                                     <td><?= h($invoice->number) ?></td>
                                     <td><?= $this->Time->format($invoice->date, "dd/MM/YYY") ?></td>
-                                    <td><?= h($invoice->factory_id) ?></td>
+                                    <td><?= h($invoice->factory->name) ?></td>
                                     <td><?= h($invoice->currency_of_origin) ?></td>
                                     <td><?= $this->Number->format($invoice->currency_rate) ?></td>
                                     <td><?= h($invoice->gst) ?></td>
