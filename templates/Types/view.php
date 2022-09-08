@@ -15,10 +15,8 @@
                     <div class="card-header">
                         <i class="fa-solid fa-rectangle-list" style="padding-top: 11px; padding-right: 2px"></i>
                         Product Types
-<!--                        <= $this->Form->postLink(__('Delete'), ['action' => 'delete', $type->id], ['confirm' => __('Are you sure you want to delete # {0}?', $type->id), 'class' => 'btn btn-danger', 'style' => 'float: right']) ?>-->
+                        <?= $this->Form->button ('Back', ['onclick' =>'history.back ()', 'type' =>'button', 'class' => 'btn btn-primary', 'style' => 'float: right'])?>
                         <?= $this->Html->link(__('Edit Product Type'), ['action' => 'edit', $type->id], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px;']) ?>
-                        <?= $this->Html->link(__('List Product Types'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px;']) ?>
-                        <?= $this->Html->link(__('Add Product Type'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px;']) ?>
                     </div>
                     <div class="card-body">
                         <div class="row">

@@ -15,7 +15,6 @@
                         <i class="fa-solid fa-bag-shopping" style="padding-top: 11px; padding-right: 2px"></i>
                         Products
                         <?= $this->Html->link(__('View Archived Products'), ['action' => 'archive'], ['class' => 'btn btn-primary', 'style' => 'float: right']) ?>
-
                         <?= $this->Html->link(__('Add Product'), ['action' => 'select'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
                     </div>
                     <div class="card-body">

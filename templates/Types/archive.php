@@ -15,7 +15,7 @@
                 <div class="card-header">
                     <i class="fa-solid fa-rectangle-list" style="padding-top: 11px; padding-right: 2px"></i>
                     Product Types
-                    <?= $this->Html->link(__('View Product Types'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
+                    <?= $this->Form->button ('Back', ['onclick' =>'history.back ()', 'type' =>'button', 'class' => 'btn btn-primary', 'style' => 'float: right'])?>
                 </div>
                 <div class="card-body">
                     <table id="datatablesSimple">

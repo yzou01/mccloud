@@ -36,9 +36,8 @@
                     <div class="card-header">
                         <i class="fa-solid fa-receipt" style="padding-top: 11px; padding-right: 2px"></i>
                         Import Records
+                        <?= $this->Form->button ('Back', ['onclick' =>'history.back ()', 'type' =>'button', 'class' => 'btn btn-primary', 'style' => 'float: right'])?>
                         <?= $this->Html->link(__('Edit Import'), ['action' => 'edit', $invoice->id], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px;']) ?>
-                        <?= $this->Html->link(__('List Imports'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px;']) ?>
-                        <?= $this->Html->link(__('Add Import'), ['action' => 'select'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px;']) ?>
                     </div>
                     <?= $this->Form->create($invoice) ?>
                     <div class="card-body">
