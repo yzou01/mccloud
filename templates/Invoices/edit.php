@@ -58,12 +58,12 @@ $key = isset($key) ? $key : '<%= key %>';
                                     </div>
                                     <div class="form-label">
                                         <?php
-                                        echo $this->Form->control('currency_rate', ['class' => 'form-control', 'min' => 0]);
+                                        echo $this->Form->control('currency_rate', ['class' => 'form-control', 'min' => 0, 'label' => 'Exchange Rate']);
                                         ?>
                                     </div>
                                     <div class="form-label">
                                         <?php
-                                        echo $this->Form->control('gst', ['class' => 'form-control', 'min' => 0, 'label' => 'Gst Cost']);
+                                        echo $this->Form->control('gst', ['class' => 'form-control', 'min' => 0, 'label' => 'GST']);
                                         ?>
                                     </div>
                                     <div class="form-label">

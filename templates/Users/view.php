@@ -21,16 +21,10 @@
                         <div class="row">
                             <div class="column-responsive column-80">
                                 <div class="users view content">
-                                    <legend><?= h($user->id) ?></legend>
                                     <fieldset>
                                         <div class="form-label">
                                             <?php
                                             echo $this->Form->control('Username',['label'=> 'Username', 'value'=> $user->username,'class'=>'form-control', 'disabled' => 'true']);
-                                            ?>
-                                        </div>
-                                        <div class="form-label">
-                                            <?php
-                                            echo $this->Form->control('ID',['label'=> 'ID', 'value'=> $user->id,'class'=>'form-control', 'disabled' => 'true']);
                                             ?>
                                         </div>
                                         <div class="form-label">

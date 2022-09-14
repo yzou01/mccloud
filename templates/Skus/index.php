@@ -21,7 +21,6 @@
                         <table id="datatablesSimple">
                             <thead>
                             <tr>
-                                <th><?= $this->Paginator->sort('id') ?></th>
                                 <th><?= $this->Paginator->sort('name') ?></th>
                                 <th><?= $this->Paginator->sort('price') ?></th>
                                 <th><?= $this->Paginator->sort('factory') ?></th>
@@ -36,7 +35,6 @@
                                     if($status==false){
                                 ?>
                                 <tr>
-                                    <td><?= $this->Number->format($sku->id) ?></td>
                                     <td><?= h($sku->name) ?></td>
                                     <td><?= $sku->factory->currency." ".$this->Number->format($sku->price) ?></td>
                                     <td><?= $sku->factory->name ?></td>

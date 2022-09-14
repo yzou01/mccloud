@@ -16,7 +16,6 @@
                         <i class="fa-solid fa-industry" style="padding-top: 11px; padding-right: 2px"></i>
                         <?= h($factory->name) ?>
 
-
                         <?= $this->Html->link(__('Back'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
                         <?= $this->Html->link(__('Edit Factory'), ['action' => 'edit',$factory->id], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px;']) ?>
                         <?= $this->Html->link(__('Add Product'), ['controller'=>'Skus','action' => 'add',$factory->id], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px;']) ?>
@@ -27,7 +26,6 @@
                             <table id="datatablesSimple">
                                 <thead>
                                 <tr>
-                                    <th><?= $this->Paginator->sort('Id') ?></th>
                                     <th><?= $this->Paginator->sort('Name') ?></th>
                                     <th><?= $this->Paginator->sort('Price') ?></th>
                                     <th><?= $this->Paginator->sort('Type ID') ?></th>
@@ -36,7 +34,6 @@
                                 <tbody>
                                 <?php foreach ($factory->skus as $skus) : ?>
                                 <tr>
-                                    <td><?= h($skus->id) ?></td>
                                     <td><?= h($skus->name) ?></td>
                                     <td><?= h($skus->price) ?></td>
                                    <td><?= h($skus->type_id) ?></td>

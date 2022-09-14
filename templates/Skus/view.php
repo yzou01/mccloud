@@ -22,11 +22,10 @@
                         <div class="row">
                             <div class="column-responsive column-80">
                                 <div class="skus view content">
-                                    <legend><?= h($skus->name) ?></legend>
                                     <fieldset>
                                         <div class="form-label">
                                             <?php
-                                            echo $this->Form->control('ID',['label'=> 'ID', 'value'=> $this->Number->format($skus->id),'class'=>'form-control', 'disabled' => 'true']);
+                                            echo $this->Form->control('Name',['label'=> 'Name', 'value'=> h($skus->name),'class'=>'form-control', 'disabled' => 'true']);
                                             ?>
                                         </div>
                                         <div class="form-label">

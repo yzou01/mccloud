@@ -44,37 +44,35 @@
                         <div class="row">
                             <div class="column-responsive column-80">
                                 <div class="invoices view content">
-                                    <h4><?= h($invoice->id) ?></h4>
                                     <fieldset>
-                                        <div class="form-label">
-                                            <?php
-                                            echo $this->Form->control('ID',['label'=> 'ID', 'value'=> $this->Number->format($invoice->id),'class'=>'form-control', 'disabled' => 'true']);
-                                            ?>
+                                        <div style="width: 50%; float: left; padding-right: 2%">
+                                            <div class="form-label">
+                                                <?php
+                                                echo $this->Form->control('Number',['label'=> 'Invoice Number', 'value'=> h($invoice->number),'class'=>'form-control', 'disabled' => 'true']);
+                                                ?>
+                                            </div>
+                                            <div class="form-label">
+                                                <?php
+                                                echo $this->Form->control('Date',['label'=> 'Date', 'value'=> h($invoice->date),'class'=>'form-control', 'disabled' => 'true']);
+                                                ?>
+                                            </div>
+                                            <div class="form-label">
+                                                <?php
+                                                echo $this->Form->control('Factory',['label'=> 'Factory', 'value'=> h($invoice->factory->name),'class'=>'form-control', 'disabled' => 'true']);
+                                                ?>
+                                            </div>
                                         </div>
-                                        <div class="form-label">
-                                            <?php
-                                            echo $this->Form->control('Number',['label'=> 'Invoice Number', 'value'=> h($invoice->number),'class'=>'form-control', 'disabled' => 'true']);
-                                            ?>
-                                        </div>
-                                        <div class="form-label">
-                                            <?php
-                                            echo $this->Form->control('Date',['label'=> 'Date', 'value'=> h($invoice->date),'class'=>'form-control', 'disabled' => 'true']);
-                                            ?>
-                                        </div>
-                                        <div class="form-label">
-                                            <?php
-                                            echo $this->Form->control('Factory',['label'=> 'Factory', 'value'=> h($invoice->factory->name),'class'=>'form-control', 'disabled' => 'true']);
-                                            ?>
-                                        </div>
-                                        <div class="form-label">
-                                            <?php
-                                            echo $this->Form->control('Exchange Rate',['label'=> 'Exchange Rate', 'value'=> $this->Number->format($invoice->currency_rate),'class'=>'form-control', 'disabled' => 'true']);
-                                            ?>
-                                        </div>
-                                        <div class="form-label">
-                                            <?php
-                                            echo $this->Form->control('GST',['label'=> 'GST', 'value'=> $this->Number->format($invoice->gst),'class'=>'form-control', 'disabled' => 'true']);
-                                            ?>
+                                        <div style="width: 50%; float: left; padding-right: 2%">
+                                            <div class="form-label">
+                                                <?php
+                                                echo $this->Form->control('Exchange Rate',['label'=> 'Exchange Rate', 'value'=> $this->Number->format($invoice->currency_rate),'class'=>'form-control', 'disabled' => 'true']);
+                                                ?>
+                                            </div>
+                                            <div class="form-label">
+                                                <?php
+                                                echo $this->Form->control('GST',['label'=> 'GST', 'value'=> $this->Number->format($invoice->gst),'class'=>'form-control', 'disabled' => 'true']);
+                                                ?>
+                                            </div>
                                         </div>
                                     </fieldset>
 

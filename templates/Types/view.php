@@ -22,16 +22,15 @@
                         <div class="row">
                             <div class="column-responsive column-80">
                                 <div class="types view content">
-                                    <legend><?= h($type->name) ?></legend>
                                     <fieldset>
                                         <div class="form-label">
                                             <?php
-                                            echo $this->Form->control('ID',['label'=> 'ID', 'value'=> $this->Number->format($type->id),'class'=>'form-control', 'disabled' => 'true']);
+                                            echo $this->Form->control('name',['label'=> 'Name', 'value'=> h($type->name),'class'=>'form-control', 'disabled' => 'true']);
                                             ?>
                                         </div>
                                     </fieldset>
                                     <div class="related" style="margin-top: 15px">
-                                        <h4><?= __('Related Products') ?></h4>
+                                        <h5><?= __('Related Products') ?></h5>
                                         <?php if (!empty($type->skus)) : ?>
                                         <table id="datatablesSimple">
                                             <thead>

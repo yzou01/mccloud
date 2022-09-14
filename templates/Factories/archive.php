@@ -20,7 +20,6 @@
                         <table id="datatablesSimple">
                             <thead>
                             <tr>
-                                <th><?= $this->Paginator->sort('id') ?></th>
                                 <th><?= $this->Paginator->sort('name') ?></th>
                                 <th><?= $this->Paginator->sort('currency') ?></th>
                                 <th class="actions"><?= __('Actions') ?></th>
@@ -32,7 +31,6 @@
                                 $status=h($factory->archive);
                                 if($status==true){ ?>
                                     <tr>
-                                        <td><?= $this->Number->format($factory->id) ?></td>
                                         <td><?= h($factory->name) ?></td>
                                         <td><?= h($factory->currency) ?></td>
                                         <td class="actions">

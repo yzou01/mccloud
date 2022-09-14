@@ -23,13 +23,12 @@
                         <table id="datatablesSimple">
                             <thead>
                             <tr>
-                                <th><?= $this->Paginator->sort('id') ?></th>
                                 <th><?= $this->Paginator->sort('number') ?></th>
                                 <th><?= $this->Paginator->sort('date') ?></th>
                                 <th><?= $this->Paginator->sort('factory_id') ?></th>
-                                <th><?= $this->Paginator->sort('currency_of_origin') ?></th>
-                                <th><?= $this->Paginator->sort('currency_rate') ?></th>
-                                <th><?= $this->Paginator->sort('gst') ?></th>
+                                <th><?= $this->Paginator->sort('currency') ?></th>
+                                <th><?= $this->Paginator->sort('currency_rate', 'Exchange Rate') ?></th>
+                                <th><?= $this->Paginator->sort('gst', 'GST') ?></th>
                                 <th class="actions"><?= __('Actions') ?></th>
                             </tr>
                             </thead>
@@ -39,9 +38,6 @@
                                         $status=h($invoice->archive);
 
                                         if($status==true){ ?>
-
-
-
                                 <tr>
                                     <td><?= $this->Number->format($invoice->id) ?></td>
                                     <td><?= h($invoice->number) ?></td>

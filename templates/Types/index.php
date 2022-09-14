@@ -22,7 +22,6 @@
                         <table id="datatablesSimple">
                             <thead>
                                 <tr>
-                                    <th><?= $this->Paginator->sort('id') ?></th>
                                     <th><?= $this->Paginator->sort('name') ?></th>
                                     <th class="actions"><?= __('Actions') ?></th>
                                 </tr>
@@ -33,7 +32,6 @@
                                 $status=h($type->archive);
                                 if($status==false){ ?>
                                     <tr>
-                                        <td><?= $this->Number->format($type->id) ?></td>
                                         <td><?= h($type->name) ?></td>
                                         <td class="actions">
                                             <?= $this->Html->link(__('View'), ['action' => 'view', $type->id]) ?>
