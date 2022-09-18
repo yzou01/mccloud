@@ -52,7 +52,7 @@ $key = isset($key) ? $key : '<%= key %>';
                                     </div>
                                     <div class="form-label">
                                         <?php
-                                        echo $this->Form->control('currency_rate',['class'=>'form-control', 'min'=>0]);
+                                        echo $this->Form->control('currency_rate',['label'=>'Exchange Rate','class'=>'form-control', 'min'=>0]);
                                         ?>
                                     </div>
                                     <div class="form-label">
@@ -62,7 +62,7 @@ $key = isset($key) ? $key : '<%= key %>';
                                     </div>
                                     <div class="form-label">
                                         <?php
-                                        echo $this->Form->control('discount',['class'=>'form-control','min' => 1, 'max' => 100, 'label' => 'Discount %']);
+                                        echo $this->Form->control('discount',['class'=>'form-control','min' => 0, 'max' => 100, 'label' => 'Discount %']);
                                         ?>
                                     </div>
                                 </fieldset>

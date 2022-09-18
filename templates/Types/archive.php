@@ -15,13 +15,12 @@
                 <div class="card-header">
                     <i class="fa-solid fa-rectangle-list" style="padding-top: 11px; padding-right: 2px"></i>
                     Product Types
-                    <?= $this->Html->link(__('View Product Types'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
+                    <?= $this->Html->link(__('Back'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
                 </div>
                 <div class="card-body">
                     <table id="datatablesSimple">
                         <thead>
                         <tr>
-                            <th><?= $this->Paginator->sort('id') ?></th>
                             <th><?= $this->Paginator->sort('name') ?></th>
                             <th class="actions"><?= __('Actions') ?></th>
                         </tr>
@@ -32,7 +31,6 @@
                         $status=h($type->archive);
                         if($status==true){ ?>
                             <tr>
-                                <td><?= $this->Number->format($type->id) ?></td>
                                 <td><?= h($type->name) ?></td>
                                 <td class="actions">
                                         <?= $this->Html->link(__('View'), ['controller' => 'Skus','action' => 'view', $type->id]) ?>

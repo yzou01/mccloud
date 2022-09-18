@@ -20,7 +20,7 @@ $key = isset($key) ? $key : '<%= key %>';
                     <div class="card-header">
                         <i class="fas fa-table me-1" style="padding-top: 11px"></i>
                         Import Records
-                        <?= $this->Html->link(__('List Imports'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right']) ?>
+                        <?= $this->Form->button ('Back', ['onclick' =>'history.back ()', 'type' =>'button', 'class' => 'btn btn-primary', 'style' => 'float: right'])?>
                     </div>
                     <div class="card-body">
                         <?= $this->Form->create($invoice) ?>
@@ -43,27 +43,27 @@ $key = isset($key) ? $key : '<%= key %>';
                                     </div>
                                     <div class="form-label">
                                         <?php
-                                        echo $this->Form->control("currency_of_origin", ['label' => 'Currency','class' => 'form-select', 'options' => [
-                                            'Euro' => 'EUR - Euro',
-                                            'Pound Sterling' => 'GBP - Pound Sterling',
-                                            'Japanese Yen' => 'JPY - Japanese Yen',
-                                            'Chinese Yuan' => 'CNY - Chinese Yuan',
-                                            'South African Rand' => 'ZAR - South African Rand',
-                                            'US Dollar' => 'USD - United States Dollar',
-                                            'NZ Dollar' => 'NZD -  New Zealand Dollar',
-                                            'Australian Dollar' => 'AUD - Australian Dollar',
+                                        echo $this->Form->hidden("currency_of_origin", ['label' => 'Currency','class' => 'form-select', 'options' => [
+                                            'EUR'=>'EUR - Euro',
+                                            'GBP'=>'GBP - Pound Sterling',
+                                            'JPY'=>'JPY - Japanese Yen',
+                                            'CNY'=>'CNY - Chinese Yuan',
+                                            'ZAR'=>'ZAR - South African Rand',
+                                            'USD'=>'USD - United States Dollar',
+                                            'NZD'=>'NZD -  New Zealand Dollar',
+                                            'AUD'=>'AUD - Australian Dollar',
                                         ]
                                         ]);
                                         ?>
                                     </div>
                                     <div class="form-label">
                                         <?php
-                                        echo $this->Form->control('currency_rate', ['class' => 'form-control', 'min' => 0]);
+                                        echo $this->Form->control('currency_rate', ['class' => 'form-control', 'min' => 0, 'label' => 'Exchange Rate']);
                                         ?>
                                     </div>
                                     <div class="form-label">
                                         <?php
-                                        echo $this->Form->control('gst', ['class' => 'form-control', 'min' => 0, 'label' => 'Gst Cost']);
+                                        echo $this->Form->control('gst', ['class' => 'form-control', 'min' => 0, 'label' => 'GST']);
                                         ?>
                                     </div>
                                     <div class="form-label">

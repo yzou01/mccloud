@@ -15,19 +15,17 @@
                         <i class="fa-solid fa-bag-shopping" style="padding-top: 11px; padding-right: 2px"></i>
                         Products
 <!--                        <= $this->Form->postLink(__('Delete SKUs'), ['action' => 'delete', $skus->id], ['confirm' => __('Are you sure you want to delete # {0}?', $skus->id), 'class' => 'btn btn-danger', 'style' => 'float: right']) ?>-->
+                        <?= $this->Html->link(__('Back'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
                         <?= $this->Html->link(__('Edit Product'), ['action' => 'edit', $skus->id], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px;']) ?>
-                        <?= $this->Html->link(__('List Products'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px;']) ?>
-                        <?= $this->Html->link(__('Add Product'), ['action' => 'select'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px;']) ?>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="column-responsive column-80">
                                 <div class="skus view content">
-                                    <legend><?= h($skus->name) ?></legend>
                                     <fieldset>
                                         <div class="form-label">
                                             <?php
-                                            echo $this->Form->control('ID',['label'=> 'ID', 'value'=> $this->Number->format($skus->id),'class'=>'form-control', 'disabled' => 'true']);
+                                            echo $this->Form->control('Name',['label'=> 'Name', 'value'=> h($skus->name),'class'=>'form-control', 'disabled' => 'true']);
                                             ?>
                                         </div>
                                         <div class="form-label">

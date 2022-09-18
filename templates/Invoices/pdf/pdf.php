@@ -35,13 +35,7 @@
             <div class="row">
                 <div class="card mb-4">
                     <div class="card-body">
-                        <h4><?= h($report->id) ?></h4>
                         <fieldset style="width: 96.2%">
-                            <div class="form-label">
-                                <?php
-                                echo $this->Form->control('ID',['label'=> 'ID', 'value'=> $this->Number->format($report->id),'class'=>'form-control']);
-                                ?>
-                            </div>
                             <div class="form-label">
                                 <?php
                                 echo $this->Form->control('Number',['label'=> 'Invoice Number', 'value'=> h($report->number),'class'=>'form-control']);

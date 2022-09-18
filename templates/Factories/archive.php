@@ -14,13 +14,12 @@
                     <div class="card-header  ">
                         <i class="fa-solid fa-industry" style="padding-top: 11px; padding-right: 2px"></i>
                         Archived Factory Records
-                        <?= $this->Html->link(__('View Factories'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
+                        <?= $this->Html->link(__('Back'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
                     </div>
                     <div class="card-body">
                         <table id="datatablesSimple">
                             <thead>
                             <tr>
-                                <th><?= $this->Paginator->sort('id') ?></th>
                                 <th><?= $this->Paginator->sort('name') ?></th>
                                 <th><?= $this->Paginator->sort('currency') ?></th>
                                 <th class="actions"><?= __('Actions') ?></th>
@@ -32,7 +31,6 @@
                                 $status=h($factory->archive);
                                 if($status==true){ ?>
                                     <tr>
-                                        <td><?= $this->Number->format($factory->id) ?></td>
                                         <td><?= h($factory->name) ?></td>
                                         <td><?= h($factory->currency) ?></td>
                                         <td class="actions">

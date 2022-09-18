@@ -14,24 +14,17 @@
                     <div class="card-header">
                         <i class="fa-solid fa-users" style="padding-top: 11px; padding-right: 2px"></i>
                         Users
-                        <?= $this->Html->link(__('Edit User'), ['action' => 'edit', $user->id], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
-                        <?= $this->Html->link(__('List Users'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
-                        <?= $this->Html->link(__('Add User'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
+                        <?= $this->Html->link(__('Back'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
+                        <?= $this->Html->link(__('Edit User'), ['action' => 'edit', $user->id], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="column-responsive column-80">
                                 <div class="users view content">
-                                    <legend><?= h($user->id) ?></legend>
                                     <fieldset>
                                         <div class="form-label">
                                             <?php
                                             echo $this->Form->control('Username',['label'=> 'Username', 'value'=> $user->username,'class'=>'form-control', 'disabled' => 'true']);
-                                            ?>
-                                        </div>
-                                        <div class="form-label">
-                                            <?php
-                                            echo $this->Form->control('ID',['label'=> 'ID', 'value'=> $user->id,'class'=>'form-control', 'disabled' => 'true']);
                                             ?>
                                         </div>
                                         <div class="form-label">

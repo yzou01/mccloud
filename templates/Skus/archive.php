@@ -14,13 +14,12 @@
                     <div class="card-header">
                         <i class="fa-solid fa-bag-shopping" style="padding-top: 11px; padding-right: 2px"></i>
                         Archive Products
-                        <?= $this->Html->link(__('View Products'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right']) ?>
+                        <?= $this->Html->link(__('Back'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
                     </div>
                     <div class="card-body">
                         <table id="datatablesSimple">
                             <thead>
                             <tr>
-                                <th><?= $this->Paginator->sort('id') ?></th>
                                 <th><?= $this->Paginator->sort('name') ?></th>
                                 <th><?= $this->Paginator->sort('price') ?></th>
                                 <th><?= $this->Paginator->sort('factory') ?></th>
@@ -35,7 +34,6 @@
                                     if($status==true){
                                 ?>
                                 <tr>
-                                    <td><?= $this->Number->format($sku->id) ?></td>
                                     <td><?= h($sku->name) ?></td>
                                     <td><?= $sku->factory->currency." ".$this->Number->format($sku->price) ?></td>
                                     <td><?= $sku->factory->name ?></td>
