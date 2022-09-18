@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-    <body class="bg-primary">
-        <div id="layoutAuthentication">
-            <div id="layoutAuthentication_content">
+    <div class="body" style= background-image: href="/team39-app_fit3048/Assets/Login_Banner.jpeg">
+    <body class="bg-primary" >
+        <div id="layoutAuthentication" >
+            <div id="layoutAuthentication_content" >
                 <main>
                     <div class="container">
                         <div class="row justify-content-center">
@@ -22,6 +23,7 @@
                                                 echo $this->Form->control('password', ['class'=>'form-control', 'required' => true]);
                                                 ?>
                                             </div>
+
                                         </fieldset>
                                         <?= $this->Flash->render() ?>
                                     </div>
@@ -37,4 +39,5 @@
             </div>
         </div>
     </body>
+    </div>
 </html>
