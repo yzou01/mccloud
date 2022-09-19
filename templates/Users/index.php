@@ -18,7 +18,6 @@
                     </div>
                     <div class="card-body">
                         <div class="users index content">
-                            <h3><?= __('Users') ?></h3>
                             <div class="table-responsive">
                                 <table id="datatablesSimple">
                                     <thead>
