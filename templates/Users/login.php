@@ -23,7 +23,9 @@
                                                 echo $this->Form->control('password', ['class'=>'form-control', 'required' => true]);
                                                 ?>
                                             </div>
-
+                                            <div class="form-label" style="margin-top: 20px; margin-left: 2px">
+                                                <?= $this->Html->link(__('Forgot Password?'), ['action' => 'password']) ?>
+                                            </div>
                                         </fieldset>
                                         <?= $this->Flash->render() ?>
                                     </div>
