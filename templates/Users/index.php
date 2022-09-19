@@ -14,7 +14,7 @@
                     <div class="card-header">
                         <i class="fa-solid fa-users" style="padding-top: 11px; padding-right: 2px"></i>
                         Users
-                        <?= $this->Html->link(__('Add User'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'float: right; margin-right: 5px']) ?>
+                        <?= $this->Html->link(__('Add User'), ['action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'float: right']) ?>
                     </div>
                     <div class="card-body">
                         <div class="users index content">

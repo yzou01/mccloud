@@ -27,11 +27,6 @@
                                             echo $this->Form->control('Username',['label'=> 'Username', 'value'=> $user->username,'class'=>'form-control', 'disabled' => 'true']);
                                             ?>
                                         </div>
-                                        <div class="form-label">
-                                            <?php
-                                            echo $this->Form->control('Archived',['label'=> 'Archived', 'value'=> $user->archive,'class'=>'form-control', 'disabled' => 'true']);
-                                            ?>
-                                        </div>
                                     </fieldset>
                                 </div>
                             </div>
