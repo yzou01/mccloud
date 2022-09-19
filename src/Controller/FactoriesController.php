@@ -33,7 +33,7 @@ class FactoriesController extends AppController
     public function view($id = null)
     {
         $factory = $this->Factories->get($id, [
-            'contain' => ['Invoices', 'Skus'],
+            'contain' => ['Invoices', 'Skus' => ['Types']],
         ]);
 
         $this->set(compact('factory'));

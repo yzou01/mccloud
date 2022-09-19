@@ -28,15 +28,15 @@
                                 <tr>
                                     <th><?= $this->Paginator->sort('Name') ?></th>
                                     <th><?= $this->Paginator->sort('Price') ?></th>
-                                    <th><?= $this->Paginator->sort('Type ID') ?></th>
+                                    <th><?= $this->Paginator->sort('Type') ?></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <?php foreach ($factory->skus as $skus) : ?>
                                 <tr>
                                     <td><?= h($skus->name) ?></td>
-                                    <td><?= h($skus->price) ?></td>
-                                   <td><?= h($skus->type_id) ?></td>
+                                    <td><?=$factory->currency. " ". h($skus->price) ?></td>
+                                   <td><?= h($skus->type->name) ?></td>
                                 </tr>
                                 <?php endforeach; ?>
                                 </tbody>

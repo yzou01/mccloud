@@ -76,6 +76,18 @@ class UsersTable extends Table
         return $validator;
     }
 
+    public function validationPasswords(Validator $validator): Validator
+    {
+        $validator->add(
+            'confirm_password',
+            'no-misspelling', [
+                'rule'=>['compareWith','password'],
+                'message'=>'Passwords do not match'
+            ]
+        );
+        return $validator;
+    }
+
     /**
      * Returns a rules checker object that will be used for validating
      * application integrity.

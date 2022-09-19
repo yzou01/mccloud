@@ -33,6 +33,11 @@
                                             echo $this->Form->control('password',['class'=>'form-control']);
                                             ?>
                                         </div>
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->control('confirm_password',['class'=>'form-control','type'=>'password']);
+                                            ?>
+                                        </div>
                                     </fieldset>
                                     <?= $this->Form->button(__('Submit'), ['class'=>'btn btn-primary']) ?>
                                     <?= $this->Form->end() ?>
