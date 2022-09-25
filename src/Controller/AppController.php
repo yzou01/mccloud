@@ -51,5 +51,23 @@ class AppController extends Controller
          */
         //$this->loadComponent('FormProtection');
     }
+    public function send_mail($email_data = null)
+    {
+        //echo "<pre>";print_r($email_data);die;
+        //echo WWW_ROOT;die;
+        $email         = new CakeEmail('default');
+        $email_to      = $email_data['to'];
+        $email_msg     = $email_data['body'];
+        $email_subject = $email_data['subject'];
+
+        $email->to($email_to);
+        $email->subject($email_subject);
+        $mail_status = @$email->send($email_msg);
+
+        if (!$mail_status) {
+            return FALSE;
+        }
+        return TRUE;
+    }
 
 }
