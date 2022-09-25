@@ -27,6 +27,16 @@
                                             echo $this->Form->control('Username',['label'=> 'Username', 'value'=> $user->username,'class'=>'form-control', 'disabled' => 'true']);
                                             ?>
                                         </div>
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->control('Name',['label'=> 'Name', 'value'=> $user->name,'class'=>'form-control', 'disabled' => 'true']);
+                                            ?>
+                                        </div>
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->control('Email',['label'=> 'Email', 'value'=> $user->email,'class'=>'form-control', 'disabled' => 'true']);
+                                            ?>
+                                        </div>
                                     </fieldset>
                                 </div>
                             </div>
