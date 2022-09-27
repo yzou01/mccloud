@@ -13,8 +13,18 @@
         <?php echo $this->element('navbar/sidebar') ?>
         <div id="layoutSidenav_content">
             <main>
-            <canvas id="myPieChart" width="50" height="50"></canvas>
-            <canvas id="myChart" width="50" height="50"></canvas>
+            <div class=" card mb-4" style="margin-top: 50px">
+                        <div class="card-header" style="padding-bottom: 15px">
+                            <i class="fa-solid fa-chart-line" style="padding-top: 11px; padding-right: 2px"></i>
+                            Analytics
+                        </div>
+                        <div class="card-body">
+                            <canvas id="myPieChart" ></canvas>
+                            
+                            <canvas id="myChart" ></canvas>
+                        </div>
+                   
+           
 <script>
 var ctx = document.getElementById("myChart");
 var myChart = new Chart(ctx, {
