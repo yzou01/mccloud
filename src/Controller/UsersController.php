@@ -48,7 +48,7 @@ class UsersController extends AppController
     {
         $user = $this->Users->newEmptyEntity();
         if ($this->request->is('post')) {
-            $user = $this->Users->patchEntity($user, $this->request->getData());
+            $user = $this->Users->patchEntity($user, $this->request->getData(),['validate'=>'passwords']);
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
 
@@ -58,6 +58,8 @@ class UsersController extends AppController
         }
         $this->set(compact('user'));
     }
+
+
 
     /**
      * Edit method
@@ -72,7 +74,7 @@ class UsersController extends AppController
             'contain' => [],
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $user = $this->Users->patchEntity($user, $this->request->getData());
+            $user = $this->Users->patchEntity($user, $this->request->getData(),['validate'=>'passwords']);
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
 

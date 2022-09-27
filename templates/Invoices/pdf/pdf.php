@@ -135,8 +135,8 @@
                                 <h4>Additional Costs</h4>
                                 <table>
                                     <tr>
-                                        <th class="th-custom">Cost</th>
-                                        <th class="th-custom">Amount</th>
+                                        <th class="th-custom">Type of Additional Cost</th>
+                                        <th class="th-custom">Cost (AUD)</th>
                                     </tr>
                                     <?php $sumAC = 0?>
                                     <?php $i = 0; ?>
