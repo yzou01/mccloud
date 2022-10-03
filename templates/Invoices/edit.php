@@ -27,49 +27,54 @@ $key = isset($key) ? $key : '<%= key %>';
                         <div class="column-responsive column-80">
                             <div class="invoices form content">
                                 <fieldset>
-                                    <div class="form-label">
-                                        <?php
-                                        echo $this->Form->control('number', ['class' => 'form-control']);
-                                        ?>
+                                    <div style="width: 50%; float: left; padding-right: 2%">
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->control('number', ['class' => 'form-control']);
+                                            ?>
+                                        </div>
+                                        <div class="form-label">
+                                            <?php echo $this->Form->control('date',['class'=>'form-control', 'min' =>"2000-01-01" , 'max' => "2100-01-01"]);
+                                            ?>
+                                        </div>
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->control('factory_id', ['class' => 'form-control']);
+                                            ?>
+                                        </div>
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->control('currency_rate', ['class' => 'form-control', 'min' => 0, 'label' => 'Exchange Rate']);
+                                            ?>
+                                        </div>
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->hidden("currency_of_origin", ['label' => 'Currency','class' => 'form-select', 'options' => [
+                                                'EUR'=>'EUR - Euro',
+                                                'GBP'=>'GBP - Pound Sterling',
+                                                'JPY'=>'JPY - Japanese Yen',
+                                                'CNY'=>'CNY - Chinese Yuan',
+                                                'ZAR'=>'ZAR - South African Rand',
+                                                'USD'=>'USD - United States Dollar',
+                                                'NZD'=>'NZD -  New Zealand Dollar',
+                                                'AUD'=>'AUD - Australian Dollar',
+                                            ]
+                                            ]);
+                                            ?>
+                                        </div>
                                     </div>
-                                    <div class="form-label">
-                                        <?php echo $this->Form->control('date',['class'=>'form-control', 'min' =>"2000-01-01" , 'max' => "2100-01-01"]);
-                                        ?>
-                                    </div>
-                                    <div class="form-label">
-                                        <?php
-                                        echo $this->Form->control('factory_id', ['class' => 'form-control']);
-                                        ?>
-                                    </div>
-                                    <div class="form-label">
-                                        <?php
-                                        echo $this->Form->hidden("currency_of_origin", ['label' => 'Currency','class' => 'form-select', 'options' => [
-                                            'EUR'=>'EUR - Euro',
-                                            'GBP'=>'GBP - Pound Sterling',
-                                            'JPY'=>'JPY - Japanese Yen',
-                                            'CNY'=>'CNY - Chinese Yuan',
-                                            'ZAR'=>'ZAR - South African Rand',
-                                            'USD'=>'USD - United States Dollar',
-                                            'NZD'=>'NZD -  New Zealand Dollar',
-                                            'AUD'=>'AUD - Australian Dollar',
-                                        ]
-                                        ]);
-                                        ?>
-                                    </div>
-                                    <div class="form-label">
-                                        <?php
-                                        echo $this->Form->control('currency_rate', ['class' => 'form-control', 'min' => 0, 'label' => 'Exchange Rate']);
-                                        ?>
-                                    </div>
-                                    <div class="form-label">
-                                        <?php
-                                        echo $this->Form->control('gst', ['class' => 'form-control', 'min' => 0, 'label' => 'GST']);
-                                        ?>
-                                    </div>
-                                    <div class="form-label">
-                                        <?php
-                                        echo $this->Form->control('discount', ['class' => 'form-control', 'min' => 0, 'label' => 'Discount %']);
-                                        ?>
+                                    <div style="width: 50%; float: left; padding-right: 2%">
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->control('discount', ['class' => 'form-control', 'min' => 0, 'label' => 'Discount %']);
+                                            ?>
+                                        </div>
+                                        <div class="form-label">
+                                            Additional Notes (GST, etc.)
+                                            <?php
+                                            echo $this->Form->textarea('gst',['class'=>'form-control', 'style'=>'resize:none; height:110px']);
+                                            ?>
+                                        </div>
                                     </div>
                             </div>
 

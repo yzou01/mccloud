@@ -57,8 +57,10 @@
                                 ?>
                             </div>
                             <div class="form-label">
+                                Additional Notes (GST, etc.)
                                 <?php
-                                echo $this->Form->control('GST',['label'=> 'GST', 'value'=> $this->Number->format($report->gst),'class'=>'form-control']);
+                                echo $this->Form->textarea('gst',['value'=> h($report->gst), 'class'=>'form-control', 'style'=>'resize:none; height:110px']);
+//                                ('GST',['label'=> 'GST', 'value'=> $this->Number->format($report->gst),'class'=>'form-control']);
                                 ?>
                             </div>
                         </fieldset>

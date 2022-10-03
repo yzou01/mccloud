@@ -53,24 +53,30 @@
                                             </div>
                                             <div class="form-label">
                                                 <?php
+                                                echo $this->Form->control('Factory',['label'=> 'Factory', 'value'=> h($invoice->factory->name),'class'=>'form-control', 'disabled' => 'true']);
+                                                ?>
+                                            </div>
+                                            <div class="form-label">
+                                                <?php
                                                 echo $this->Form->control('Date',['label'=> 'Date', 'value'=> h($invoice->date),'class'=>'form-control', 'disabled' => 'true']);
                                                 ?>
                                             </div>
                                             <div class="form-label">
                                                 <?php
-                                                echo $this->Form->control('Factory',['label'=> 'Factory', 'value'=> h($invoice->factory->name),'class'=>'form-control', 'disabled' => 'true']);
+                                                echo $this->Form->control('Exchange Rate',['label'=> 'Exchange Rate', 'value'=> $this->Number->format($invoice->currency_rate),'class'=>'form-control', 'disabled' => 'true']);
                                                 ?>
                                             </div>
                                         </div>
                                         <div style="width: 50%; float: left; padding-right: 2%">
                                             <div class="form-label">
                                                 <?php
-                                                echo $this->Form->control('Exchange Rate',['label'=> 'Exchange Rate', 'value'=> $this->Number->format($invoice->currency_rate),'class'=>'form-control', 'disabled' => 'true']);
+                                                echo $this->Form->control('discount', ['class' => 'form-control', 'min' => 0, 'label' => 'Discount %', 'disabled' => 'true']);
                                                 ?>
                                             </div>
                                             <div class="form-label">
+                                                Additional Notes (GST, etc.)
                                                 <?php
-                                                echo $this->Form->control('GST',['label'=> 'GST', 'value'=> $this->Number->format($invoice->gst),'class'=>'form-control', 'disabled' => 'true']);
+                                                echo $this->Form->textarea('GST',['value'=> h($invoice->gst),'class'=>'form-control', 'disabled' => 'true', 'style'=>'height:110px']);
                                                 ?>
                                             </div>
                                         </div>

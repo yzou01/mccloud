@@ -25,45 +25,50 @@ $key = isset($key) ? $key : '<%= key %>';
                         <div class="column-responsive column-80">
                             <div class="skus form content">
                                 <fieldset>
-                                    <div class="form-label">
-                                        <?php
-                                        echo $this->Form->control('factory',['label'=> 'Factory', 'value'=> h($factory->name),'class'=>'form-control', 'disabled' => 'true']);
-                                        ?>
+                                    <div style="width: 50%; float: left; padding-right: 2%">
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->control('factory',['label'=> 'Factory', 'value'=> h($factory->name),'class'=>'form-control', 'disabled' => 'true']);
+                                            ?>
+                                        </div>
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->control('number',['class'=>'form-control']);
+                                            ?>
+                                        </div>
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->control('date',['class'=>'form-control', 'min' =>"2000-01-01" , 'max' => "2100-01-01"]);
+                                            ?>
+                                        </div>
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->control('currency_rate',['label'=>'Exchange Rate','class'=>'form-control', 'min'=>0]);
+                                            ?>
+                                        </div>
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->hidden('factory_id',['class'=>'form-control','value'=>$factory->id]);
+                                            ?>
+                                        </div>
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->hidden("currency_of_origin",['label'=>'Currency','class'=>'form-select', 'value'=>$factory->currency]);
+                                            ?>
+                                        </div>
                                     </div>
-                                    <div class="form-label">
-                                        <?php
-                                        echo $this->Form->control('number',['class'=>'form-control']);
-                                        ?>
-                                    </div>
-                                    <div class="form-label">
-                                        <?php
-                                        echo $this->Form->control('date',['class'=>'form-control', 'min' =>"2000-01-01" , 'max' => "2100-01-01"]);
-                                        ?>
-                                    </div>
-                                    <div class="form-label">
-                                        <?php
-                                        echo $this->Form->hidden('factory_id',['class'=>'form-control','value'=>$factory->id]);
-                                        ?>
-                                    </div>
-                                    <div class="form-label">
-                                        <?php
-                                        echo $this->Form->hidden("currency_of_origin",['label'=>'Currency','class'=>'form-select', 'value'=>$factory->currency]);
-                                        ?>
-                                    </div>
-                                    <div class="form-label">
-                                        <?php
-                                        echo $this->Form->control('currency_rate',['label'=>'Exchange Rate','class'=>'form-control', 'min'=>0]);
-                                        ?>
-                                    </div>
-                                    <div class="form-label">
-                                        <?php
-                                        echo $this->Form->control('gst',['class'=>'form-control', 'min'=>0,'label'=>'GST']);
-                                        ?>
-                                    </div>
-                                    <div class="form-label">
-                                        <?php
-                                        echo $this->Form->control('discount',['class'=>'form-control','min' => 0, 'max' => 100, 'label' => 'Discount %']);
-                                        ?>
+                                    <div style="width: 50%; float: left; padding-right: 2%">
+                                        <div class="form-label">
+                                            <?php
+                                            echo $this->Form->control('discount',['class'=>'form-control','min' => 0, 'max' => 100, 'label' => 'Discount %']);
+                                            ?>
+                                        </div>
+                                        <div class="form-label">
+                                            Additional Notes (GST, etc.)
+                                            <?php
+                                            echo $this->Form->textarea('gst',['class'=>'form-control', 'style'=>'resize:none; height:110px']);
+                                            ?>
+                                        </div>
                                     </div>
                                 </fieldset>
                             </div>
