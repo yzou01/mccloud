@@ -45,5 +45,6 @@ class Invoice extends Entity
         'factory' => true,
         'additionalcosts' => true,
         'orders' => true,
+        'total' => true,
     ];
 }

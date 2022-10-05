@@ -57,7 +57,8 @@ CREATE TABLE `invoices` (
 `gst` varchar(250) DEFAULT NULL,
 `factory_id` int NOT NULL,
 `discount` decimal(6,3) DEFAULT NULL,
-`archive` tinyint(1) NOT NULL DEFAULT '0'
+`archive` tinyint(1) NOT NULL DEFAULT '0',
+`total` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------

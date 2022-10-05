@@ -104,6 +104,10 @@ class InvoicesTable extends Table
             ->boolean('archive')
             ->notEmptyString('archive');
 
+            $validator
+            ->numeric('total')
+            ->allowEmptyString('total');
+
         return $validator;
     }
 

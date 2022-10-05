@@ -116,12 +116,12 @@
 
 <!--                                      Invoice -> Order -> Sku_id find the sku price using sku_id in the sku table -->
                                                         <td> <?=h($invoice->orders[$i]->skus->price) ?></td>
-                                                        <td> <?=h($invoice->orders[$i]->quantity * $invoice->orders[0]->skus->price ) ?></td>
+                                                        <td> <?=h($invoice->orders[$i]->quantity * $invoice->orders[$i]->skus->price ) ?></td>
 
-                                                        <td> <?=h(round(($invoice->orders[$i]->quantity * $invoice->orders[0]->skus->price) / $invoice->currency_rate,2)) ?> </td>
+                                                        <td> <?=h(round(($invoice->orders[$i]->quantity * $invoice->orders[$i]->skus->price) / $invoice->currency_rate,2)) ?> </td>
                                                     </tr>
-                                                    <?php $sumTC += round($invoice->orders[$i]->quantity * $invoice->orders[0]->skus->price,2) ?>
-                                                    <?php $sumTCA +=  round($invoice->orders[$i]->quantity * $invoice->orders[0]->skus->price / $invoice->currency_rate ,2)?>
+                                                    <?php $sumTC += round($invoice->orders[$i]->quantity * $invoice->orders[$i]->skus->price,2) ?>
+                                                    <?php $sumTCA +=  round($invoice->orders[$i]->quantity * $invoice->orders[$i]->skus->price / $invoice->currency_rate ,2)?>
                                                     <?php $i = $i + 1; ?>
                                                     <?php endforeach;?>
                                                     <tr>
