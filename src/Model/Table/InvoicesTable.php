@@ -88,7 +88,7 @@ class InvoicesTable extends Table
             ->notEmptyString('currency_rate');
 
         $validator
-            ->numeric('gst')
+            ->scalar('gst')
             ->allowEmptyString('gst');
 
         $validator

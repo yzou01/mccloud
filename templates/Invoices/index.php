@@ -29,7 +29,6 @@
                                 <th><?= $this->Paginator->sort('factory_id') ?></th>
                                 <th><?= $this->Paginator->sort('currency') ?></th>
                                 <th><?= $this->Paginator->sort('currency_rate','Exchange Rate') ?></th>
-                                <th><?= $this->Paginator->sort('gst','GST') ?></th>
                                 <th class="actions"><?= __('Actions') ?></th>
                             </tr>
                             </thead>
@@ -45,7 +44,6 @@
                                     <td><?= h($invoice->factory->name) ?></td>
                                     <td><?= h($invoice->currency_of_origin) ?></td>
                                     <td><?= $this->Number->format($invoice->currency_rate) ?></td>
-                                    <td><?= h($invoice->gst) ?></td>
                                     <td class="actions">
                                         <?= $this->Html->link(__('View'), ['action' => 'view', $invoice->id]) ?>
                                         <?=  $this->Html->link(__('Edit'), ['action' => 'edit', $invoice->id]) ?>
