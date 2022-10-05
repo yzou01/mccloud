@@ -52,12 +52,34 @@ class InvoicesController extends AppController
      * @return \Cake\Http\Response|null|void Redirects on successful add, renders view otherwise.
      */
     public function add($id=null)
-    {
+    {   $this->loadModel('Skus');
         $factory_id=$id;
         $invoice = $this->Invoices->newEmptyEntity(['associated'=>['Additionalcosts','Orders']]);
         if ($this->request->is('post')) {
             $invoice = $this->Invoices->patchEntity($invoice, $this->request->getData());
-            //debug($this->request->getData()); exit;
+            $discount=$this->request->getData('discount');
+            $exchangeRate=$this->request->getData('currency_rate');
+            $selectedOrders=$this->request->getData('orders');
+            $selectedAddCosts=$this->request->getData('additionalcosts');
+            
+            $totalSku=0;
+            
+            //caculate sum of product price
+            foreach ($selectedOrders as $order) {
+                               
+                $slectedSku= $this->Skus->get($order['sku_id']);
+                $totalSku+=$order['quantity']*$slectedSku->price;
+            }
+            $totalAuSku=round($totalSku/$exchangeRate,2);
+            $totalDiscountCost=round($totalAuSku*(100-$discount)/100,2);
+            //caculate sum of additional costs
+            $totalAddCost=0;
+            foreach($selectedAddCosts as $addCost ){
+                $totalAddCost+=$addCost['amount'];
+            }
+            $grandTotal=$totalDiscountCost+$totalAddCost;
+           $invoice['total']=$grandTotal;
+           
             if ($this->Invoices->save($invoice)) {
 
                 //debug($invoice); exit;
@@ -68,7 +90,7 @@ class InvoicesController extends AppController
             //debug($invoice); exit;
             $this->Flash->error(__('The invoice could not be saved. Please, try again.'));
         }
-        $this->loadModel('Skus');
+        
 
         $skus=$this->Skus->find('list',['limit'=>200,'conditions'=>['Skus.archive' => false,'Skus.factory_id'=>$factory_id]])->all();
         $this->loadModel('Factories');
@@ -91,10 +113,34 @@ class InvoicesController extends AppController
         $invoice = $this->Invoices->get($id, [
             'contain' => ['Additionalcosts','Orders'],
         ]);
-
+        $this->loadModel('Skus');
         if ($this->request->is(['patch', 'post', 'put'])) {
 //            debug($this->request->getData());
             $invoice = $this->Invoices->patchEntity($invoice, $this->request->getData());
+            //
+            $discount=$this->request->getData('discount');
+            $exchangeRate=$this->request->getData('currency_rate');
+            $selectedOrders=$this->request->getData('orders');
+            $selectedAddCosts=$this->request->getData('additionalcosts');
+            
+            $totalSku=0;
+            //debug($selectedOrders[0]['sku_id']);exit;
+            //caculate sum of product price
+            foreach ($selectedOrders as $order) {
+                               
+                $slectedSku= $this->Skus->get($order['sku_id']);
+                $totalSku+=$order['quantity']*$slectedSku->price;
+            }
+            $totalAuSku=round($totalSku/$exchangeRate,2);
+            $totalDiscountCost=round($totalAuSku*(100-$discount)/100,2);
+            //caculate sum of additional costs
+            $totalAddCost=0;
+            foreach($selectedAddCosts as $addCost ){
+                $totalAddCost+=$addCost['amount'];
+            }
+            $grandTotal=$totalDiscountCost+$totalAddCost;
+           $invoice['total']=$grandTotal;
+            
 //            debug($invoice);
             if ($this->Invoices->save($invoice)) {
 //                debug($this->request->getData('order_delete')); exit;
