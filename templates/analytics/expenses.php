@@ -20,13 +20,13 @@
                     <?= $this->Html->link(__('Back'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
                 </div>
                 <div class="card-body">
-                    <div class="card mb-4">
+                    <div class="card mb-4" style="width:90%; margin: auto; padding: 10px;">
                         <div class="card-body">
                             <h4>Expenses by Factory</h4>
                             <canvas id="overallSpendings" style="margin-top:20px"></canvas>
                         </div>
                     </div>
-                    <div class="card mb-4">
+                    <div class="card mb-4" style="width:90%; margin: auto; padding: 10px;">
                         <div class="card-body">
                             <h4>Expenses by Additional Costs</h4>
                             <canvas id="overallAddCost"></canvas>
