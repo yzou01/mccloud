@@ -15,6 +15,7 @@ class AnalyticsController extends AppController
         $this->paginate = [
             'contain' => ['Invoices', 'Skus'],
         ];
+
         $orders = $this->paginate($this->Orders);
 
         $this->paginate = [
@@ -25,7 +26,6 @@ class AnalyticsController extends AppController
 
         $date = array();
         $this->set('date', $date);
-
         //Base query to get all invoices
         $query = $this->fetchTable('Invoices')->find();
 
@@ -43,21 +43,7 @@ class AnalyticsController extends AppController
         }
 
 
-
         $label=array();
-//        if ($query != []) {
-//            foreach ($query->all() as $order) {
-////                debug($order); exit;
-//                if(array_key_exists($order->skus->name, $order)){
-//                    $label[$order->skus->name]=$label[$order->skus->name]+ $order->quantity;
-//                }else{
-//                    $label[$order->skus->name]=$order->quantity ;
-//                }
-//            }
-//        } else {
-//            echo "No Record Found";
-//        }
-
         foreach ($orders as $order) {
             if(array_key_exists($order->skus->name, $label)){
                 $label[$order->skus->name]=$label[$order->skus->name]+ $order->quantity;
@@ -66,16 +52,18 @@ class AnalyticsController extends AppController
             }
         }
 
+
         $spending=array();
         if ($query != []) {
             foreach ($query->all() as $invoice) {
 //                debug($invoice); exit;
                 if(array_key_exists($invoice->factory_id, $spending)){
                     $spending[$invoice->factory_id]=$spending[$invoice->factory_id]+$invoice->total;
+
                 } else {
                     $spending[$invoice->factory_id]=$invoice->total;
-                }
 
+                }
             }
         } else {
             echo "No Record Found";
