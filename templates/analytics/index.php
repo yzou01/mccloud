@@ -19,9 +19,33 @@
                         Analytics
                     </div>
                     <div class="card-body">
-                        <canvas id="overallSpendings"></canvas>
-                        <canvas id="myPieChart" ></canvas>
-                        <canvas id="myChart" ></canvas>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                        <h4>Expenses</h4>
+                                        <canvas id="overallSpendings" style="margin-top:20px"></canvas>
+                                    </div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="stretched-link" href="/team39-app_fit3048/analytics/expenses">View Details</a>
+                                        <div><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                        <h4>Distributions</h4>
+                                        <canvas id="myPieChart" style="margin-top:20px"></canvas>
+                                    </div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="stretched-link" href="/team39-app_fit3048/analytics/distribution">View Details</a>
+                                        <div><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <script>
@@ -31,7 +55,7 @@
                         data: {
                             labels: <?= json_encode(array_keys($spending)) ?>,
                             datasets: [{
-                                label: "Revenue",
+                                label: "Cost",
                                 backgroundColor: "rgba(2,117,216,1)",
                                 borderColor: "rgba(2,117,216,1)",
                                 data: <?= json_encode(array_values($spending)) ?>,
@@ -65,54 +89,14 @@
                         }
                     });
 
-                    var ctx = document.getElementById("myChart");
-                    var myChart = new Chart(ctx, {
-                      type: 'bar',
-                      data: {
-                        labels: <?= json_encode(array_keys($label)) ?>,
-                        datasets: [{
-                          label: "Revenue",
-                          backgroundColor: "rgba(2,117,216,1)",
-                          borderColor: "rgba(2,117,216,1)",
-                          data: <?= json_encode(array_values($label)) ?>,
-                        }],
-                      },
-                      options: {
-                        scales: {
-                          xAxes: [{
-
-                            gridLines: {
-                              display: false
-                            },
-                            ticks: {
-                              maxTicksLimit: 6
-                            }
-                          }],
-                          yAxes: [{
-                            ticks: {
-                              min: 0,
-
-                              maxTicksLimit: 5
-                            },
-                            gridLines: {
-                              display: true
-                            }
-                          }],
-                        },
-                        legend: {
-                          display: false
-                        }
-                      }
-                    });
-
                     var ctx = document.getElementById("myPieChart");
                     var myPieChart = new Chart(ctx, {
-                        type: 'pie',
+                        type: 'doughnut',
                          data: {
                             labels: <?= json_encode(array_keys($label)) ?>,
                             datasets: [{
                                 data: <?= json_encode(array_values($label)) ?>,
-                                backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
+                                backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745', '#a6cee3', '#6a3d9a', '#b15928', '#fb9a99', '#ff7f00'],
                             }],
                         },
                     });
