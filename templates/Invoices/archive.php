@@ -28,7 +28,6 @@
                                 <th><?= $this->Paginator->sort('factory_id') ?></th>
                                 <th><?= $this->Paginator->sort('currency') ?></th>
                                 <th><?= $this->Paginator->sort('currency_rate', 'Exchange Rate') ?></th>
-                                <th><?= $this->Paginator->sort('gst', 'GST') ?></th>
                                 <th class="actions"><?= __('Actions') ?></th>
                             </tr>
                             </thead>
@@ -39,19 +38,15 @@
 
                                         if($status==true){ ?>
                                 <tr>
-                                    <td><?= $this->Number->format($invoice->id) ?></td>
                                     <td><?= h($invoice->number) ?></td>
                                     <td><?= $this->Time->format($invoice->date, "dd/MM/YYY") ?></td>
                                     <td><?= h($invoice->factory_id) ?></td>
                                     <td><?= h($invoice->currency_of_origin) ?></td>
                                     <td><?= $this->Number->format($invoice->currency_rate) ?></td>
-                                    <td><?= h($invoice->gst) ?></td>
                                     <td class="actions">
                                         <?= $this->Html->link(__('View'), ['action' => 'view', $invoice->id]) ?>
                                         <?= $this->Form->postLink(__('Unarchive'), ['action' => 'update', $invoice->id,1], ['confirm' => __('Are you sure you want to unarchive # {0}?', $invoice->id)]) ?>
-
-                                                                                                                   </td>
-
+                                   </td>
                                 </tr>
                                 <?php } ?>
                             <?php endforeach; ?>
