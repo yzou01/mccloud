@@ -118,9 +118,9 @@
                     var myPieChart = new Chart(ctx, {
                         type: 'doughnut',
                          data: {
-                            labels: <?= json_encode(array_keys($label)) ?>,
+                            labels: <?= json_encode(array_keys($spending)) ?>,
                             datasets: [{
-                                data: <?= json_encode(array_values($label)) ?>,
+                                data: <?= json_encode(array_values($spending)) ?>,
                                 backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745', '#a6cee3', '#6a3d9a', '#b15928', '#fb9a99', '#ff7f00'],
                             }],
                         },
