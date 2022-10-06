@@ -18,6 +18,31 @@
                         <i class="fa-solid fa-chart-line" style="padding-top: 11px; padding-right: 2px"></i>
                         Analytics
                     </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <?= $this->Form->create($date, ['type' => 'get']) ?>
+                                <label>From Date</label>
+
+                                <input type="date" name="from_date" placeholder="<?php echo $this->request->getQuery('from_date') ?>"  class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>To Date</label>
+                                <input type="date" name="to_date" placeholder="<?php echo $this->request->getQuery('to_date') ?>"  class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <br>
+                                <button type="submit" class="btn btn-primary">Filter</button>
+                            </div>
+
+                        <?= $this->Form->end() ?>
+                    </div>
+                    </div>
+
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-6">

@@ -8,6 +8,7 @@ class AnalyticsController extends AppController
 {
     public function index()
     {
+
         $this->loadModel('Orders');
         $this->loadModel('Invoices');
         $this->loadModel('Factories');
@@ -22,8 +23,40 @@ class AnalyticsController extends AppController
 
         $invoices = $this->paginate($this->Invoices);
 
+        $date = array();
+        $this->set('date', $date);
+
+        //Base query to get all invoices
+        $query = $this->fetchTable('Invoices')->find();
+
+
+        //If from_date is provided, add related condition
+        $from_date = $this->request->getQuery('from_date');
+        if (!empty($from_date)) {
+            $query->where(['date >=' => $from_date])->contain(['Factories','Orders']);
+        }
+
+        //If to_date is provided, add related condition
+        $to_date = $this->request->getQuery('to_date');
+        if (!empty($to_date)) {
+            $query->where(['date <=' => $to_date])->contain(['Factories','Orders']);
+        }
+
+
 
         $label=array();
+//        if ($query != []) {
+//            foreach ($query->all() as $order) {
+////                debug($order); exit;
+//                if(array_key_exists($order->skus->name, $order)){
+//                    $label[$order->skus->name]=$label[$order->skus->name]+ $order->quantity;
+//                }else{
+//                    $label[$order->skus->name]=$order->quantity ;
+//                }
+//            }
+//        } else {
+//            echo "No Record Found";
+//        }
 
         foreach ($orders as $order) {
             if(array_key_exists($order->skus->name, $label)){
@@ -34,16 +67,23 @@ class AnalyticsController extends AppController
         }
 
         $spending=array();
+        if ($query != []) {
+            foreach ($query->all() as $invoice) {
+//                debug($invoice); exit;
+                if(array_key_exists($invoice->factory_id, $spending)){
+                    $spending[$invoice->factory_id]=$spending[$invoice->factory_id]+$invoice->total;
+                } else {
+                    $spending[$invoice->factory_id]=$invoice->total;
+                }
 
-        foreach($invoices as $invoice) {
-            if(array_key_exists($invoice->factory->name, $spending)){
-                $spending[$invoice->factory->name]=$spending[$invoice->factory->name]+$invoice->total;
-            } else {
-                $spending[$invoice->factory->name]=$invoice->total;
             }
+        } else {
+            echo "No Record Found";
         }
 
-        $this->set(compact('orders','label', 'invoices', 'spending'));
+
+
+        $this->set(compact('orders','label', 'invoices', 'spending','date'));
     }
 
     public function expenses(){
