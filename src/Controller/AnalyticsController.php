@@ -58,13 +58,12 @@ class AnalyticsController extends AppController
         $this->paginate = [
             'contain' => ['Factories', 'Additionalcosts'],
         ];
-       
+
         $spending=array();
         $invoices = $this->paginate($this->Invoices);
         $addCostData = array();
 
-        
-        
+
         //Base query to get all invoices
         $query = $this->Invoices->find('all',['contain' => ['Factories', 'Additionalcosts']]);
 
@@ -80,10 +79,10 @@ class AnalyticsController extends AppController
             $query->where(['date <=' => $to_date])->contain(['Factories']);
         }
 
-        
+
         if ($query != []) {
-            
-       
+
+
             foreach ($query->all() as $invoice) {
                 //debug($invoice); exit;
                 if (array_key_exists($invoice->factory->name, $spending)) {

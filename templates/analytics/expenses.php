@@ -19,10 +19,10 @@
                     Analytics
                     <?= $this->Html->link(__('Back'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
                 </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <?= $this->Form->create($date, ['type' => 'get']) ?>
+                <div class="row" style="width:90%; margin: auto; padding: 10px;">
+                    <div class="col-md-4" >
+                        <div class="form-group" >
+                            <?= $this->Form->create(null, ['type' => 'get']) ?>
                             <label>From Date</label>
 
                             <input type="date" name="from_date" placeholder="<?php echo $this->request->getQuery('from_date') ?>"  class="form-control">
