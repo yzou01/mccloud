@@ -52,7 +52,7 @@
                                         <canvas id="overallSpendings" style="margin-top:20px"></canvas>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="stretched-link" href="/team39-app_fit3048/analytics/expenses">View Details</a>
+                                        <a class="stretched-link" href="<?php echo $this->Url->build(['controller'=>'Analytics','action'=>'expenses'])?>">View Details</a>
                                         <div><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -65,7 +65,7 @@
                                         <canvas id="myPieChart" style="margin-top:20px"></canvas>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="stretched-link" href="/team39-app_fit3048/analytics/distribution">View Details</a>
+                                        <a class="stretched-link" href="<?php echo $this->Url->build(['controller'=>'Analytics','action'=>'distribution'])?>" >View Details</a>
                                         <div><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
