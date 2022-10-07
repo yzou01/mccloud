@@ -83,12 +83,13 @@ class InvoicesTable extends Table
             ->notEmptyString('currency_of_origin');
 
         $validator
-            ->numeric('currency_rate')
+            ->decimal('currency_rate')
             ->requirePresence('currency_rate', 'create')
             ->notEmptyString('currency_rate');
 
         $validator
             ->scalar('gst')
+            ->maxLength('gst', 250)
             ->allowEmptyString('gst');
 
         $validator
@@ -104,9 +105,10 @@ class InvoicesTable extends Table
             ->boolean('archive')
             ->notEmptyString('archive');
 
-            $validator
+        $validator
             ->numeric('total')
-            ->allowEmptyString('total');
+            ->requirePresence('total', 'create')
+            ->notEmptyString('total');
 
         return $validator;
     }
