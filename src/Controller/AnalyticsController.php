@@ -24,6 +24,40 @@ class AnalyticsController extends AppController
 
         $invoices = $this->paginate($this->Invoices);
 
+
+
+        $label=array();
+        foreach ($orders as $order) {
+            if(array_key_exists($order->skus->name, $label)){
+                $label[$order->skus->name]=$label[$order->skus->name]+ $order->quantity;
+            }else{
+                $label[$order->skus->name]=$order->quantity ;
+            }
+        }
+
+
+        $spending=array();
+        foreach($invoices as $invoice) {
+
+            if(array_key_exists($invoice->factory->name, $spending)){
+                $spending[$invoice->factory->name]=$spending[$invoice->factory->name]+$invoice->total;
+            } else {
+                $spending[$invoice->factory->name]=$invoice->total;
+            }
+        }
+
+
+        $this->set(compact('orders','label', 'invoices', 'spending','date'));
+    }
+
+    public function expenses(){
+        $this->loadModel('Invoices');
+        $this->paginate = [
+            'contain' => ['Factories'],
+        ];
+
+
+        $invoices = $this->paginate($this->Invoices);
         $date = array();
         $this->set('date', $date);
         //Base query to get all invoices
@@ -42,17 +76,6 @@ class AnalyticsController extends AppController
             $query->where(['date <=' => $to_date])->contain(['Factories','Orders']);
         }
 
-
-        $label=array();
-        foreach ($orders as $order) {
-            if(array_key_exists($order->skus->name, $label)){
-                $label[$order->skus->name]=$label[$order->skus->name]+ $order->quantity;
-            }else{
-                $label[$order->skus->name]=$order->quantity ;
-            }
-        }
-
-
         $spending=array();
         if ($query != []) {
             foreach ($query->all() as $invoice) {
@@ -70,24 +93,6 @@ class AnalyticsController extends AppController
         }
 
 
-
-        $this->set(compact('orders','label', 'invoices', 'spending','date'));
-    }
-
-    public function expenses(){
-        $this->loadModel('Invoices');
-        $this->paginate = [
-            'contain' => ['Factories'],
-        ];
-        $invoices = $this->paginate($this->Invoices);
-        $spending=array();
-        foreach($invoices as $invoice) {
-            if(array_key_exists($invoice->factory->name, $spending)){
-                $spending[$invoice->factory->name]=$spending[$invoice->factory->name]+$invoice->total;
-            } else {
-                $spending[$invoice->factory->name]=$invoice->total;
-            }
-        }
 
         $this->loadModel('Additionalcosts');
         $this->paginate = [
