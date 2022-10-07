@@ -53,40 +53,52 @@ class AnalyticsController extends AppController
     {
         $this->loadModel('Invoices');
         $this->loadModel('Additionalcosts');
-
+        $this->loadModel('Factories');
 
         $this->paginate = [
             'contain' => ['Factories', 'Additionalcosts'],
         ];
-
+       
+        $spending=array();
         $invoices = $this->paginate($this->Invoices);
-        $date = array();
-        $this->set('date', $date);
+        $addCostData = array();
+
+        
+        
         //Base query to get all invoices
-        $query = $this->fetchTable('Invoices')->find();
+        $query = $this->Invoices->find('all',['contain' => ['Factories', 'Additionalcosts']]);
 
         //If from_date is provided, add related condition
         $from_date = $this->request->getQuery('from_date');
         if (!empty($from_date)) {
-            $query->where(['date >=' => $from_date])->contain(['Factories', 'Orders','Additionalcosts']);
+            $query->where(['date >=' => $from_date])->contain(['Factories']);
         }
 
         //If to_date is provided, add related condition
         $to_date = $this->request->getQuery('to_date');
         if (!empty($to_date)) {
-            $query->where(['date <=' => $to_date])->contain(['Factories', 'Orders','Additionalcosts']);
+            $query->where(['date <=' => $to_date])->contain(['Factories']);
         }
 
-        $spending = array();
+        
         if ($query != []) {
+            
+       
             foreach ($query->all() as $invoice) {
-//                debug($invoice); exit;
-                if (array_key_exists($invoice->factory_id, $spending)) {
-                    $spending[$invoice->factory_id] = $spending[$invoice->factory_id] + $invoice->total;
+                //debug($invoice); exit;
+                if (array_key_exists($invoice->factory->name, $spending)) {
+                    $spending[$invoice->factory->name] = $spending[$invoice->factory->name] + $invoice->total;
 
                 } else {
-                    $spending[$invoice->factory_id] = $invoice->total;
+                    $spending[$invoice->factory->name] = $invoice->total;
 
+                }
+                foreach($invoice->additionalcosts as $addCost ){
+                    if (array_key_exists($addCost->name, $addCostData)) {
+                        $addCostData[$addCost->name] = $addCostData[$addCost->name] + $addCost->amount;
+                    } else {
+                        $addCostData[$addCost->name] = $addCost->amount;
+                    }
                 }
             }
         } else {
@@ -94,26 +106,26 @@ class AnalyticsController extends AppController
         }
 
 
-        $this->loadModel('Additionalcosts');
-        $this->paginate = [
-            'contain' => [],
-        ];
+        // $this->loadModel('Additionalcosts');
+        // $this->paginate = [
+        //     'contain' => [],
+        // ];
 
 
-            $addCosts = $this->paginate($this->Additionalcosts);
-            $addCostData = array();
+        //     $addCosts = $this->paginate($this->Additionalcosts);
+        //     $addCostData = array();
 
-            foreach ($addCosts as $addCost) {
+        //     foreach ($addCosts as $addCost) {
 
-                if (array_key_exists($addCost->name, $addCostData)) {
-                    $addCostData[$addCost->name] = $addCostData[$addCost->name] + $addCost->amount;
-                } else {
-                    $addCostData[$addCost->name] = $addCost->amount;
-                }
-            }
+        //         if (array_key_exists($addCost->name, $addCostData)) {
+        //             $addCostData[$addCost->name] = $addCostData[$addCost->name] + $addCost->amount;
+        //         } else {
+        //             $addCostData[$addCost->name] = $addCost->amount;
+        //         }
+        //     }
 
 
-            $this->set(compact('spending', 'addCostData'));
+            $this->set(compact('spending', 'addCostData','from_date','to_date'));
         }
 
 
