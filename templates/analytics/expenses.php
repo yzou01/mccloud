@@ -19,7 +19,7 @@
                     Analytics
                     <?= $this->Html->link(__('Back'), ['action' => 'index'], ['class' => 'btn btn-primary', 'style' => 'float: right;']) ?>
                 </div>
-                <div class="row" style="width:90%; margin: auto; padding: 10px;">
+                <div class="row" style="width:90%; margin: auto; padding-top: 10px; padding-left:2px">
                     <div class="col-md-4" >
                         <div class="form-group" >
                             <?= $this->Form->create(null, ['type' => 'get']) ?>
