@@ -7,7 +7,7 @@
  */
 use Cake\Core\Configure;
 use Cake\Error\Debugger;
-
+echo $this->Html->css('styles');
 $this->layout = 'error';
 
 if (Configure::read('debug')) :
@@ -34,11 +34,7 @@ if (Configure::read('debug')) :
     $this->end();
 endif;
 ?>
-<h2><?= h($message) ?></h2>
-<p class="error">
-    <strong><?= __d('cake', 'Error') ?>: </strong>
-    <?= __d('cake', 'The requested address {0} was not found on this server.', "<strong>'{$url}'</strong>") ?>
-</p>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -48,7 +44,6 @@ endif;
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>404 Error - Mccloud Shoes</title>
-        <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body>

@@ -46,7 +46,7 @@ class AnalyticsController extends AppController
         }
 
 
-        $this->set(compact('orders','label', 'invoices', 'spending','date'));
+        $this->set(compact('orders','label', 'invoices', 'spending'));
     }
 
     public function expenses()
