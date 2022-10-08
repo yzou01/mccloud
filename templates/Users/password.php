@@ -10,10 +10,10 @@
                         <div class="card shadow-lg border-0 rounded-lg mt-5">
                             <div class="card-header"><h3 class="text-center font-weight-light my-4">Password Recovery</h3></div>
                             <div class="card-body">
-                                <div class="small mb-3 text-muted">Please check Technical Documentation Section 3 for guidelines on how to regain access to the system.</div>
-
+                                Please check Technical Documentation Section 3 for guidelines on how to regain access to the system.
                             </div>
                             <div class="card-footer text-center py-3">
+                                <?= $this->Html->link(__('Back to Login'), ['action' => 'login'], ['class' => 'btn btn-primary', 'style' => 'width: 100%']) ?>
                             </div>
                         </div>
                     </div>
