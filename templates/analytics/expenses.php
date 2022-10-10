@@ -22,16 +22,17 @@
                 <div class="row" style="width:90%; margin: auto; padding-top: 10px; padding-left:2px">
                     <div class="col-md-4" >
                         <div class="form-group" >
-                            <?= $this->Form->create(null, ['type' => 'get']) ?>
+                            <?= $this->Form->create(null, ['type' => 'get' ,'id' => 'btn']) ?>
                             <label>From Date</label>
 
-                            <input type="date" name="from_date" placeholder="<?php echo $this->request->getQuery('from_date') ?>"  class="form-control">
+                            <input type="date" name="from_date" value="<?php echo $this->request->getQuery('from_date') ?>"  class="form-control">
+
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>To Date</label>
-                            <input type="date" name="to_date" placeholder="<?php echo $this->request->getQuery('to_date') ?>"  class="form-control">
+                            <input type="date" name="to_date" value="<?php echo $this->request->getQuery('to_date') ?>"  class="form-control">
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -114,3 +115,10 @@
         </main>
     </div>
 </div>
+
+<script>
+    // $('btn').submit(function(e){
+    //     e.preventDefault();
+    //     // return false;
+    // });
+</script>
