@@ -44,7 +44,7 @@
                                     <td class="actions">
                                         <?= $this->Html->link(__('View'), ['controller' => 'Skus','action' => 'view', $sku->id]) ?>
                                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $sku->id]) ?>
-                                        <?= $this->Form->postLink(__('Archive'), ['action' => 'update', $sku->id,0], ['confirm' => __('Are you sure you want to archive # {0}?', $sku->id)]) ?>
+                                        <?= $this->Form->postLink(__('Archive'), ['action' => 'update', $sku->id,0], ['confirm' => __('Are you sure you want to archive # {0}?', $sku->name)]) ?>
                                     </td>
                                 </tr>
                                 <?php } ?>

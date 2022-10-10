@@ -47,7 +47,7 @@
                                     <td class="actions">
                                         <?= $this->Html->link(__('View'), ['action' => 'view', $invoice->id]) ?>
                                         <?=  $this->Html->link(__('Edit'), ['action' => 'edit', $invoice->id]) ?>
-                                       <?= $this->Form->postLink(__('Archive'), ['action' => 'update', $invoice->id,0], ['confirm' => __('Are you sure you want to archive # {0}?', $invoice->id)]) ?>
+                                       <?= $this->Form->postLink(__('Archive'), ['action' => 'update', $invoice->id,0], ['confirm' => __('Are you sure you want to archive # {0}?', $invoice->number)]) ?>
                                     </td>
                                 </tr>
                                 <?php } ?>

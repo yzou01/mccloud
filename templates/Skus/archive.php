@@ -40,7 +40,7 @@
                                     <td><?= $sku->type->name ?></td>
                                     <td class="actions">
                                         <?= $this->Html->link(__('View'), ['controller' => 'Skus','action' => 'view', $sku->id]) ?>
-                                        <?= $this->Form->postLink(__('Unarchive'), ['action' => 'update', $sku->id,1], ['confirm' => __('Are you sure you want to unarchive # {0}?', $sku->id)]) ?>
+                                        <?= $this->Form->postLink(__('Unarchive'), ['action' => 'update', $sku->id,1], ['confirm' => __('Are you sure you want to unarchive # {0}?', $sku->name)]) ?>
                                     </td>
                                 </tr>
                                 <?php } ?>

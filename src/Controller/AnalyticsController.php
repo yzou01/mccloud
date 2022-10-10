@@ -147,17 +147,24 @@ class AnalyticsController extends AppController
                 $label[$order->skus->name]=$order->quantity ;
             }
         }
-
-        $this->loadModel('Types');
         $this->paginate = [
-            'contain' => ['Skus'],
+            'contain' => [],
         ];
+        $this->loadModel('Types');
+        $types = $this->paginate($this->Types);
         $typesData=array();
-        foreach ($orders as $type) {
-            if(array_key_exists($type->skus->type_id, $typesData)){
-                $typesData[$type->skus->type_id]=$typesData[$type->skus->type_id]+ $type->quantity;
+        foreach ($orders as $order) {
+            $oID=$order->skus->type_id;
+            $oName;
+            foreach($types as $type){
+                if($oID==$type->id){
+                    $oName=$type->name;
+                }
+            }
+            if(array_key_exists($oName, $typesData)){
+                $typesData[$oName]=$typesData[$oName]+ $order->quantity;
             } else {
-                $typesData[$type->skus->type_id]=$type->quantity;
+                $typesData[$oName]=$order->quantity;
             }
         }
         $this->set(compact('orders','label', 'typesData'));
