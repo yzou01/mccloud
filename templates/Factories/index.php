@@ -37,7 +37,7 @@
                                     <td class="actions">
                                         <?= $this->Html->link(__('View'), ['action' => 'view', $factory->id]) ?>
                                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $factory->id]) ?>
-                                        <?= $this->Form->postLink(__('Archive'), ['action' => 'update', $factory->id,0], ['confirm' => __('Are you sure you want to archive # {0}?', $factory->id)]) ?>
+                                        <?= $this->Form->postLink(__('Archive'), ['action' => 'update', $factory->id,0], ['confirm' => __('Are you sure you want to archive # {0}?', $factory->name)]) ?>
                                     </td>
                                 </tr>
                                 <?php } ?>

@@ -45,7 +45,7 @@
                                     <td><?= $this->Number->format($invoice->currency_rate) ?></td>
                                     <td class="actions">
                                         <?= $this->Html->link(__('View'), ['action' => 'view', $invoice->id]) ?>
-                                        <?= $this->Form->postLink(__('Unarchive'), ['action' => 'update', $invoice->id,1], ['confirm' => __('Are you sure you want to unarchive # {0}?', $invoice->id)]) ?>
+                                        <?= $this->Form->postLink(__('Unarchive'), ['action' => 'update', $invoice->id,1], ['confirm' => __('Are you sure you want to unarchive # {0}?', $invoice->number)]) ?>
                                    </td>
                                 </tr>
                                 <?php } ?>
