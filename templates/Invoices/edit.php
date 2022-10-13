@@ -113,9 +113,9 @@ $key = isset($key) ? $key : '<%= key %>';
                                                                         ?>
                                                                     </div>
                                                                 </div>
-                                                                <div style="width: 1%;display: table-cell; text-align: center; vertical-align: middle">
-                                                                    <a class="skus-delete" href="#"><i class="fa fa-fw fa-trash"></i></a>
-                                                                </div>
+<!--                                                                <div style="width: 1%;display: table-cell; text-align: center; vertical-align: middle">-->
+<!--                                                                    <a class="skus-delete" href="#"><i class="fa fa-fw fa-trash"></i></a>-->
+<!--                                                                </div>-->
                                                             </div>
                                                         </div>
                                                     </div>
