@@ -10,7 +10,7 @@
                         <div class="card shadow-lg border-0 rounded-lg mt-5">
                             <div class="card-header"><h3 class="text-center font-weight-light my-4">Password Recovery</h3></div>
                             <div class="card-body">
-                                Please check Technical Documentation Section 3 for guidelines on how to regain access to the system.
+                                Please refer to Technical Documentation, 'Reset Password' for guidelines on how to regain access to the system.
                             </div>
                             <div class="card-footer text-center py-3">
                                 <?= $this->Html->link(__('Back to Login'), ['action' => 'login'], ['class' => 'btn btn-primary', 'style' => 'width: 100%']) ?>
