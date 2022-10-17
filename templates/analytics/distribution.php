@@ -39,9 +39,9 @@
                 var typeChart = new Chart(ctx, {
                     type: 'bar',
                     data: {
-                        labels: <?= json_encode(array_keys($typesData)) ?>,
+                        labels: <?=json_encode(array_keys($typesData))?>,
                         datasets: [{
-                            label: "Revenue",
+                            label: "Count",
                             backgroundColor: "rgba(2,117,216,1)",
                             borderColor: "rgba(2,117,216,1)",
                             data: <?= json_encode(array_values($typesData)) ?>,
@@ -50,7 +50,6 @@
                     options: {
                         scales: {
                             xAxes: [{
-
                                 gridLines: {
                                     display: false
                                 },
